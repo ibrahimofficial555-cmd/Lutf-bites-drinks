@@ -1,444 +1,2269 @@
-<!DOCTYPE html>
+<!DOCYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>LUTF — Bites & Drinks</title>
+<meta name="description" content="LUTF — Bites & Drinks. Freshly prepared momos, spring rolls, chowmein and refreshing drinks in Bathindi.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f7f3e9;
-  color:#171717;
+:root{
+  --black:#090a08;
+  --black2:#11120f;
+  --cream:#f5efdf;
+  --cream2:#ebe1ca;
+  --orange:#ff641f;
+  --gold:#f5b82e;
+  --olive:#626b31;
+  --olive2:#89905b;
+  --white:#fffdf8;
+  --muted:#aaa99f;
+  --line:rgba(255,255,255,.12);
+  --shadow:0 25px 80px rgba(0,0,0,.35);
 }
-header{
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* TOP BAR */
+
+.topbar{
+  background:var(--orange);
+  color:#111;
+  text-align:center;
+  padding:10px 15px;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.4px;
+}
+
+/* NAVBAR */
+
+.nav{
   position:sticky;
   top:0;
-  z-index:20;
-  background:#111;
-  color:white;
-  padding:14px 18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  z-index:1000;
+  backdrop-filter:blur(18px);
+  background:rgba(9,10,8,.88);
+  border-bottom:1px solid var(--line);
 }
-.logo{
-  font-family:Georgia,serif;
-  font-size:28px;
-  font-weight:bold;
-}
-.logo small{
-  display:block;
-  font-family:Arial;
-  font-size:10px;
-  letter-spacing:4px;
-  color:#ffb51b;
-}
-.cart{
-  background:#ff5a12;
-  color:white;
-  border:0;
-  border-radius:25px;
-  padding:12px 18px;
-  font-weight:bold;
-  font-size:15px;
-}
-.delivery{
-  background:#292900;
-  color:#ffd21a;
-  text-align:center;
-  padding:9px;
-  font-size:13px;
-  font-weight:bold;
-}
-.hero{
-  background:#111;
-  color:white;
-  padding:45px 20px 40px;
-  text-align:center;
-}
-.badge{
-  display:inline-block;
-  background:#ffb91e;
-  color:#111;
-  padding:9px 17px;
-  border-radius:30px;
-  font-weight:bold;
-  margin-bottom:18px;
-}
-.hero h1{
-  font-size:48px;
-  line-height:.95;
-  font-weight:900;
-}
-.hero h1 span{color:#ff5a12}
-.hero p{
-  color:#ddd;
-  max-width:600px;
-  margin:22px auto;
-  line-height:1.6;
-}
-.buttons a{
-  display:inline-block;
-  text-decoration:none;
-  padding:14px 20px;
-  border-radius:12px;
-  margin:5px;
-  font-weight:bold;
-}
-.order{
-  background:#ffb91e;
-  color:#111;
-}
-.menuBtn{
-  border:1px solid #777;
-  color:white;
-}
-.section{
-  max-width:1050px;
+
+.nav-inner{
+  max-width:1250px;
   margin:auto;
-  padding:35px 16px;
-}
-.section-title{
-  font-family:Georgia,serif;
-  font-size:32px;
-  margin-bottom:20px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
-.card{
-  background:white;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 4px 18px #0001;
-}
-.card img{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-}
-.card-body{padding:17px}
-.card h3{
-  font-size:21px;
-  margin-bottom:6px;
-}
-.card p{
-  color:#777;
-  font-size:14px;
-  margin-bottom:13px;
-}
-.item{
+  height:78px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  border-top:1px solid #eee;
-  padding:12px 0;
+  justify-content:space-between;
+  padding:0 24px;
 }
-.price{
-  font-weight:bold;
-  font-size:18px;
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
-.add{
-  background:#ff5a12;
-  color:white;
+
+.logo-icon{
+  font-size:38px;
+}
+
+.logo-name{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  letter-spacing:4px;
+  font-weight:700;
+}
+
+.logo-sub{
+  display:block;
+  font-size:9px;
+  letter-spacing:4px;
+  color:var(--gold);
+  font-weight:800;
+  margin-top:-4px;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  font-size:14px;
+  color:#ddd;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.cart-btn{
   border:0;
-  border-radius:8px;
-  padding:8px 13px;
-  font-weight:bold;
+  background:var(--orange);
+  color:#111;
+  padding:13px 19px;
+  border-radius:100px;
+  font-weight:800;
+  display:flex;
+  gap:8px;
+  align-items:center;
 }
-.info{
-  background:#171717;
+
+.cart-count{
+  background:#111;
   color:white;
-  border-radius:18px;
-  padding:25px;
+  border-radius:50%;
+  min-width:23px;
+  height:23px;
+  display:grid;
+  place-items:center;
+  font-size:11px;
+}
+
+/* HERO */
+
+.hero{
+  min-height:780px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(5,6,5,.98) 5%,rgba(5,6,5,.82) 43%,rgba(5,6,5,.25) 100%),
+    url("https://images.unsplash.com/photo-1496116218417-1a781b1f0b48?auto=format&fit=crop&w=1800&q=90")
+    center/cover;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 75% 55%,transparent 0%,rgba(0,0,0,.45) 70%);
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:min(1250px,100%);
+  margin:auto;
+  padding:90px 24px;
+}
+
+.badge{
+  display:inline-flex;
+  background:var(--gold);
+  color:#16140c;
+  padding:11px 18px;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(65px,10vw,145px);
+  line-height:.83;
+  max-width:850px;
+  letter-spacing:-6px;
+}
+
+.hero h1 span{
+  color:var(--orange);
+}
+
+.hero-script{
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+  font-size:clamp(22px,3vw,38px);
+  margin:35px 0 20px;
+  color:var(--cream);
+}
+
+.hero-text{
+  color:#c5c3bb;
+  max-width:610px;
+  line-height:1.8;
+  font-size:17px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  margin-top:35px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:0;
+  padding:16px 27px;
+  border-radius:10px;
+  font-weight:900;
+  font-size:14px;
+  transition:.25s;
+}
+
+.btn-primary{
+  background:var(--orange);
+  color:#111;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(255,100,31,.25);
+}
+
+.btn-outline{
+  background:transparent;
+  color:white;
+  border:1px solid rgba(255,255,255,.35);
+}
+
+.btn-outline:hover{
+  background:white;
+  color:#111;
+}
+
+.scroll-note{
+  position:absolute;
+  bottom:30px;
+  left:24px;
+  color:#aaa;
+  font-size:11px;
+  letter-spacing:3px;
+  z-index:3;
+}
+
+/* SECTION */
+
+.section{
+  max-width:1250px;
+  margin:auto;
+  padding:110px 24px;
+}
+
+.section-kicker{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:15px;
+}
+
+.section-title{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(42px,6vw,76px);
+  line-height:1;
+  max-width:750px;
+}
+
+.section-description{
+  color:#aaa;
+  max-width:620px;
+  line-height:1.8;
   margin-top:20px;
 }
-.info h2{margin-bottom:12px}
-.info p{color:#ddd;line-height:1.7}
-.map{
-  display:inline-block;
-  margin-top:15px;
-  background:#ffb91e;
-  color:#111;
-  padding:12px 18px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
+
+/* FEATURE STRIP */
+
+.feature-strip{
+  background:var(--cream);
+  color:#1b1a16;
 }
-footer{
-  background:#111;
-  color:white;
+
+.feature-grid{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.feature{
+  padding:35px 25px;
   text-align:center;
-  padding:35px 15px;
+  border-right:1px solid rgba(0,0,0,.1);
 }
-footer p{
-  color:#bbb;
-  margin:8px 0;
+
+.feature:last-child{
+  border:0;
 }
-.whatsapp{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:30;
-  background:#25D366;
+
+.feature-icon{
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.feature h3{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.feature p{
+  color:#777;
+  font-size:12px;
+  margin-top:6px;
+}
+
+/* FOOD INTRO */
+
+.food-intro{
+  background:var(--black2);
+}
+
+.food-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  margin-top:60px;
+}
+
+.food-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  min-height:500px;
+  background:#161713;
+}
+
+.food-card img{
+  height:100%;
+  object-fit:cover;
+  transition:transform .8s;
+}
+
+.food-card:hover img{
+  transform:scale(1.06);
+}
+
+.food-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  padding:35px;
+  background:linear-gradient(transparent 35%,rgba(0,0,0,.9));
+}
+
+.food-overlay h3{
+  font-family:"Playfair Display",serif;
+  font-size:42px;
+}
+
+.food-overlay p{
+  color:#ccc;
+  margin-top:7px;
+}
+
+/* MENU */
+
+.menu-section{
+  background:var(--cream);
+  color:#191813;
+}
+
+.menu-head{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:end;
+  margin-bottom:55px;
+}
+
+.menu-head .section-kicker{
+  color:var(--olive);
+}
+
+.menu-head .section-title{
+  color:#171711;
+}
+
+.menu-head p{
+  max-width:400px;
+  color:#68665e;
+  line-height:1.7;
+}
+
+.menu-category{
+  margin-top:75px;
+}
+
+.category-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:25px;
+}
+
+.category-title h2{
+  font-family:"Playfair Display",serif;
+  font-size:42px;
+}
+
+.category-line{
+  height:1px;
+  background:#cfc5ad;
+  flex:1;
+}
+
+.menu-items{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.menu-item{
+  background:#fffaf0;
+  border:1px solid #dfd4bb;
+  border-radius:17px;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:145px 1fr;
+  min-height:160px;
+  transition:.25s;
+}
+
+.menu-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(70,50,20,.12);
+}
+
+.menu-item img{
+  height:100%;
+  min-height:160px;
+  object-fit:cover;
+}
+
+.menu-info{
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.menu-info h3{
+  font-size:18px;
+  margin-bottom:7px;
+}
+
+.menu-info p{
+  color:#777;
+  font-size:12px;
+  line-height:1.5;
+  margin-bottom:12px;
+}
+
+.price-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.price{
+  font-size:20px;
+  font-weight:900;
+  color:#9a401f;
+}
+
+.add-btn{
+  border:0;
+  background:var(--olive);
   color:white;
-  text-decoration:none;
-  padding:15px 18px;
   border-radius:50px;
-  font-weight:bold;
-  box-shadow:0 5px 20px #0004;
+  padding:9px 15px;
+  font-size:12px;
+  font-weight:900;
 }
+
+/* PROMO */
+
+.promo{
+  max-width:1250px;
+  margin:0 auto;
+  padding:80px 24px;
+}
+
+.promo-box{
+  min-height:500px;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.3)),
+    url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1800&q=90")
+    center/cover;
+}
+
+.promo-content{
+  max-width:650px;
+  padding:60px;
+}
+
+.promo-content h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(45px,6vw,78px);
+  line-height:1;
+}
+
+.promo-content p{
+  color:#ccc;
+  line-height:1.8;
+  margin:25px 0;
+}
+
+/* STORY */
+
+.story{
+  background:#10110e;
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+
+.story-image{
+  border-radius:25px;
+  overflow:hidden;
+  height:600px;
+}
+
+.story-image img{
+  height:100%;
+  object-fit:cover;
+}
+
+.story-copy p{
+  color:#aaa;
+  line-height:1.9;
+  margin-top:22px;
+}
+
+.story-sign{
+  margin-top:30px;
+  font-family:"Playfair Display",serif;
+  color:var(--cream);
+  font-size:24px;
+  font-style:italic;
+}
+
+/* BOOK */
+
+.book-section{
+  background:var(--cream);
+  color:#171711;
+}
+
+.book-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.book-image{
+  border-radius:25px;
+  overflow:hidden;
+  height:500px;
+}
+
+.book-image img{
+  height:100%;
+  object-fit:cover;
+}
+
+.book-copy h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(45px,6vw,75px);
+  line-height:1;
+}
+
+.book-copy p{
+  color:#666;
+  line-height:1.8;
+  margin-top:25px;
+}
+
+.book-note{
+  margin-top:25px;
+  padding:20px;
+  background:#e9dfc8;
+  border-left:4px solid var(--olive);
+  border-radius:8px;
+}
+
+/* LOCATION */
+
+.location{
+  background:var(--black2);
+}
+
+.location-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  margin-top:55px;
+}
+
+.location-card{
+  background:#171813;
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:35px;
+}
+
+.location-card h3{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  margin-bottom:18px;
+}
+
+.location-card p{
+  color:#aaa;
+  line-height:1.8;
+}
+
+.map-button{
+  display:inline-block;
+  margin-top:25px;
+  background:var(--gold);
+  color:#171711;
+  padding:14px 20px;
+  border-radius:9px;
+  font-weight:900;
+}
+
+/* CTA */
+
+.final-cta{
+  padding:130px 24px;
+  text-align:center;
+  background:
+    linear-gradient(rgba(9,10,8,.83),rgba(9,10,8,.95)),
+    url("https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1800&q=90")
+    center/cover;
+}
+
+.final-cta h2{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(55px,8vw,105px);
+  line-height:.95;
+}
+
+.final-cta p{
+  max-width:600px;
+  margin:25px auto;
+  color:#bbb;
+  line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+  background:#050604;
+  padding:60px 24px 30px;
+}
+
+.footer-inner{
+  max-width:1250px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.footer-brand{
+  font-family:"Playfair Display",serif;
+  font-size:35px;
+}
+
+.footer-copy{
+  color:#777;
+  max-width:400px;
+  line-height:1.7;
+  margin-top:10px;
+}
+
+.footer-bottom{
+  max-width:1250px;
+  margin:45px auto 0;
+  padding-top:25px;
+  border-top:1px solid var(--line);
+  color:#666;
+  font-size:12px;
+}
+
+/* CART DRAWER */
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  z-index:2000;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+}
+
+.cart-overlay.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.cart{
+  position:absolute;
+  right:0;
+  top:0;
+  height:100%;
+  width:min(500px,94vw);
+  background:var(--cream);
+  color:#151510;
+  transform:translateX(100%);
+  transition:.35s;
+  overflow-y:auto;
+}
+
+.cart-overlay.open .cart{
+  transform:translateX(0);
+}
+
+.cart-head{
+  padding:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #d7ccb5;
+  position:sticky;
+  top:0;
+  background:var(--cream);
+  z-index:2;
+}
+
+.cart-head h2{
+  font-family:"Playfair Display",serif;
+  font-size:32px;
+}
+
+.close-cart{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:#e3d9c2;
+  font-size:23px;
+}
+
+.cart-items{
+  padding:20px;
+}
+
+.cart-item{
+  background:#fffaf0;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:12px;
+  border:1px solid #ddd2b9;
+}
+
+.cart-item-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  font-weight:800;
+}
+
+.cart-controls{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin-top:10px;
+}
+
+.qty-btn{
+  border:1px solid #ccc2ab;
+  background:white;
+  width:32px;
+  height:32px;
+  border-radius:7px;
+}
+
+.remove{
+  margin-left:auto;
+  border:0;
+  background:none;
+  color:#a53b20;
+  font-size:12px;
+}
+
+.checkout{
+  padding:20px;
+  border-top:1px solid #d5c9b0;
+}
+
+.checkout h3{
+  font-family:"Playfair Display",serif;
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+.field{
+  margin-bottom:12px;
+}
+
+.field label{
+  display:block;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+  margin-bottom:5px;
+}
+
+.field input,
+.field textarea{
+  width:100%;
+  border:1px solid #d4c8af;
+  background:white;
+  border-radius:9px;
+  padding:13px;
+  outline:none;
+}
+
+.field textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.total-box{
+  margin:18px 0;
+  padding:18px;
+  background:#e8dec7;
+  border-radius:12px;
+}
+
+.total-row{
+  display:flex;
+  justify-content:space-between;
+  margin:7px 0;
+}
+
+.total-final{
+  font-size:23px;
+  font-weight:900;
+  padding-top:10px;
+  margin-top:10px;
+  border-top:1px dashed #bdb29b;
+}
+
+.whatsapp{
+  width:100%;
+  border:0;
+  background:#20c863;
+  color:white;
+  padding:16px;
+  border-radius:10px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.upi{
+  width:100%;
+  border:2px solid var(--olive);
+  background:white;
+  color:var(--olive);
+  padding:15px;
+  border-radius:10px;
+  font-weight:900;
+}
+
+.small-note{
+  font-size:11px;
+  color:#777;
+  line-height:1.6;
+  margin-top:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .nav-inner{
+    height:68px;
+    padding:0 15px;
+  }
+
+  .logo-name{
+    font-size:24px;
+  }
+
+  .logo-icon{
+    font-size:30px;
+  }
+
+  .hero{
+    min-height:750px;
+    background-position:65% center;
+  }
+
+  .hero-content{
+    padding:80px 22px;
+  }
+
+  .hero h1{
+    letter-spacing:-3px;
+  }
+
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .feature:nth-child(2){
+    border-right:0;
+  }
+
+  .feature:nth-child(-n+2){
+    border-bottom:1px solid rgba(0,0,0,.1);
+  }
+
+  .food-grid,
+  .story-grid,
+  .book-box,
+  .location-grid{
+    grid-template-columns:1fr;
+  }
+
+  .food-card{
+    min-height:420px;
+  }
+
+  .menu-head{
+    display:block;
+  }
+
+  .menu-head p{
+    margin-top:20px;
+  }
+
+  .menu-items{
+    grid-template-columns:1fr;
+  }
+
+  .menu-item{
+    grid-template-columns:125px 1fr;
+  }
+
+  .promo-content{
+    padding:35px;
+  }
+
+  .story-image,
+  .book-image{
+    height:420px;
+  }
+
+  .section{
+    padding:80px 20px;
+  }
+
+  .promo{
+    padding:60px 20px;
+  }
+
+  .final-cta{
+    padding:100px 20px;
+  }
+}
+
 @media(max-width:500px){
-  .hero h1{font-size:43px}
-  .card img{height:190px}
+
+  .cart-btn{
+    padding:10px 13px;
+  }
+
+  .logo-sub{
+    letter-spacing:2px;
+  }
+
+  .hero-text{
+    font-size:15px;
+  }
+
+  .menu-item{
+    grid-template-columns:105px 1fr;
+  }
+
+  .menu-item img{
+    min-height:170px;
+  }
+
+  .menu-info{
+    padding:15px;
+  }
+
+  .menu-info h3{
+    font-size:16px;
+  }
+
+  .category-title h2{
+    font-size:32px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="delivery">
-🚴 DELIVERY WITHIN 3 KM • ₹10 PER KM • FRESHLY PREPARED
+<!-- TOP BAR -->
+
+<div class="topbar">
+🚲 DELIVERY WITHIN 3 KM &nbsp; • &nbsp; ₹10 PER KM &nbsp; • &nbsp; FRESHLY PREPARED
 </div>
 
-<header>
-  <div class="logo">
-    LUTF
-    <small>BITES & DRINKS</small>
-  </div>
+<!-- NAVIGATION -->
 
-  <button class="cart" onclick="orderWhatsApp()">
-    🛒 ORDER
-  </button>
-</header>
+<nav class="nav">
 
-<section class="hero">
-  <div class="badge">FRESHLY PREPARED</div>
+<div class="nav-inner">
 
-  <h1>
-    GOOD FOOD<br>
-    <span>GOOD MOOD</span>
-  </h1>
+<a href="#home" class="logo">
+<div class="logo-icon">🍜</div>
+<div>
+<div class="logo-name">LUTF</div>
+<span class="logo-sub">BITES & DRINKS</span>
+</div>
+</a>
 
-  <p>
-    Hot momos, wok-tossed chowmein, crispy spring rolls
-    and refreshing drinks — made fresh when you order.
-  </p>
+<div class="nav-links">
+<a href="#menu">Menu</a>
+<a href="#story">Our Story</a>
+<a href="#location">Location</a>
+</div>
 
-  <div class="buttons">
-    <a class="order" href="#menu">ORDER NOW →</a>
-    <a class="menuBtn" href="#menu">VIEW MENU</a>
-  </div>
+<button class="cart-btn" onclick="openCart()">
+🛒 Cart
+<span class="cart-count" id="cartCount">0</span>
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge">✦ FRESHLY PREPARED</div>
+
+<h1>
+GOOD<br>
+FOOD<br>
+<span>GOOD<br>MOOD</span>
+</h1>
+
+<div class="hero-script">
+Great Taste. Honest Price. ♥
+</div>
+
+<p class="hero-text">
+Hot momos, wok-tossed chowmein, crispy spring rolls and refreshing drinks —
+made fresh when you order.
+</p>
+
+<div class="hero-actions">
+
+<a href="#menu" class="btn btn-primary">
+EXPLORE MENU →
+</a>
+
+<button class="btn btn-outline" onclick="openCart()">
+ORDER NOW
+</button>
+
+</div>
+
+</div>
+
+<div class="scroll-note">
+SCROLL TO DISCOVER ↓
+</div>
+
 </section>
 
-<section class="section" id="menu">
 
-<h2 class="section-title">🍽️ Our Menu</h2>
+<!-- FEATURES -->
 
-<div class="grid">
+<section class="feature-strip">
+
+<div class="feature-grid">
+
+<div class="feature">
+<div class="feature-icon">🥬</div>
+<h3>Fresh Ingredients</h3>
+<p>Prepared fresh for you</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">🛡️</div>
+<h3>Hygienic & Safe</h3>
+<p>Care in every order</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">❤️</div>
+<h3>Great Taste</h3>
+<p>Made to make you return</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">💰</div>
+<h3>Pocket Friendly</h3>
+<p>Honest prices, always</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOD VISUALS -->
+
+<section class="food-intro">
+
+<div class="section">
+
+<div class="section-kicker">THE LUTF EXPERIENCE</div>
+
+<h2 class="section-title">
+The kind of food you start thinking about before you order.
+</h2>
+
+<p class="section-description">
+Steam rising from fresh momos. Wok-tossed noodles. Crispy spring rolls.
+Cold, refreshing drinks. Simple food — made properly.
+</p>
+
+
+<div class="food-grid">
+
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1496116218417-1a781b1f0b48?auto=format&fit=crop&w=1000&q=90" alt="Fresh momos">
+
+<div class="food-overlay">
+<div>
+<h3>Momos</h3>
+<p>Juicy filling. Soft wrapper. Perfect bite.</p>
+</div>
+</div>
+
+</div>
+
+
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1000&q=90" alt="Spring rolls">
+
+<div class="food-overlay">
+<div>
+<h3>Spring Rolls</h3>
+<p>Crispy outside. Delicious inside.</p>
+</div>
+</div>
+
+</div>
+
+
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=1000&q=90" alt="Chowmein noodles">
+
+<div class="food-overlay">
+<div>
+<h3>Chowmein</h3>
+<p>Wok tossed. Full of flavour.</p>
+</div>
+</div>
+
+</div>
+
+
+<div class="food-card">
+
+<img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1000&q=90" alt="Refreshing drinks">
+
+<div class="food-overlay">
+<div>
+<h3>Refreshments</h3>
+<p>Something cold. Something comforting.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MENU -->
+
+<section class="menu-section" id="menu">
+
+<div class="section">
+
+<div class="menu-head">
+
+<div>
+
+<div class="section-kicker">OUR MENU</div>
+
+<h2 class="section-title">
+Made fresh.<br>
+Priced honestly.
+</h2>
+
+</div>
+
+<p>
+Choose your favourite, add it to your cart and order directly through WhatsApp.
+You can also pay through UPI.
+</p>
+
+</div>
+
 
 <!-- MOMOS -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=900&q=85">
-<div class="card-body">
-<h3>🥟 Chicken Momos</h3>
-<p>Juicy filling. Perfectly crafted.</p>
 
-<div class="item">
-<div>Steamed — Half<br><span class="price">₹50</span></div>
-<button class="add" onclick="add('Chicken Steamed Momos — Half',50)">ADD</button>
+<div class="menu-category">
+
+<div class="category-title">
+<h2>🥟 Chicken Momos</h2>
+<div class="category-line"></div>
 </div>
 
-<div class="item">
-<div>Steamed — Full<br><span class="price">₹100</span></div>
-<button class="add" onclick="add('Chicken Steamed Momos — Full',100)">ADD</button>
+<div class="menu-items">
+
+<div class="menu-item">
+
+<img src="https://images.unsplash.com/photo-1496116218417-1a781b1f0b48?auto=format&fit=crop&w=600&q=90">
+
+<div class="menu-info">
+
+<h3>Chicken Steamed Momos</h3>
+
+<p>Soft steamed momos with juicy chicken filling.</p>
+
+<div class="price-row">
+<span class="price">₹50 / ₹100</span>
+
+<button class="add-btn" onclick="addItem('Chicken Steamed Momos',50)">
+ADD HALF
+</button>
 </div>
 
-<div class="item">
-<div>Fried — Half<br><span class="price">₹60</span></div>
-<button class="add" onclick="add('Chicken Fried Momos — Half',60)">ADD</button>
+</div>
 </div>
 
-<div class="item">
-<div>Fried — Full<br><span class="price">₹110</span></div>
-<button class="add" onclick="add('Chicken Fried Momos — Full',110)">ADD</button>
-</div>
+
+<div class="menu-item">
+
+<img src="https://images.unsplash.com/photo-1496116218417-1a781b1f0b48?auto=format&fit=crop&w=600&q=90">
+
+<div class="menu-info">
+
+<h3>Chicken Fried Momos</h3>
+
+<p>Crispy golden outside with a juicy filling.</p>
+
+<div class="price-row">
+<span class="price">₹60 / ₹110</span>
+
+<button class="add-btn" onclick="addItem('Chicken Fried Momos',60)">
+ADD HALF
+</button>
 
 </div>
 </div>
+</div>
+
+</div>
+
+</div>
+
 
 <!-- SPRING ROLLS -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85">
-<div class="card-body">
-<h3>🌯 Spring Rolls</h3>
-<p>Crispy outside. Delicious inside.</p>
 
-<div class="item">
-<div>Veg<br><span class="price">₹50</span></div>
-<button class="add" onclick="add('Veg Spring Rolls',50)">ADD</button>
+<div class="menu-category">
+
+<div class="category-title">
+<h2>🌯 Spring Rolls</h2>
+<div class="category-line"></div>
 </div>
 
-<div class="item">
-<div>Chicken<br><span class="price">₹80</span></div>
-<button class="add" onclick="add('Chicken Spring Rolls',80)">ADD</button>
-</div>
+<div class="menu-items">
+
+<div class="menu-item">
+
+<img src="https://images.unsplash.com/photo-1625938145744-e380515399bf?auto=format&fit=crop&w=600&q=90">
+
+<div class="menu-info">
+
+<h3>Veg Spring Roll</h3>
+
+<p>Crispy roll packed with delicious vegetables.</p>
+
+<div class="price-row">
+<span class="price">₹50</span>
+
+<button class="add-btn" onclick="addItem('Veg Spring Roll',50)">
+ADD
+</button>
 
 </div>
 </div>
+</div>
+
+
+<div class="menu-item">
+
+<img src="https://images.unsplash.com/photo-1625938145744-e380515399bf?auto=format&fit=crop&w=600&q=90">
+
+<div class="menu-info">
+
+<h3>Chicken Spring Roll</h3>
+
+<p>Crispy outside with a savoury chicken filling.</p>
+
+<div class="price-row">
+<span class="price">₹80</span>
+
+<button class="add-btn" onclick="addItem('Chicken Spring Roll',80)">
+ADD
+</button>
+
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
 
 <!-- CHOWMEIN -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=900&q=85">
-<div class="card-body">
-<h3>🍜 Chowmein</h3>
-<p>Wok tossed. Full of flavour.</p>
 
-<div class="item">
-<div>Veg — Half / Full<br><span class="price">₹40 / ₹70</span></div>
-<button class="add" onclick="add('Veg Chowmein — Full',70)">ADD</button>
+<div class="menu-category">
+
+<div class="category-title">
+<h2>🍜 Chowmein</h2>
+<div class="category-line"></div>
 </div>
 
-<div class="item">
-<div>Egg — Half / Full<br><span class="price">₹50 / ₹90</span></div>
-<button class="add" onclick="add('Egg Chowmein — Full',90)">ADD</button>
+<div class="menu-items">
+
+<div class="menu-item">
+
+<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=90">
+
+<div class="menu-info">
+
+<h3>Veg Chowmein</h3>
+
+<p>Wok tossed noodles with fresh vegetables.</p>
+
+<div class="price-row">
+<span class="price">₹40 / ₹70</span>
+
+<button class="add-btn" onclick="addItem('Veg Chowmein',40)">
+ADD HALF
+</button>
+
+</div>
+</div>
 </div>
 
-<div class="item">
-<div>Chicken — Half / Full<br><span class="price">₹60 / ₹110</span></div>
-<button class="add" onclick="add('Chicken Chowmein — Full',110)">ADD</button>
-</div>
+
+<div class="menu-item">
+
+<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=90">
+
+<div class="menu-info">
+
+<h3>Egg Chowmein</h3>
+
+<p>Wok tossed noodles with egg and vegetables.</p>
+
+<div class="price-row">
+<span class="price">₹50 / ₹90</span>
+
+<button class="add-btn" onclick="addItem('Egg Chowmein',50)">
+ADD HALF
+</button>
 
 </div>
 </div>
+</div>
+
+
+<div class="menu-item">
+
+<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=90">
+
+<div class="menu-info">
+
+<h3>Chicken Chowmein</h3>
+
+<p>Wok tossed noodles with chicken and vegetables.</p>
+
+<div class="price-row">
+<span class="price">₹60 / ₹110</span>
+
+<button class="add-btn" onclick="addItem('Chicken Chowmein',60)">
+ADD HALF
+</button>
+
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
 
 <!-- DRINKS -->
-<div class="card">
-<img src="https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=900&q=85">
-<div class="card-body">
-<h3>🥤 Refreshments</h3>
-<p>Fresh and refreshing.</p>
 
-<div class="item">
-<div>Watermelon Mojito<br><span class="price">₹100</span></div>
-<button class="add" onclick="add('Watermelon Mojito',100)">ADD</button>
+<div class="menu-category">
+
+<div class="category-title">
+<h2>🥤 Refreshments</h2>
+<div class="category-line"></div>
 </div>
 
-<div class="item">
-<div>Kadak Masala Chai<br><span class="price">₹20</span></div>
-<button class="add" onclick="add('Kadak Masala Chai',20)">ADD</button>
-</div>
+<div class="menu-items">
+
+<div class="menu-item">
+
+<img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=90">
+
+<div class="menu-info">
+
+<h3>Watermelon Mojito</h3>
+
+<p>Refreshing watermelon drink with a cool finish.</p>
+
+<div class="price-row">
+<span class="price">₹100</span>
+
+<button class="add-btn" onclick="addItem('Watermelon Mojito',100)">
+ADD
+</button>
 
 </div>
 </div>
+</div>
+
+
+<div class="menu-item">
+
+<img src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=600&q=90">
+
+<div class="menu-info">
+
+<h3>Kadak Masala Chai</h3>
+
+<p>Hot, aromatic and comforting.</p>
+
+<div class="price-row">
+<span class="price">₹20 / CUP</span>
+
+<button class="add-btn" onclick="addItem('Kadak Masala Chai',20)">
+ADD
+</button>
 
 </div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section">
 
-<div class="info">
+<!-- PROMO -->
 
-<h2>📍 Visit LUTF</h2>
+<section class="promo">
+
+<div class="promo-box">
+
+<div class="promo-content">
+
+<div class="section-kicker">WHY WAIT?</div>
+
+<h2>
+That first bite is waiting.
+</h2>
 
 <p>
-<b>Opp. Madrasa Markaz Al Ma'arif</b><br>
-Madina Hills, Bathindi — Safa Valley Road
+You know that moment when you're hungry and suddenly nothing sounds better
+than hot momos and noodles?
+This is that moment.
 </p>
 
-<a class="map"
+<button class="btn btn-primary" onclick="openCart()">
+START YOUR ORDER →
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section class="story" id="story">
+
+<div class="section">
+
+<div class="story-grid">
+
+<div class="story-image">
+
+<img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=90" alt="LUTF food experience">
+
+</div>
+
+<div class="story-copy">
+
+<div class="section-kicker">ABOUT LUTF</div>
+
+<h2 class="section-title">
+Simple food.<br>
+Real care.
+</h2>
+
+<p>
+LUTF — Bites & Drinks was built around a simple idea:
+good food doesn't have to be complicated or expensive.
+</p>
+
+<p>
+We prepare our food with care, serve it fresh and keep our prices honest.
+Whether you're grabbing a quick plate of momos or sitting down with a hot
+cup of chai, we want you to leave with a good mood.
+</p>
+
+<div class="story-sign">
+Great Taste. Honest Price. ♥
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BOOK SECTION -->
+
+<section class="book-section">
+
+<div class="section">
+
+<div class="book-box">
+
+<div class="book-image">
+
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1000&q=90" alt="Books">
+
+</div>
+
+<div class="book-copy">
+
+<div class="section-kicker">WHILE YOU WAIT</div>
+
+<h2>
+A little food for the mind too.
+</h2>
+
+<p>
+Your food is being freshly prepared.
+Instead of endlessly scrolling on your phone,
+take a few minutes and read something.
+</p>
+
+<div class="book-note">
+<strong>📚 FREE BOOK READING</strong><br><br>
+Be patient and read while you wait.
+Kindly keep the books back at their place.
+<br><br>
+JazakAllah Khairan ♥
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LOCATION -->
+
+<section class="location" id="location">
+
+<div class="section">
+
+<div class="section-kicker">COME SEE US</div>
+
+<h2 class="section-title">
+Your next plate is closer than you think.
+</h2>
+
+<div class="location-grid">
+
+<div class="location-card">
+
+<h3>📍 Visit LUTF</h3>
+
+<p>
+Opp. Madrasa Markaz Al Ma'arif<br>
+Madina Hills<br>
+Bathindi – Safa Valley Road
+</p>
+
+<a
+class="map-button"
 href="https://share.google/xMkWV7SxXgbXNU1UD"
-target="_blank">
-📍 GET DIRECTIONS
+target="_blank"
+rel="noopener"
+>
+🗺️ NAVIGATE TO LUTF →
 </a>
 
 </div>
 
-</section>
 
-<section class="section">
+<div class="location-card">
 
-<div class="info">
-
-<h2>📲 Order on WhatsApp</h2>
+<h3>🚲 Delivery</h3>
 
 <p>
-Choose your food above and we'll prepare your order fresh.
-You can confirm your order directly on WhatsApp.
+We deliver within a maximum radius of 3 KM.
+<br><br>
+<strong>₹10 per KM</strong>
+<br><br>
+Enter your distance during checkout and we'll calculate your delivery charge.
 </p>
 
-<br>
+<button class="map-button" onclick="openCart()">
+ORDER FOR DELIVERY →
+</button>
 
-<a class="map"
-href="https://wa.me/919622302117"
-target="_blank">
-💬 CHAT ON WHATSAPP
-</a>
+</div>
+
+</div>
 
 </div>
 
 </section>
+
+
+<!-- FINAL CTA -->
+
+<section class="final-cta">
+
+<div class="section-kicker">LUTF — BITES & DRINKS</div>
+
+<h2>
+Hungry yet?
+</h2>
+
+<p>
+Fresh food. Honest prices. Good mood.
+Choose your favourite and let's get your order started.
+</p>
+
+<button class="btn btn-primary" onclick="openCart()">
+🛒 ORDER NOW
+</button>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
 
-<h2>LUTF</h2>
-<p>Bites & Drinks</p>
-<p>Great Taste. Honest Price. ❤️</p>
+<div class="footer-inner">
 
-<p>📍 Bathindi, Jammu</p>
-<p>📞 9622302117</p>
+<div>
+
+<div class="footer-brand">LUTF</div>
+
+<div class="footer-copy">
+Bites & Drinks.<br>
+Great Taste. Honest Price.
+</div>
+
+</div>
+
+<div class="footer-copy">
+📍 Opp. Madrasa Markaz Al Ma'arif<br>
+Madina Hills, Bathindi – Safa Valley Road<br><br>
+🚲 Delivery within 3 KM
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 LUTF — Bites & Drinks. Made with care. ♥
+</div>
 
 </footer>
 
-<a class="whatsapp"
-href="https://wa.me/919622302117"
-target="_blank">
-💬 WhatsApp
-</a>
+
+<!-- CART -->
+
+<div class="cart-overlay" id="cartOverlay">
+
+<div class="cart">
+
+<div class="cart-head">
+
+<h2>Your Order</h2>
+
+<button class="close-cart" onclick="closeCart()">×</button>
+
+</div>
+
+
+<div class="cart-items" id="cartItems">
+
+<p style="color:#777;text-align:center;padding:40px 0;">
+Your cart is empty.
+</p>
+
+</div>
+
+
+<div class="checkout">
+
+<h3>Complete Order</h3>
+
+
+<div class="field">
+<label>NAME *</label>
+<input id="customerName" type="text" placeholder="Your name">
+</div>
+
+
+<div class="field">
+<label>PHONE *</label>
+<input id="customerPhone" type="tel" placeholder="Your phone number">
+</div>
+
+
+<div class="field">
+<label>DELIVERY ADDRESS *</label>
+<textarea id="customerAddress" placeholder="Your complete delivery address"></textarea>
+</div>
+
+
+<div class="field">
+<label>DISTANCE FROM LUTF (KM) *</label>
+<input
+id="distance"
+type="number"
+min="0"
+max="3"
+step="0.1"
+placeholder="Example: 1"
+oninput="updateCart()"
+>
+</div>
+
+
+<div class="field">
+<label>ORDER NOTE</label>
+<textarea id="orderNote" placeholder="Less spicy, extra sauce, etc."></textarea>
+</div>
+
+
+<div class="total-box">
+
+<div class="total-row">
+<span>Subtotal</span>
+<strong id="subtotal">₹0</strong>
+</div>
+
+<div class="total-row">
+<span>Delivery</span>
+<strong id="delivery">₹0</strong>
+</div>
+
+<div class="total-row total-final">
+<span>Total</span>
+<strong id="total">₹0</strong>
+</div>
+
+</div>
+
+
+<button class="whatsapp" onclick="sendWhatsApp()">
+📲 CONFIRM ORDER ON WHATSAPP
+</button>
+
+
+<button class="upi" onclick="payUPI()">
+💳 PAY VIA UPI
+</button>
+
+
+<div class="small-note">
+Delivery is limited to 3 KM. Delivery is calculated at ₹10/km.
+Please confirm the exact distance with LUTF on WhatsApp.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 
 <script>
 
-let cart=[];
+let cart = [];
 
-function add(name,price){
-  cart.push({name:name,price:price});
-  alert(name + " added to your order!");
+
+/* OPEN CART */
+
+function openCart(){
+
+document.getElementById("cartOverlay").classList.add("open");
+
+document.body.style.overflow="hidden";
+
+updateCart();
+
 }
 
-function orderWhatsApp(){
 
-  if(cart.length===0){
-    window.open(
-      "https://wa.me/919622302117?text="+
-      encodeURIComponent("Assalamu Alaikum LUTF! I want to place an order."),
-      "_blank"
-    );
-    return;
-  }
+/* CLOSE CART */
 
-  let message="Assalamu Alaikum LUTF! 🍜\n\n";
-  message+="*NEW ORDER*\n\n";
+function closeCart(){
 
-  let total=0;
+document.getElementById("cartOverlay").classList.remove("open");
 
-  cart.forEach((item,i)=>{
-    message+=(i+1)+". "+item.name+" — ₹"+item.price+"\n";
-    total+=item.price;
-  });
+document.body.style.overflow="";
 
-  message+="\n*Food Total: ₹"+total+"*";
-  message+="\n\nPlease confirm my order. JazakAllah Khair ❤️";
-
-  window.open(
-    "https://wa.me/919622302117?text="+
-    encodeURIComponent(message),
-    "_blank"
-  );
 }
+
+
+/* ADD ITEM */
+
+function addItem(name,price){
+
+let existing=cart.find(item=>item.name===name);
+
+if(existing){
+
+existing.qty++;
+
+}else{
+
+cart.push({
+name:name,
+price:price,
+qty:1
+});
+
+}
+
+updateCart();
+
+openCart();
+
+}
+
+
+/* UPDATE CART */
+
+function updateCart(){
+
+const container=document.getElementById("cartItems");
+
+if(cart.length===0){
+
+container.innerHTML=`
+<p style="color:#777;text-align:center;padding:40px 0;">
+Your cart is empty.
+</p>
+`;
+
+}else{
+
+container.innerHTML=cart.map((item,index)=>`
+
+<div class="cart-item">
+
+<div class="cart-item-top">
+
+<span>${item.name}</span>
+
+<strong>₹${item.price*item.qty}</strong>
+
+</div>
+
+<div class="cart-controls">
+
+<button class="qty-btn" onclick="changeQty(${index},-1)">
+−
+</button>
+
+<span>${item.qty}</span>
+
+<button class="qty-btn" onclick="changeQty(${index},1)">
++
+</button>
+
+<button class="remove" onclick="removeItem(${index})">
+REMOVE
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+let subtotal=cart.reduce(
+(sum,item)=>sum+(item.price*item.qty),0
+);
+
+
+let distance=parseFloat(
+document.getElementById("distance").value
+)||0;
+
+
+if(distance>3){
+
+distance=3;
+
+document.getElementById("distance").value=3;
+
+}
+
+
+let delivery=distance*10;
+
+let total=subtotal+delivery;
+
+
+document.getElementById("subtotal").innerText="₹"+subtotal;
+
+document.getElementById("delivery").innerText="₹"+delivery;
+
+document.getElementById("total").innerText="₹"+total;
+
+document.getElementById("cartCount").innerText=
+cart.reduce((sum,item)=>sum+item.qty,0);
+
+}
+
+
+/* CHANGE QUANTITY */
+
+function changeQty(index,change){
+
+cart[index].qty+=change;
+
+if(cart[index].qty<=0){
+
+cart.splice(index,1);
+
+}
+
+updateCart();
+
+}
+
+
+/* REMOVE */
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+/* GET ORDER DATA */
+
+function getOrderData(){
+
+let name=document.getElementById("customerName").value.trim();
+
+let phone=document.getElementById("customerPhone").value.trim();
+
+let address=document.getElementById("customerAddress").value.trim();
+
+let distance=parseFloat(
+document.getElementById("distance").value
+)||0;
+
+let note=document.getElementById("orderNote").value.trim();
+
+
+if(cart.length===0){
+
+alert("Please add something to your cart first.");
+
+return null;
+
+}
+
+
+if(!name){
+
+alert("Please enter your name.");
+
+return null;
+
+}
+
+
+if(!phone){
+
+alert("Please enter your phone number.");
+
+return null;
+
+}
+
+
+if(!address){
+
+alert("Please enter your delivery address.");
+
+return null;
+
+}
+
+
+if(distance<=0){
+
+alert("Please enter your distance from LUTF.");
+
+return null;
+
+}
+
+
+if(distance>3){
+
+alert("Sorry, delivery is available only within 3 KM.");
+
+return null;
+
+}
+
+
+let subtotal=cart.reduce(
+(sum,item)=>sum+(item.price*item.qty),0
+);
+
+let delivery=distance*10;
+
+let total=subtotal+delivery;
+
+
+return {
+name,
+phone,
+address,
+distance,
+note,
+subtotal,
+delivery,
+total
+};
+
+}
+
+
+/* WHATSAPP */
+
+function sendWhatsApp(){
+
+let data=getOrderData();
+
+if(!data)return;
+
+
+let items=cart.map(item=>
+`• ${item.name} × ${item.qty} = ₹${item.price*item.qty}`
+).join("\n");
+
+
+let message=
+`🍜 *NEW ORDER — LUTF*
+
+*Customer:* ${data.name}
+*Phone:* ${data.phone}
+
+*ORDER:*
+${items}
+
+*Subtotal:* ₹${data.subtotal}
+*Delivery (${data.distance} km):* ₹${data.delivery}
+*TOTAL:* ₹${data.total}
+
+📍 *Delivery Address:*
+${data.address}
+
+📝 *Note:*
+${data.note || "None"}
+
+Please confirm my order.`;
+
+let whatsappNumber="919622302117";
+
+let url=
+"https://wa.me/"+whatsappNumber+
+"?text="+encodeURIComponent(message);
+
+
+window.location.href=url;
+
+}
+
+
+/* UPI PAYMENT */
+
+function payUPI(){
+
+let data=getOrderData();
+
+if(!data)return;
+
+
+let upiId="9622302117@ptsbi";
+
+let paymentUrl=
+"upi://pay"+
+"?pa="+encodeURIComponent(upiId)+
+"&pn="+encodeURIComponent("LUTF Bites & Drinks")+
+"&am="+encodeURIComponent(data.total.toFixed(2))+
+"&cu=INR"+
+"&tn="+encodeURIComponent("LUTF Food Order");
+
+
+window.location.href=paymentUrl;
+
+}
+
+
+/* CLOSE WHEN CLICKING OUTSIDE */
+
+document.getElementById("cartOverlay").addEventListener(
+"click",
+function(e){
+
+if(e.target===this){
+
+closeCart();
+
+}
+
+});
+
+
+/* ESC KEY */
+
+document.addEventListener(
+"keydown",
+function(e){
+
+if(e.key==="Escape"){
+
+closeCart();
+
+}
+
+});
 
 </script>
 
