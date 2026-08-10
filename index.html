@@ -45,9 +45,7 @@ body{
   overflow-x:hidden;
 }
 
-button,
-input,
-textarea{
+button,input,textarea{
   font-family:inherit;
 }
 
@@ -61,7 +59,7 @@ img{
 }
 
 /* =========================
-   TOP BAR
+TOP BAR
 ========================= */
 
 .topbar{
@@ -81,7 +79,7 @@ img{
 }
 
 /* =========================
-   NAVIGATION
+NAVIGATION
 ========================= */
 
 .nav{
@@ -175,7 +173,7 @@ img{
 }
 
 /* =========================
-   HERO
+HERO
 ========================= */
 
 .hero{
@@ -331,16 +329,29 @@ img{
 }
 
 /* =========================
-   SAFE IMAGE PLACEHOLDER
+PHOTO SYSTEM
 ========================= */
 
 .food-photo{
-  background:
-    radial-gradient(circle at 50% 35%,rgba(255,185,40,.14),transparent 35%),
-    linear-gradient(135deg,#25251f,#11110f);
-  min-height:100%;
+  width:100%;
+  height:100%;
+  min-height:220px;
   position:relative;
   overflow:hidden;
+  background:#222;
+}
+
+.food-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .7s ease;
+}
+
+.menu-card:hover .food-photo img,
+.drink-card:hover .drink-photo img{
+  transform:scale(1.045);
 }
 
 .food-photo::after{
@@ -348,10 +359,12 @@ img{
   position:absolute;
   right:16px;
   bottom:13px;
-  color:rgba(255,255,255,.17);
+  color:rgba(255,255,255,.30);
   font-family:"Playfair Display",serif;
   font-size:13px;
   letter-spacing:3px;
+  text-shadow:0 2px 8px rgba(0,0,0,.5);
+  pointer-events:none;
 }
 
 .photo-placeholder{
@@ -365,6 +378,9 @@ img{
   text-align:center;
   color:#eee7d7;
   padding:30px;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(255,185,40,.14),transparent 35%),
+    linear-gradient(135deg,#25251f,#11110f);
 }
 
 .photo-placeholder .emoji{
@@ -383,7 +399,7 @@ img{
 }
 
 /* =========================
-   SECTION
+SECTION
 ========================= */
 
 .section{
@@ -422,7 +438,7 @@ img{
 }
 
 /* =========================
-   FEATURE STRIP
+FEATURE STRIP
 ========================= */
 
 .feature-strip{
@@ -468,7 +484,7 @@ img{
 }
 
 /* =========================
-   MENU
+MENU
 ========================= */
 
 .menu-grid{
@@ -493,6 +509,7 @@ img{
 
 .menu-photo{
   height:320px;
+  overflow:hidden;
 }
 
 .menu-photo img{
@@ -572,7 +589,7 @@ img{
 }
 
 /* =========================
-   DRINKS
+DRINKS
 ========================= */
 
 .drinks{
@@ -599,12 +616,14 @@ img{
 
 .drink-photo{
   height:350px;
+  overflow:hidden;
 }
 
 .drink-photo img{
   width:100%;
   height:100%;
   object-fit:cover;
+  transition:transform .7s ease;
 }
 
 .drink-content{
@@ -629,7 +648,7 @@ img{
 }
 
 /* =========================
-   PSYCHOLOGICAL CRAVING AREA
+CRAVING
 ========================= */
 
 .craving{
@@ -674,7 +693,7 @@ img{
 }
 
 /* =========================
-   ORDER PROCESS
+ORDER PROCESS
 ========================= */
 
 .order-section{
@@ -718,7 +737,7 @@ img{
 }
 
 /* =========================
-   LOCATION
+LOCATION
 ========================= */
 
 .location-box{
@@ -781,7 +800,7 @@ img{
 }
 
 /* =========================
-   FOOTER
+FOOTER
 ========================= */
 
 footer{
@@ -836,7 +855,7 @@ footer a{
 }
 
 /* =========================
-   FLOATING CART
+FLOATING CART
 ========================= */
 
 .floating-cart{
@@ -854,7 +873,7 @@ footer a{
 }
 
 /* =========================
-   MODALS
+MODALS
 ========================= */
 
 .modal{
@@ -1022,7 +1041,7 @@ footer a{
 }
 
 /* =========================
-   PAYMENT MODAL
+PAYMENT
 ========================= */
 
 .payment-box{
@@ -1057,7 +1076,7 @@ footer a{
 }
 
 /* =========================
-   TOAST
+TOAST
 ========================= */
 
 .toast{
@@ -1083,7 +1102,7 @@ footer a{
 }
 
 /* =========================
-   RESPONSIVE
+RESPONSIVE
 ========================= */
 
 @media(max-width:900px){
@@ -1246,12 +1265,10 @@ footer a{
 
 <body>
 
-<!-- TOP MESSAGE -->
 <div class="topbar">
   🛵 <span>DELIVERY WITHIN 3 KM</span> · ₹10 PER KM · Freshly prepared with care
 </div>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
 
@@ -1276,8 +1293,8 @@ footer a{
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
+
   <div class="hero-inner">
 
     <div class="hero-copy">
@@ -1303,6 +1320,7 @@ footer a{
       </p>
 
       <div class="hero-actions">
+
         <a href="#menu" class="btn btn-primary">
           ORDER NOW →
         </a>
@@ -1310,38 +1328,51 @@ footer a{
         <a href="#menu" class="btn btn-dark">
           VIEW MENU
         </a>
+
       </div>
 
     </div>
 
-    <!-- HERO IMAGES -->
     <div class="hero-visual">
 
       <div class="hero-card main">
+
         <div class="food-photo">
+
+          <!-- REAL STEAMED MOMO PHOTO -->
           <img
-            src="images/steamed-chicken-momos.jpg"
-            alt="LUTF Chicken Steamed Momos"
+            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_366/jtdakp6jfggorsymoyti"
+            alt="Chicken Steamed Momos"
+            loading="eager"
             onerror="imageFallback(this,'🥟','Chicken Steamed Momos')">
+
         </div>
+
       </div>
 
       <div class="hero-card small">
+
         <div class="food-photo">
+
+          <!-- WATERMELON MOJITO PHOTO -->
           <img
-            src="images/watermelon-mojito.jpg"
-            alt="LUTF Watermelon Mojito"
+            src="https://cdn.savorystride.com/wp-content/uploads/2025/06/Non-Alcoholic-Watermelon-Mojito-Refreshing-Summer-Sip.webp"
+            alt="Watermelon Mojito"
+            loading="lazy"
             onerror="imageFallback(this,'🍉','Watermelon Mojito')">
+
         </div>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
-<!-- FEATURES -->
 <div class="feature-strip">
+
   <div class="feature-inner">
 
     <div class="feature">
@@ -1377,12 +1408,13 @@ footer a{
     </div>
 
   </div>
+
 </div>
 
-<!-- MENU -->
 <section class="section" id="menu">
 
   <div class="section-head">
+
     <div>
       <div class="eyebrow">LUTF MENU</div>
       <h2>Made to make<br>you hungry.</h2>
@@ -1393,30 +1425,39 @@ footer a{
       packed carefully and served with the LUTF promise:
       <strong>Great Taste. Honest Price.</strong>
     </p>
+
   </div>
 
   <div class="menu-grid">
 
-    <!-- STEAMED MOMOS -->
+    <!-- CHICKEN STEAMED MOMOS -->
+
     <article class="menu-card">
 
       <div class="menu-photo">
+
         <img
-          src="images/steamed-chicken-momos.jpg"
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_366/jtdakp6jfggorsymoyti"
           alt="Chicken Steamed Momos"
+          loading="lazy"
           onerror="imageFallback(this,'🥟','Chicken Steamed Momos')">
+
       </div>
 
       <div class="menu-content">
 
         <div class="menu-top">
+
           <div>
             <h3 class="menu-title">Chicken Steamed Momos</h3>
+
             <p class="menu-description">
               Juicy filling · soft wrapper · spicy chutney
             </p>
           </div>
+
           <div class="menu-price">₹50+</div>
+
         </div>
 
         <div class="price-row">
@@ -1446,29 +1487,38 @@ footer a{
         </button>
 
       </div>
+
     </article>
 
 
-    <!-- FRIED MOMOS -->
+    <!-- CHICKEN FRIED MOMOS -->
+
     <article class="menu-card">
 
       <div class="menu-photo">
+
         <img
-          src="images/fried-chicken-momos.jpg"
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto/FOOD_CATALOG/IMAGES/CMS/2025/1/7/2a2de801-a235-4178-b573-9c2751f45c36_4a7ac4a3-19a3-4216-bd02-bb7df3617b46.jpg"
           alt="Chicken Fried Momos"
+          loading="lazy"
           onerror="imageFallback(this,'🔥','Chicken Fried Momos')">
+
       </div>
 
       <div class="menu-content">
 
         <div class="menu-top">
+
           <div>
             <h3 class="menu-title">Chicken Fried Momos</h3>
+
             <p class="menu-description">
               Crispy outside · juicy inside · bold flavour
             </p>
           </div>
+
           <div class="menu-price">₹60+</div>
+
         </div>
 
         <div class="price-row">
@@ -1498,30 +1548,38 @@ footer a{
         </button>
 
       </div>
+
     </article>
 
 
-    <!-- VEG SPRING ROLL -->
+    <!-- VEG SPRING ROLLS -->
+
     <article class="menu-card">
 
       <div class="menu-photo">
+
         <img
-          src="images/veg-spring-roll.jpg"
+          src="https://www.betheshyft.com/wp-content/uploads/2023/12/vegetable-spring-roll.jpg"
           alt="Veg Spring Rolls"
+          loading="lazy"
           onerror="imageFallback(this,'🌯','Veg Spring Rolls')">
+
       </div>
 
       <div class="menu-content">
 
         <div class="menu-top">
+
           <div>
             <h3 class="menu-title">Veg Spring Rolls</h3>
+
             <p class="menu-description">
               Crispy outside · delicious vegetable filling
             </p>
           </div>
 
           <div class="menu-price">₹50</div>
+
         </div>
 
         <button
@@ -1531,30 +1589,38 @@ footer a{
         </button>
 
       </div>
+
     </article>
 
 
-    <!-- CHICKEN SPRING ROLL -->
+    <!-- CHICKEN SPRING ROLLS -->
+
     <article class="menu-card">
 
       <div class="menu-photo">
+
         <img
-          src="images/chicken-spring-roll.jpg"
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_300%2Ch_300%2Cc_fit/FOOD_CATALOG/IMAGES/CMS/2026/6/8/78836428-e9ba-4731-8052-5b8e5817667b_419f0412-1558-4872-a4a1-281d1a6b9d8a.jpeg"
           alt="Chicken Spring Rolls"
+          loading="lazy"
           onerror="imageFallback(this,'🌯','Chicken Spring Rolls')">
+
       </div>
 
       <div class="menu-content">
 
         <div class="menu-top">
+
           <div>
             <h3 class="menu-title">Chicken Spring Rolls</h3>
+
             <p class="menu-description">
               Crispy golden roll · savoury chicken filling
             </p>
           </div>
 
           <div class="menu-price">₹80</div>
+
         </div>
 
         <button
@@ -1564,30 +1630,38 @@ footer a{
         </button>
 
       </div>
+
     </article>
 
 
     <!-- VEG CHOWMEIN -->
+
     <article class="menu-card">
 
       <div class="menu-photo">
+
         <img
-          src="images/veg-chowmein.jpg"
-          alt="Veg Chowmein"
+          src="https://images.unsplash.com/photo-1625398407796-82650a8c3a8c?auto=format&fit=crop&w=1200&q=85"
+          alt="Vegetable Chowmein"
+          loading="lazy"
           onerror="imageFallback(this,'🍜','Veg Chowmein')">
+
       </div>
 
       <div class="menu-content">
 
         <div class="menu-top">
+
           <div>
             <h3 class="menu-title">Veg Chowmein</h3>
+
             <p class="menu-description">
               Wok tossed · vegetables · full of flavour
             </p>
           </div>
 
           <div class="menu-price">₹40+</div>
+
         </div>
 
         <div class="price-row">
@@ -1617,30 +1691,38 @@ footer a{
         </button>
 
       </div>
+
     </article>
 
 
     <!-- EGG CHOWMEIN -->
+
     <article class="menu-card">
 
       <div class="menu-photo">
+
         <img
-          src="images/egg-chowmein.jpg"
+          src="https://hermanathome.com/wp-content/uploads/2025/04/Cantonese-Soy-Sauce-Noodles-Featured.jpg"
           alt="Egg Chowmein"
+          loading="lazy"
           onerror="imageFallback(this,'🍜','Egg Chowmein')">
+
       </div>
 
       <div class="menu-content">
 
         <div class="menu-top">
+
           <div>
             <h3 class="menu-title">Egg Chowmein</h3>
+
             <p class="menu-description">
               Wok tossed noodles · egg · vegetables
             </p>
           </div>
 
           <div class="menu-price">₹50+</div>
+
         </div>
 
         <div class="price-row">
@@ -1670,30 +1752,38 @@ footer a{
         </button>
 
       </div>
+
     </article>
 
 
     <!-- CHICKEN CHOWMEIN -->
+
     <article class="menu-card">
 
       <div class="menu-photo">
+
         <img
-          src="images/chicken-chowmein.jpg"
+          src="https://tb-static.uber.com/prod/image-proc/processed_images/ae2c0eab0b5494fb1d95916e171a6395/a19bb09692310dfd41e49a96c424b3a6.jpeg"
           alt="Chicken Chowmein"
+          loading="lazy"
           onerror="imageFallback(this,'🍜','Chicken Chowmein')">
+
       </div>
 
       <div class="menu-content">
 
         <div class="menu-top">
+
           <div>
             <h3 class="menu-title">Chicken Chowmein</h3>
+
             <p class="menu-description">
               Wok tossed noodles · chicken · vegetables
             </p>
           </div>
 
           <div class="menu-price">₹60+</div>
+
         </div>
 
         <div class="price-row">
@@ -1723,13 +1813,16 @@ footer a{
         </button>
 
       </div>
+
     </article>
 
   </div>
+
 </section>
 
 
 <!-- DRINKS -->
+
 <section class="drinks" id="drinks">
 
   <div class="section">
@@ -1737,6 +1830,7 @@ footer a{
     <div class="section-head">
 
       <div>
+
         <div class="eyebrow" style="color:#ffbd2e">
           REFRESHMENTS
         </div>
@@ -1745,6 +1839,7 @@ footer a{
           Something cold.<br>
           Something warm.
         </h2>
+
       </div>
 
       <p>
@@ -1757,59 +1852,76 @@ footer a{
 
     <div class="drinks-grid">
 
+
       <!-- WATERMELON MOJITO -->
+
       <article class="drink-card">
 
         <div class="drink-photo">
+
           <img
-            src="images/watermelon-mojito.jpg"
+            src="https://cdn.savorystride.com/wp-content/uploads/2025/06/Non-Alcoholic-Watermelon-Mojito-Refreshing-Summer-Sip.webp"
             alt="Watermelon Mojito"
+            loading="lazy"
             onerror="imageFallback(this,'🍉','Watermelon Mojito')">
+
         </div>
 
         <div class="drink-content">
+
           <h3>Watermelon Mojito</h3>
 
           <p>
             Chilled watermelon · mint · lime · refreshing fizz.
           </p>
 
-          <div class="drink-price">₹100</div>
+          <div class="drink-price">
+            ₹100
+          </div>
 
           <button
             class="order-item"
             onclick="addItem('Watermelon Mojito',100)">
             ADD TO CART · ₹100
           </button>
+
         </div>
 
       </article>
 
 
       <!-- KADAK MASALA CHAI -->
+
       <article class="drink-card">
 
         <div class="drink-photo">
+
           <img
-            src="images/kadak-masala-chai.jpg"
+            src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=1200&q=85"
             alt="Kadak Masala Chai"
+            loading="lazy"
             onerror="imageFallback(this,'☕','Kadak Masala Chai')">
+
         </div>
 
         <div class="drink-content">
+
           <h3>Kadak Masala Chai</h3>
 
           <p>
             Hot, aromatic and comforting. The perfect cup while you wait.
           </p>
 
-          <div class="drink-price">₹20 / CUP</div>
+          <div class="drink-price">
+            ₹20 / CUP
+          </div>
 
           <button
             class="order-item"
             onclick="addItem('Kadak Masala Chai',20)">
             ADD TO CART · ₹20
           </button>
+
         </div>
 
       </article>
@@ -1817,15 +1929,18 @@ footer a{
     </div>
 
   </div>
+
 </section>
 
 
 <!-- CRAVING SECTION -->
+
 <section class="craving">
 
   <div class="craving-inner">
 
     <div>
+
       <div class="eyebrow" style="color:#171510">
         THE LUTF EXPERIENCE
       </div>
@@ -1839,6 +1954,7 @@ footer a{
         We want you leaving with that little feeling:
         <strong>"I should come back again."</strong>
       </p>
+
     </div>
 
     <div class="craving-list">
@@ -1871,16 +1987,22 @@ footer a{
 
 
 <!-- ORDER PROCESS -->
+
 <section class="section order-section">
 
   <div class="section-head">
 
     <div>
-      <div class="eyebrow">EASY ORDERING</div>
+
+      <div class="eyebrow">
+        EASY ORDERING
+      </div>
+
       <h2>
         Hungry?<br>
         Keep it simple.
       </h2>
+
     </div>
 
     <p>
@@ -1894,30 +2016,56 @@ footer a{
   <div class="order-steps">
 
     <div class="step">
-      <div class="step-number">01</div>
-      <h3>Choose your food</h3>
+
+      <div class="step-number">
+        01
+      </div>
+
+      <h3>
+        Choose your food
+      </h3>
+
       <p>
         Add your favourite momos, chowmein, spring rolls
         and drinks to your cart.
       </p>
+
     </div>
 
+
     <div class="step">
-      <div class="step-number">02</div>
-      <h3>Tell us where</h3>
+
+      <div class="step-number">
+        02
+      </div>
+
+      <h3>
+        Tell us where
+      </h3>
+
       <p>
         Enter your name, phone number and delivery address.
         Delivery is available within 3 KM.
       </p>
+
     </div>
 
+
     <div class="step">
-      <div class="step-number">03</div>
-      <h3>Confirm on WhatsApp</h3>
+
+      <div class="step-number">
+        03
+      </div>
+
+      <h3>
+        Confirm on WhatsApp
+      </h3>
+
       <p>
         Your complete order is prepared as a WhatsApp message
         so LUTF can confirm it with you.
       </p>
+
     </div>
 
   </div>
@@ -1926,6 +2074,7 @@ footer a{
 
 
 <!-- LOCATION -->
+
 <section class="section" id="visit">
 
   <div class="location-box">
@@ -1947,9 +2096,19 @@ footer a{
       </p>
 
       <div class="address">
-        📍 <strong>Opp. Madrasa Markaz Al Ma'arif</strong><br>
-        Madina Hills<br>
+
+        📍 <strong>
+          Opp. Madrasa Markaz Al Ma'arif
+        </strong>
+
+        <br>
+
+        Madina Hills
+
+        <br>
+
         Bathindi — Safa Valley Road
+
       </div>
 
       <a
@@ -1957,21 +2116,32 @@ footer a{
         href="https://share.google/xMkWV7SxXgbXNU1UD"
         target="_blank"
         rel="noopener">
+
         📍 GET DIRECTIONS
+
       </a>
 
     </div>
 
+
     <div class="location-visual">
+
       <div>
-        <div class="location-pin">📍</div>
+
+        <div class="location-pin">
+          📍
+        </div>
+
         <h3 style="font-size:24px;margin-top:10px;">
           LUTF — Bites & Drinks
         </h3>
+
         <p style="color:#aaa;margin-top:7px;">
           Bathindi · Jammu
         </p>
+
       </div>
+
     </div>
 
   </div>
@@ -1980,6 +2150,7 @@ footer a{
 
 
 <!-- FOOTER -->
+
 <footer>
 
   <div class="footer-inner">
@@ -1987,32 +2158,75 @@ footer a{
     <div class="footer-top">
 
       <div class="footer-brand">
-        <h2>LUTF</h2>
+
+        <h2>
+          LUTF
+        </h2>
+
         <p>
           Bites & Drinks.<br>
           Great Taste. Honest Price. ♥
         </p>
+
       </div>
 
-      <div>
-        <h3>Explore</h3>
-        <a href="#menu">Menu</a>
-        <a href="#drinks">Drinks</a>
-        <a href="#visit">Location</a>
-      </div>
 
       <div>
-        <h3>Order</h3>
-        <a href="tel:9622302117">📞 9622302117</a>
-        <a href="#" onclick="openCart();return false;">🛒 Your Cart</a>
-        <a href="#visit">📍 Visit LUTF</a>
+
+        <h3>
+          Explore
+        </h3>
+
+        <a href="#menu">
+          Menu
+        </a>
+
+        <a href="#drinks">
+          Drinks
+        </a>
+
+        <a href="#visit">
+          Location
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Order
+        </h3>
+
+        <a href="tel:9622302117">
+          📞 9622302117
+        </a>
+
+        <a
+          href="#"
+          onclick="openCart();return false;">
+          🛒 Your Cart
+        </a>
+
+        <a href="#visit">
+          📍 Visit LUTF
+        </a>
+
       </div>
 
     </div>
 
+
     <div class="footer-bottom">
-      <div>© 2026 LUTF — Bites & Drinks</div>
-      <div>Freshly prepared with care ♥</div>
+
+      <div>
+        © 2026 LUTF — Bites & Drinks
+      </div>
+
+      <div>
+        Freshly prepared with care ♥
+      </div>
+
     </div>
 
   </div>
@@ -2021,56 +2235,126 @@ footer a{
 
 
 <!-- FLOATING CART -->
-<button class="floating-cart" onclick="openCart()">
-  🛒 VIEW CART · ₹<span id="floatingTotal">0</span>
+
+<button
+  class="floating-cart"
+  onclick="openCart()">
+
+  🛒 VIEW CART · ₹
+  <span id="floatingTotal">0</span>
+
 </button>
 
 
 <!-- CART MODAL -->
+
 <div class="modal" id="cartModal">
 
   <div class="modal-box">
 
     <div class="modal-head">
-      <h2>Your Order</h2>
-      <button class="close" onclick="closeCart()">×</button>
+
+      <h2>
+        Your Order
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeCart()">
+        ×
+      </button>
+
     </div>
 
-    <div id="cartItems" class="cart-items"></div>
 
-    <div id="cartBottom" style="display:none;">
+    <div
+      id="cartItems"
+      class="cart-items">
+    </div>
+
+
+    <div
+      id="cartBottom"
+      style="display:none;">
 
       <div class="cart-total">
 
         <div class="total-line">
-          <span>Food subtotal</span>
-          <strong>₹<span id="subtotal">0</span></strong>
+
+          <span>
+            Food subtotal
+          </span>
+
+          <strong>
+            ₹<span id="subtotal">0</span>
+          </strong>
+
         </div>
+
 
         <div class="total-line">
-          <span>Delivery</span>
-          <strong>₹<span id="delivery">0</span></strong>
+
+          <span>
+            Delivery
+          </span>
+
+          <strong>
+            ₹<span id="delivery">0</span>
+          </strong>
+
         </div>
 
+
         <div class="total-line final">
-          <span>Total</span>
-          <strong>₹<span id="grandTotal">0</span></strong>
+
+          <span>
+            Total
+          </span>
+
+          <strong>
+            ₹<span id="grandTotal">0</span>
+          </strong>
+
         </div>
 
       </div>
 
+
       <div class="form">
 
-        <label>NAME *</label>
-        <input id="customerName" placeholder="Your name">
+        <label>
+          NAME *
+        </label>
 
-        <label>PHONE *</label>
-        <input id="customerPhone" type="tel" placeholder="Your phone number">
+        <input
+          id="customerName"
+          placeholder="Your name">
 
-        <label>DELIVERY ADDRESS *</label>
-        <textarea id="customerAddress" placeholder="House / shop / landmark"></textarea>
 
-        <label>DISTANCE FROM LUTF (KM) *</label>
+        <label>
+          PHONE *
+        </label>
+
+        <input
+          id="customerPhone"
+          type="tel"
+          placeholder="Your phone number">
+
+
+        <label>
+          DELIVERY ADDRESS *
+        </label>
+
+        <textarea
+          id="customerAddress"
+          placeholder="House / shop / landmark">
+        </textarea>
+
+
+        <label>
+          DISTANCE FROM LUTF (KM) *
+        </label>
+
         <input
           id="distance"
           type="number"
@@ -2080,20 +2364,36 @@ footer a{
           value="1"
           oninput="updateCart()">
 
-        <label>ORDER NOTE</label>
+
+        <label>
+          ORDER NOTE
+        </label>
+
         <textarea
           id="orderNote"
-          placeholder="Less spicy, etc."></textarea>
+          placeholder="Less spicy, etc.">
+        </textarea>
 
       </div>
 
-      <button class="whatsapp" onclick="sendWhatsApp()">
+
+      <button
+        class="whatsapp"
+        onclick="sendWhatsApp()">
+
         📲 CONFIRM ORDER ON WHATSAPP
+
       </button>
 
-      <button class="payment" onclick="openPayment()">
+
+      <button
+        class="payment"
+        onclick="openPayment()">
+
         💳 PAY VIA UPI
+
       </button>
+
 
       <p style="
         color:#777;
@@ -2101,9 +2401,11 @@ footer a{
         line-height:1.6;
         margin-top:13px;
       ">
+
         Delivery is limited to 3 km. ₹10/km is calculated
         from the distance entered. Please confirm the exact
         distance with LUTF on WhatsApp.
+
       </p>
 
     </div>
@@ -2114,37 +2416,70 @@ footer a{
 
 
 <!-- PAYMENT MODAL -->
+
 <div class="modal" id="paymentModal">
 
   <div class="modal-box">
 
     <div class="modal-head">
-      <h2>UPI Payment</h2>
-      <button class="close" onclick="closePayment()">×</button>
+
+      <h2>
+        UPI Payment
+      </h2>
+
+      <button
+        class="close"
+        onclick="closePayment()">
+        ×
+      </button>
+
     </div>
+
 
     <div class="payment-box">
 
-      <div style="font-size:55px;">💳</div>
+      <div style="font-size:55px;">
+        💳
+      </div>
 
-      <h2>Pay LUTF</h2>
+      <h2>
+        Pay LUTF
+      </h2>
 
       <p style="color:#777;margin-top:8px;">
+
         Your current order total is
-        <strong>₹<span id="paymentAmount">0</span></strong>
+        <strong>
+          ₹<span id="paymentAmount">0</span>
+        </strong>
+
       </p>
+
 
       <div class="upi-id">
         9622302117@ptsbi
       </div>
 
-      <button class="pay-btn" onclick="payUPI()">
+
+      <button
+        class="pay-btn"
+        onclick="payUPI()">
+
         OPEN UPI APP & PAY
+
       </button>
 
-      <p style="font-size:12px;color:#777;line-height:1.6;margin-top:15px;">
+
+      <p style="
+        font-size:12px;
+        color:#777;
+        line-height:1.6;
+        margin-top:15px;
+      ">
+
         After payment, please send your payment confirmation
         to LUTF on WhatsApp.
+
       </p>
 
     </div>
@@ -2155,14 +2490,14 @@ footer a{
 
 
 <!-- TOAST -->
-<div class="toast" id="toast"></div>
+
+<div
+  class="toast"
+  id="toast">
+</div>
 
 
 <script>
-
-/* =========================================
-   LUTF ORDER SYSTEM
-========================================= */
 
 const WHATSAPP_NUMBER = "919622302117";
 const UPI_ID = "9622302117@ptsbi";
@@ -2171,10 +2506,7 @@ const BUSINESS_NAME = "LUTF — Bites & Drinks";
 let cart = [];
 
 
-/* =========================================
-   SAFE IMAGE FALLBACK
-   NEVER SHOWS WRONG FOOD
-========================================= */
+/* IMAGE FALLBACK */
 
 function imageFallback(img, emoji, title){
 
@@ -2187,25 +2519,29 @@ function imageFallback(img, emoji, title){
       <small>Freshly prepared at LUTF</small>
     </div>
   `;
+
 }
 
 
-/* =========================================
-   ADD ITEM
-========================================= */
+/* ADD ITEM */
 
 function addItem(name, price){
 
-  const existing = cart.find(item => item.name === name);
+  const existing =
+    cart.find(item => item.name === name);
 
   if(existing){
+
     existing.qty++;
+
   }else{
+
     cart.push({
       name:name,
       price:price,
       qty:1
     });
+
   }
 
   updateCart();
@@ -2213,202 +2549,290 @@ function addItem(name, price){
   showToast("Added to your order ✓");
 
   document.getElementById("cartCount").textContent =
-    cart.reduce((sum,item)=>sum+item.qty,0);
+    cart.reduce(
+      (sum,item)=>sum+item.qty,
+      0
+    );
+
 }
 
 
-/* =========================================
-   CHANGE QUANTITY
-========================================= */
+/* CHANGE QUANTITY */
 
 function changeQty(index, amount){
 
   cart[index].qty += amount;
 
   if(cart[index].qty <= 0){
+
     cart.splice(index,1);
+
   }
 
   updateCart();
 
   document.getElementById("cartCount").textContent =
-    cart.reduce((sum,item)=>sum+item.qty,0);
+    cart.reduce(
+      (sum,item)=>sum+item.qty,
+      0
+    );
+
 }
 
 
-/* =========================================
-   CALCULATE
-========================================= */
+/* SUBTOTAL */
 
 function getSubtotal(){
 
   return cart.reduce(
-    (sum,item)=>sum+(item.price*item.qty),
+    (sum,item)=>
+      sum+(item.price*item.qty),
     0
   );
+
 }
 
+
+/* DISTANCE */
 
 function getDistance(){
 
-  let d = parseFloat(
-    document.getElementById("distance")?.value || 0
+  let d =
+    parseFloat(
+      document.getElementById("distance")?.value || 0
+    );
+
+  if(isNaN(d)){
+    d=0;
+  }
+
+  return Math.min(
+    Math.max(d,0),
+    3
   );
 
-  if(isNaN(d)) d=0;
-
-  return Math.min(Math.max(d,0),3);
 }
 
+
+/* DELIVERY */
 
 function getDelivery(){
 
-  return Math.ceil(getDistance()*10);
+  return Math.ceil(
+    getDistance()*10
+  );
+
 }
 
 
-/* =========================================
-   UPDATE CART
-========================================= */
+/* UPDATE CART */
 
 function updateCart(){
 
-  const itemsBox = document.getElementById("cartItems");
-  const bottom = document.getElementById("cartBottom");
+  const itemsBox =
+    document.getElementById("cartItems");
+
+  const bottom =
+    document.getElementById("cartBottom");
+
 
   if(cart.length === 0){
 
     itemsBox.innerHTML = `
+
       <div class="empty">
-        <div style="font-size:50px;">🛒</div>
+
+        <div style="font-size:50px;">
+          🛒
+        </div>
+
         <h3 style="margin-top:10px;">
           Your cart is waiting.
         </h3>
+
         <p style="margin-top:7px;">
           Add something delicious.
         </p>
+
       </div>
+
     `;
 
     bottom.style.display="none";
 
   }else{
 
-    itemsBox.innerHTML = cart.map((item,index)=>`
+    itemsBox.innerHTML =
+      cart.map(
+        (item,index)=>`
 
-      <div class="cart-row">
+          <div class="cart-row">
 
-        <div>
-          <strong>${escapeHTML(item.name)}</strong>
+            <div>
 
-          <small>
-            ₹${item.price} × ${item.qty}
-          </small>
-        </div>
+              <strong>
+                ${escapeHTML(item.name)}
+              </strong>
 
-        <div class="cart-controls">
+              <small>
+                ₹${item.price} × ${item.qty}
+              </small>
 
-          <button
-            class="qty"
-            onclick="changeQty(${index},-1)">
-            −
-          </button>
+            </div>
 
-          <strong>${item.qty}</strong>
+            <div class="cart-controls">
 
-          <button
-            class="qty"
-            onclick="changeQty(${index},1)">
-            +
-          </button>
+              <button
+                class="qty"
+                onclick="changeQty(${index},-1)">
+                −
+              </button>
 
-        </div>
+              <strong>
+                ${item.qty}
+              </strong>
 
-      </div>
+              <button
+                class="qty"
+                onclick="changeQty(${index},1)">
+                +
+              </button>
 
-    `).join("");
+            </div>
+
+          </div>
+
+        `
+      ).join("");
 
     bottom.style.display="block";
 
   }
 
-  const subtotal = getSubtotal();
-  const delivery = getDelivery();
-  const total = subtotal + delivery;
 
-  document.getElementById("subtotal").textContent=subtotal;
-  document.getElementById("delivery").textContent=delivery;
-  document.getElementById("grandTotal").textContent=total;
-  document.getElementById("floatingTotal").textContent=total;
+  const subtotal =
+    getSubtotal();
 
-  document.getElementById("paymentAmount").textContent=total;
+  const delivery =
+    getDelivery();
+
+  const total =
+    subtotal + delivery;
+
+
+  document.getElementById("subtotal").textContent =
+    subtotal;
+
+  document.getElementById("delivery").textContent =
+    delivery;
+
+  document.getElementById("grandTotal").textContent =
+    total;
+
+  document.getElementById("floatingTotal").textContent =
+    total;
+
+  document.getElementById("paymentAmount").textContent =
+    total;
+
 }
 
 
-/* =========================================
-   OPEN CART
-========================================= */
+/* OPEN CART */
 
 function openCart(){
 
-  document.getElementById("cartModal").classList.add("active");
+  document
+    .getElementById("cartModal")
+    .classList.add("active");
 
   updateCart();
 
   document.body.style.overflow="hidden";
+
 }
 
 
-/* =========================================
-   CLOSE CART
-========================================= */
+/* CLOSE CART */
 
 function closeCart(){
 
-  document.getElementById("cartModal").classList.remove("active");
+  document
+    .getElementById("cartModal")
+    .classList.remove("active");
 
   document.body.style.overflow="";
+
 }
 
 
-/* =========================================
-   WHATSAPP ORDER
-========================================= */
+/* WHATSAPP ORDER */
 
 function sendWhatsApp(){
 
   if(cart.length===0){
 
-    showToast("Add something to your cart first.");
+    showToast(
+      "Add something to your cart first."
+    );
 
     return;
+
   }
 
+
   const name =
-    document.getElementById("customerName").value.trim();
+    document
+      .getElementById("customerName")
+      .value
+      .trim();
+
 
   const phone =
-    document.getElementById("customerPhone").value.trim();
+    document
+      .getElementById("customerPhone")
+      .value
+      .trim();
+
 
   const address =
-    document.getElementById("customerAddress").value.trim();
+    document
+      .getElementById("customerAddress")
+      .value
+      .trim();
+
 
   const distance =
     getDistance();
 
+
   const note =
-    document.getElementById("orderNote").value.trim();
+    document
+      .getElementById("orderNote")
+      .value
+      .trim();
+
 
   if(!name || !phone || !address){
 
-    showToast("Please fill in your name, phone & address.");
+    showToast(
+      "Please fill in your name, phone & address."
+    );
 
     return;
+
   }
 
-  const subtotal = getSubtotal();
-  const delivery = getDelivery();
-  const total = subtotal + delivery;
+
+  const subtotal =
+    getSubtotal();
+
+  const delivery =
+    getDelivery();
+
+  const total =
+    subtotal + delivery;
+
 
   let message =
 `🍜 *NEW ORDER — ${BUSINESS_NAME}*
@@ -2429,6 +2853,7 @@ ${address}
 
 `;
 
+
   cart.forEach(item => {
 
     message +=
@@ -2438,6 +2863,7 @@ ${address}
 `;
 
   });
+
 
   message +=
 `━━━━━━━━━━━━━━━━━━
@@ -2449,6 +2875,7 @@ Delivery: ₹${delivery}
 
 `;
 
+
   if(note){
 
     message +=
@@ -2459,6 +2886,7 @@ ${note}
 
   }
 
+
   message +=
 `━━━━━━━━━━━━━━━━━━
 
@@ -2466,41 +2894,55 @@ Please confirm my order.
 
 Thank you ❤️`;
 
+
   const url =
     "https://wa.me/" +
     WHATSAPP_NUMBER +
     "?text=" +
     encodeURIComponent(message);
 
-  window.open(url,"_blank");
+
+  window.open(
+    url,
+    "_blank"
+  );
 
 }
 
 
-/* =========================================
-   PAYMENT
-========================================= */
+/* PAYMENT */
 
 function openPayment(){
 
   if(cart.length===0){
 
-    showToast("Add something to your cart first.");
+    showToast(
+      "Add something to your cart first."
+    );
 
     return;
+
   }
 
-  document.getElementById("paymentAmount").textContent =
-    getSubtotal()+getDelivery();
 
-  document.getElementById("paymentModal").classList.add("active");
+  document
+    .getElementById("paymentAmount")
+    .textContent =
+      getSubtotal()+getDelivery();
+
+
+  document
+    .getElementById("paymentModal")
+    .classList.add("active");
 
 }
 
 
 function closePayment(){
 
-  document.getElementById("paymentModal").classList.remove("active");
+  document
+    .getElementById("paymentModal")
+    .classList.remove("active");
 
 }
 
@@ -2510,29 +2952,35 @@ function payUPI(){
   const amount =
     getSubtotal()+getDelivery();
 
+
   const upiURL =
     "upi://pay?" +
-    "pa=" + encodeURIComponent(UPI_ID) +
-    "&pn=" + encodeURIComponent(BUSINESS_NAME) +
-    "&am=" + encodeURIComponent(amount) +
+    "pa=" +
+    encodeURIComponent(UPI_ID) +
+    "&pn=" +
+    encodeURIComponent(BUSINESS_NAME) +
+    "&am=" +
+    encodeURIComponent(amount) +
     "&cu=INR" +
-    "&tn=" + encodeURIComponent("LUTF Food Order");
+    "&tn=" +
+    encodeURIComponent("LUTF Food Order");
 
-  window.location.href = upiURL;
+
+  window.location.href =
+    upiURL;
 
 }
 
 
-/* =========================================
-   TOAST
-========================================= */
+/* TOAST */
 
 function showToast(message){
 
   const toast =
     document.getElementById("toast");
 
-  toast.textContent=message;
+  toast.textContent =
+    message;
 
   toast.classList.add("show");
 
@@ -2543,9 +2991,7 @@ function showToast(message){
 }
 
 
-/* =========================================
-   SECURITY / HTML ESCAPE
-========================================= */
+/* HTML ESCAPE */
 
 function escapeHTML(value){
 
@@ -2555,36 +3001,43 @@ function escapeHTML(value){
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
+
 }
 
 
-/* =========================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
-========================================= */
+/* CLOSE CART OUTSIDE */
 
-document.getElementById("cartModal")
-.addEventListener("click",function(e){
+document
+  .getElementById("cartModal")
+  .addEventListener(
+    "click",
+    function(e){
 
-  if(e.target===this){
-    closeCart();
-  }
+      if(e.target===this){
+        closeCart();
+      }
 
-});
-
-
-document.getElementById("paymentModal")
-.addEventListener("click",function(e){
-
-  if(e.target===this){
-    closePayment();
-  }
-
-});
+    }
+  );
 
 
-/* =========================================
-   INITIALIZE
-========================================= */
+/* CLOSE PAYMENT OUTSIDE */
+
+document
+  .getElementById("paymentModal")
+  .addEventListener(
+    "click",
+    function(e){
+
+      if(e.target===this){
+        closePayment();
+      }
+
+    }
+  );
+
+
+/* INITIALIZE */
 
 updateCart();
 
