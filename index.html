@@ -3119,5 +3119,368 @@ updateCart();
 
   testFirebase();
 
+</script>  <!-- FIREBASE MENU SYSTEM -->
+<script type="module">
+
+  import {
+    initializeApp,
+    getApps
+  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+  import {
+    getFirestore,
+    collection,
+    getDocs
+  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCr9xErno6aK9xW-TeTU_se3jxGihI-zgs",
+    authDomain: "lutf--bites-and-drinks.firebaseapp.com",
+    projectId: "lutf--bites-and-drinks",
+    storageBucket: "lutf--bites-and-drinks.firebasestorage.app",
+    messagingSenderId: "358783917321",
+    appId: "1:358783917321:web:4b506c68b4545667e347d8",
+    measurementId: "G-S5MJFX7CNB"
+  };
+
+
+  // Use existing Firebase app if already initialized
+  const app = getApps().length
+    ? getApps()[0]
+    : initializeApp(firebaseConfig);
+
+  const db = getFirestore(app);
+
+
+  // LOAD MENU FROM FIREBASE
+  async function loadLutfMenu(){
+
+    try{
+
+      const snapshot = await getDocs(
+        collection(db, "menu")
+      );
+
+      const items = [];
+
+      snapshot.forEach(doc => {
+
+        items.push({
+          id: doc.id,
+          ...doc.data()
+        });
+
+      });
+
+
+      items.sort(
+        (a,b) =>
+          (a.sortOrder || 999) -
+          (b.sortOrder || 999)
+      );
+
+
+      if(items.length === 0){
+        console.log("No menu items found.");
+        return;
+      }
+
+
+      // Separate food and drinks
+      const foodItems =
+        items.filter(
+          item => item.category !== "Drinks"
+        );
+
+      const drinkItems =
+        items.filter(
+          item => item.category === "Drinks"
+        );
+
+
+      // Render food menu
+      renderFoodMenu(foodItems);
+
+      // Render drinks
+      renderDrinks(drinkItems);
+
+
+      console.log(
+        "🔥 LUTF menu loaded from Firebase:",
+        items.length,
+        "items"
+      );
+
+
+    }catch(error){
+
+      console.error(
+        "❌ Could not load LUTF menu:",
+        error
+      );
+
+    }
+
+  }
+
+
+  // FOOD MENU
+  function renderFoodMenu(items){
+
+    const grid =
+      document.querySelector(".menu-grid");
+
+    if(!grid || items.length === 0){
+      return;
+    }
+
+
+    grid.innerHTML = items.map(item => {
+
+      const hasVariants =
+        item.hasVariants === true;
+
+
+      if(hasVariants){
+
+        return `
+
+          <article class="menu-card">
+
+            <div class="menu-photo">
+
+              <img
+                src="${escapeHTML(item.image || '')}"
+                alt="${escapeHTML(item.name)}"
+                loading="lazy"
+                onerror="imageFallback(this,'🍜','${escapeHTML(item.name)}')">
+
+            </div>
+
+
+            <div class="menu-content">
+
+              <div class="menu-top">
+
+                <div>
+
+                  <h3 class="menu-title">
+                    ${escapeHTML(item.name)}
+                  </h3>
+
+                  <p class="menu-description">
+                    ${escapeHTML(item.description || '')}
+                  </p>
+
+                </div>
+
+                <div class="menu-price">
+                  ₹${item.halfPrice}+
+                </div>
+
+              </div>
+
+
+              <div class="price-row">
+
+                <div class="price-option">
+                  <span>HALF</span>
+                  <span>₹${item.halfPrice}</span>
+                </div>
+
+                <div class="price-option">
+                  <span>FULL</span>
+                  <span>₹${item.fullPrice}</span>
+                </div>
+
+              </div>
+
+
+              <button
+                class="order-item"
+                ${item.available === false ? 'disabled' : ''}
+                onclick="addItem('${escapeJS(item.name)} — Half',${Number(item.halfPrice)})">
+
+                ${item.available === false
+                  ? 'UNAVAILABLE'
+                  : `ADD HALF · ₹${item.halfPrice}`}
+
+              </button>
+
+
+              <button
+                class="order-item"
+                ${item.available === false ? 'disabled' : ''}
+                onclick="addItem('${escapeJS(item.name)} — Full',${Number(item.fullPrice)})">
+
+                ${item.available === false
+                  ? 'UNAVAILABLE'
+                  : `ADD FULL · ₹${item.fullPrice}`}
+
+              </button>
+
+            </div>
+
+          </article>
+
+        `;
+
+      }
+
+
+      return `
+
+        <article class="menu-card">
+
+          <div class="menu-photo">
+
+            <img
+              src="${escapeHTML(item.image || '')}"
+              alt="${escapeHTML(item.name)}"
+              loading="lazy"
+              onerror="imageFallback(this,'🍜','${escapeHTML(item.name)}')">
+
+          </div>
+
+
+          <div class="menu-content">
+
+            <div class="menu-top">
+
+              <div>
+
+                <h3 class="menu-title">
+                  ${escapeHTML(item.name)}
+                </h3>
+
+                <p class="menu-description">
+                  ${escapeHTML(item.description || '')}
+                </p>
+
+              </div>
+
+              <div class="menu-price">
+                ₹${item.halfPrice}
+              </div>
+
+            </div>
+
+
+            <button
+              class="order-item"
+              ${item.available === false ? 'disabled' : ''}
+              onclick="addItem('${escapeJS(item.name)}',${Number(item.halfPrice)})">
+
+              ${item.available === false
+                ? 'UNAVAILABLE'
+                : `ADD TO CART · ₹${item.halfPrice}`}
+
+            </button>
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join("");
+
+  }
+
+
+  // DRINKS
+  function renderDrinks(items){
+
+    const grid =
+      document.querySelector(".drinks-grid");
+
+    if(!grid || items.length === 0){
+      return;
+    }
+
+
+    grid.innerHTML = items.map(item => {
+
+      return `
+
+        <article class="drink-card">
+
+          <div class="drink-photo">
+
+            <img
+              src="${escapeHTML(item.image || '')}"
+              alt="${escapeHTML(item.name)}"
+              loading="lazy"
+              onerror="imageFallback(this,'🥤','${escapeHTML(item.name)}')">
+
+          </div>
+
+
+          <div class="drink-content">
+
+            <h3>
+              ${escapeHTML(item.name)}
+            </h3>
+
+            <p>
+              ${escapeHTML(item.description || '')}
+            </p>
+
+            <div class="drink-price">
+              ₹${item.halfPrice}
+            </div>
+
+
+            <button
+              class="order-item"
+              ${item.available === false ? 'disabled' : ''}
+              onclick="addItem('${escapeJS(item.name)}',${Number(item.halfPrice)})">
+
+              ${item.available === false
+                ? 'UNAVAILABLE'
+                : `ADD TO CART · ₹${item.halfPrice}`}
+
+            </button>
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join("");
+
+  }
+
+
+  // Safe HTML escaping
+  function escapeHTML(value){
+
+    return String(value)
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;")
+      .replace(/'/g,"&#039;");
+
+  }
+
+
+  // Safe JavaScript string escaping
+  function escapeJS(value){
+
+    return String(value)
+      .replace(/\\/g,"\\\\")
+      .replace(/'/g,"\\'")
+      .replace(/\n/g,"\\n")
+      .replace(/\r/g,"");
+
+  }
+
+
+  // Start loading menu
+  loadLutfMenu();
+
 </script></body>
 </html>
