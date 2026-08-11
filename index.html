@@ -1,3486 +1,2908 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#11110f">
-<meta name="description" content="LUTF — Bites & Drinks. Fresh momos, spring rolls, chowmein and refreshing drinks in Bathindi.">
-<title>LUTF — Bites & Drinks</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --black:#0c0c0b;
-  --black2:#141412;
-  --cream:#f7f1e4;
-  --cream2:#eee4cf;
-  --olive:#69723c;
-  --olive-dark:#4b532b;
-  --orange:#ff5a1f;
-  --gold:#f5b51b;
-  --text:#181814;
-  --muted:#716e64;
-  --white:#ffffff;
-  --line:rgba(255,255,255,.12);
-  --shadow:0 25px 70px rgba(0,0,0,.22);
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:"DM Sans",sans-serif;
-  background:var(--cream);
-  color:var(--text);
-  overflow-x:hidden;
-}
-
-button,input,textarea{
-  font-family:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-img{
-  display:block;
-  width:100%;
-}
-
-/* =========================
-TOP BAR
-========================= */
-
-.topbar{
-  background:#090908;
-  color:#eee9da;
-  padding:10px 18px;
-  text-align:center;
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.3px;
-  position:relative;
-  z-index:20;
-}
-
-.topbar span{
-  color:#ffbd2e;
-}
-
-/* =========================
-NAVIGATION
-========================= */
-
-.nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(12,12,11,.94);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
-}
-
-.nav-inner{
-  max-width:1250px;
-  margin:auto;
-  min-height:78px;
-  padding:0 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.logo{
-  color:white;
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo-icon{
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:var(--cream);
-  font-size:25px;
-}
-
-.logo-text{
-  line-height:.9;
-}
-
-.logo-text strong{
-  display:block;
-  font-family:"Playfair Display",serif;
-  font-size:30px;
-  letter-spacing:2px;
-}
-
-.logo-text small{
-  display:block;
-  color:#ffb629;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:4px;
-  margin-top:6px;
-}
-
-.nav-links{
-  display:flex;
-  gap:28px;
-  align-items:center;
-}
-
-.nav-links a{
-  color:#ddd8ca;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:600;
-}
-
-.nav-links a:hover{
-  color:white;
-}
-
-.cart-btn{
-  border:0;
-  background:var(--orange);
-  color:white;
-  border-radius:999px;
-  padding:13px 20px;
-  font-size:14px;
-  font-weight:800;
-  box-shadow:0 10px 30px rgba(255,90,31,.22);
-}
-
-.cart-btn span{
-  margin-left:5px;
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-  background:
-    radial-gradient(circle at 80% 30%,rgba(255,90,31,.22),transparent 28%),
-    radial-gradient(circle at 15% 70%,rgba(105,114,60,.22),transparent 30%),
-    var(--black);
-  color:white;
-  min-height:720px;
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:auto -10% -180px;
-  height:360px;
-  background:var(--cream);
-  border-radius:50% 50% 0 0;
-}
-
-.hero-inner{
-  width:100%;
-  max-width:1250px;
-  margin:auto;
-  padding:90px 24px 150px;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:70px;
-  align-items:center;
-  position:relative;
-  z-index:2;
-}
-
-.hero-copy{
-  max-width:650px;
-}
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:#ffba25;
-  color:#171510;
-  padding:10px 17px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.7px;
-  margin-bottom:28px;
-}
-
-.hero h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(62px,8vw,112px);
-  line-height:.83;
-  letter-spacing:-5px;
-  margin-bottom:28px;
-}
-
-.hero h1 .orange{
-  color:var(--orange);
-}
-
-.hero-subtitle{
-  font-family:"Playfair Display",serif;
-  font-size:25px;
-  font-style:italic;
-  color:#e9dfc9;
-  margin-bottom:18px;
-}
-
-.hero-description{
-  color:#b9b5aa;
-  max-width:600px;
-  font-size:17px;
-  line-height:1.8;
-}
-
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:13px;
-  margin-top:32px;
-}
-
-.btn{
-  border:0;
-  border-radius:15px;
-  padding:16px 25px;
-  font-size:15px;
-  font-weight:900;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  transition:.25s ease;
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-}
-
-.btn-primary{
-  background:var(--gold);
-  color:#171510;
-}
-
-.btn-dark{
-  background:transparent;
-  border:1px solid #57554d;
-  color:white;
-}
-
-.hero-visual{
-  position:relative;
-  min-height:500px;
-}
-
-.hero-card{
-  position:absolute;
-  border-radius:28px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  border:1px solid rgba(255,255,255,.12);
-}
-
-.hero-card.main{
-  width:75%;
-  height:430px;
-  right:0;
-  top:20px;
-  transform:rotate(2deg);
-  background:#222;
-}
-
-.hero-card.small{
-  width:43%;
-  height:210px;
-  left:0;
-  bottom:15px;
-  transform:rotate(-5deg);
-  background:#333;
-  z-index:3;
-}
-
-.hero-card img{
-  height:100%;
-  object-fit:cover;
-}
-
-/* =========================
-PHOTO SYSTEM
-========================= */
-
-.food-photo{
-  width:100%;
-  height:100%;
-  min-height:220px;
-  position:relative;
-  overflow:hidden;
-  background:#222;
-}
-
-.food-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  transition:transform .7s ease;
-}
-
-.menu-card:hover .food-photo img,
-.drink-card:hover .drink-photo img{
-  transform:scale(1.045);
-}
-
-.food-photo::after{
-  content:"LUTF";
-  position:absolute;
-  right:16px;
-  bottom:13px;
-  color:rgba(255,255,255,.30);
-  font-family:"Playfair Display",serif;
-  font-size:13px;
-  letter-spacing:3px;
-  text-shadow:0 2px 8px rgba(0,0,0,.5);
-  pointer-events:none;
-}
-
-.photo-placeholder{
-  width:100%;
-  height:100%;
-  min-height:220px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:#eee7d7;
-  padding:30px;
-  background:
-    radial-gradient(circle at 50% 35%,rgba(255,185,40,.14),transparent 35%),
-    linear-gradient(135deg,#25251f,#11110f);
-}
-
-.photo-placeholder .emoji{
-  font-size:52px;
-  margin-bottom:14px;
-}
-
-.photo-placeholder strong{
-  font-family:"Playfair Display",serif;
-  font-size:24px;
-}
-
-.photo-placeholder small{
-  color:#aaa596;
-  margin-top:8px;
-}
-
-/* =========================
-SECTION
-========================= */
-
-.section{
-  max-width:1250px;
-  margin:auto;
-  padding:100px 24px;
-}
-
-.section-head{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:30px;
-  margin-bottom:45px;
-}
-
-.eyebrow{
-  color:var(--olive);
-  text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:11px;
-  font-weight:900;
-  margin-bottom:10px;
-}
-
-.section h2{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(42px,5vw,68px);
-  line-height:.95;
-}
-
-.section-head p{
-  max-width:420px;
-  color:var(--muted);
-  line-height:1.7;
-}
-
-/* =========================
-FEATURE STRIP
-========================= */
-
-.feature-strip{
-  background:var(--black);
-  color:white;
-}
-
-.feature-inner{
-  max-width:1250px;
-  margin:auto;
-  padding:25px 24px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.feature{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:12px;
-}
-
-.feature-icon{
-  width:43px;
-  height:43px;
-  display:grid;
-  place-items:center;
-  background:#292921;
-  border-radius:50%;
-  font-size:20px;
-}
-
-.feature strong{
-  display:block;
-  font-size:13px;
-}
-
-.feature small{
-  display:block;
-  color:#8f8c83;
-  margin-top:3px;
-}
-
-/* =========================
-MENU
-========================= */
-
-.menu-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:28px;
-}
-
-.menu-card{
-  background:white;
-  border:1px solid rgba(30,30,20,.09);
-  border-radius:28px;
-  overflow:hidden;
-  box-shadow:0 15px 50px rgba(60,50,20,.07);
-  transition:.3s ease;
-}
-
-.menu-card:hover{
-  transform:translateY(-7px);
-  box-shadow:0 25px 60px rgba(60,50,20,.14);
-}
-
-.menu-photo{
-  height:320px;
-  overflow:hidden;
-}
-
-.menu-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.menu-content{
-  padding:25px;
-}
-
-.menu-top{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:start;
-}
-
-.menu-title{
-  font-family:"Playfair Display",serif;
-  font-size:30px;
-}
-
-.menu-description{
-  color:#777267;
-  font-size:14px;
-  line-height:1.6;
-  margin-top:7px;
-}
-
-.menu-price{
-  color:var(--orange);
-  font-weight:900;
-  font-size:19px;
-  white-space:nowrap;
-}
-
-.price-row{
-  margin-top:20px;
-  display:grid;
-  gap:10px;
-}
-
-.price-option{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:#f5f1e7;
-  border-radius:14px;
-  padding:12px 14px;
-}
-
-.price-option span:first-child{
-  font-weight:700;
-}
-
-.price-option span:last-child{
-  color:var(--olive-dark);
-  font-weight:900;
-}
-
-.order-item{
-  width:100%;
-  margin-top:14px;
-  border:0;
-  border-radius:13px;
-  background:#171713;
-  color:white;
-  padding:14px;
-  font-weight:800;
-  transition:.2s;
-}
-
-.order-item:hover{
-  background:var(--orange);
-}
-
-/* =========================
-DRINKS
-========================= */
-
-.drinks{
-  background:#151510;
-  color:white;
-}
-
-.drinks .section-head p{
-  color:#a7a49b;
-}
-
-.drinks-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:28px;
-}
-
-.drink-card{
-  border-radius:28px;
-  overflow:hidden;
-  background:#22221c;
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.drink-photo{
-  height:350px;
-  overflow:hidden;
-}
-
-.drink-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .7s ease;
-}
-
-.drink-content{
-  padding:25px;
-}
-
-.drink-content h3{
-  font-family:"Playfair Display",serif;
-  font-size:30px;
-}
-
-.drink-content p{
-  color:#aaa79c;
-  margin:8px 0 18px;
-  line-height:1.6;
-}
-
-.drink-price{
-  color:#ffbd2e;
-  font-size:22px;
-  font-weight:900;
-}
-
-/* =========================
-CRAVING
-========================= */
-
-.craving{
-  background:var(--orange);
-  color:#171510;
-}
-
-.craving-inner{
-  max-width:1250px;
-  margin:auto;
-  padding:90px 24px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-
-.craving h2{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(45px,6vw,75px);
-  line-height:.95;
-}
-
-.craving p{
-  margin-top:20px;
-  font-size:17px;
-  line-height:1.8;
-  max-width:570px;
-}
-
-.craving-list{
-  display:grid;
-  gap:12px;
-}
-
-.craving-point{
-  background:rgba(255,255,255,.18);
-  border:1px solid rgba(255,255,255,.25);
-  padding:17px;
-  border-radius:16px;
-  font-weight:800;
-}
-
-/* =========================
-ORDER PROCESS
-========================= */
-
-.order-section{
-  background:#eee6d5;
-}
-
-.order-steps{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.step{
-  background:white;
-  border-radius:23px;
-  padding:30px;
-  border:1px solid rgba(0,0,0,.06);
-}
-
-.step-number{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  background:var(--olive);
-  color:white;
-  display:grid;
-  place-items:center;
-  font-weight:900;
-  margin-bottom:20px;
-}
-
-.step h3{
-  font-family:"Playfair Display",serif;
-  font-size:25px;
-}
-
-.step p{
-  margin-top:8px;
-  color:var(--muted);
-  line-height:1.7;
-}
-
-/* =========================
-LOCATION
-========================= */
-
-.location-box{
-  background:var(--black);
-  color:white;
-  border-radius:30px;
-  overflow:hidden;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  box-shadow:var(--shadow);
-}
-
-.location-info{
-  padding:55px;
-}
-
-.location-info h2{
-  font-family:"Playfair Display",serif;
-  font-size:50px;
-}
-
-.location-info p{
-  color:#aaa79d;
-  line-height:1.8;
-  margin-top:17px;
-}
-
-.address{
-  background:#1d1d18;
-  padding:20px;
-  border-radius:17px;
-  margin:25px 0;
-  color:#eee9db;
-}
-
-.map-btn{
-  display:inline-flex;
-  text-decoration:none;
-  background:#f5b51b;
-  color:#171510;
-  padding:15px 20px;
-  border-radius:13px;
-  font-weight:900;
-}
-
-.location-visual{
-  min-height:420px;
-  background:
-    radial-gradient(circle at 50% 50%,rgba(245,181,27,.25),transparent 25%),
-    linear-gradient(135deg,#26261e,#0b0b09);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px;
-}
-
-.location-pin{
-  font-size:70px;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-footer{
-  background:#080807;
-  color:white;
-  padding:65px 24px 30px;
-}
-
-.footer-inner{
-  max-width:1250px;
-  margin:auto;
-}
-
-.footer-top{
-  display:grid;
-  grid-template-columns:1.3fr 1fr 1fr;
-  gap:50px;
-  padding-bottom:50px;
-  border-bottom:1px solid #24241f;
-}
-
-.footer-brand h2{
-  font-family:"Playfair Display",serif;
-  font-size:48px;
-}
-
-.footer-brand p{
-  color:#918e84;
-  max-width:400px;
-  line-height:1.7;
-  margin-top:12px;
-}
-
-footer h3{
-  margin-bottom:15px;
-}
-
-footer a{
-  color:#a8a59b;
-  text-decoration:none;
-  display:block;
-  margin:10px 0;
-}
-
-.footer-bottom{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  color:#66645d;
-  padding-top:25px;
-  font-size:13px;
-}
-
-/* =========================
-FLOATING CART
-========================= */
-
-.floating-cart{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  z-index:90;
-  background:var(--orange);
-  color:white;
-  border:0;
-  border-radius:999px;
-  padding:16px 21px;
-  font-weight:900;
-  box-shadow:0 15px 40px rgba(0,0,0,.25);
-}
-
-/* =========================
-MODALS
-========================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  backdrop-filter:blur(8px);
-  z-index:300;
-  display:none;
-  align-items:flex-end;
-  justify-content:center;
-}
-
-.modal.active{
-  display:flex;
-}
-
-.modal-box{
-  width:min(650px,100%);
-  max-height:92vh;
-  overflow:auto;
-  background:var(--cream);
-  border-radius:30px 30px 0 0;
-  padding:28px;
-  animation:slideUp .3s ease;
-}
-
-@keyframes slideUp{
-  from{transform:translateY(100%)}
-  to{transform:translateY(0)}
-}
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
-}
-
-.modal-head h2{
-  font-family:"Playfair Display",serif;
-  font-size:35px;
-}
-
-.close{
-  width:43px;
-  height:43px;
-  border:0;
-  border-radius:50%;
-  background:#e8deca;
-  font-size:22px;
-}
-
-.cart-items{
-  display:grid;
-  gap:10px;
-}
-
-.cart-row{
-  background:white;
-  padding:15px;
-  border-radius:15px;
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.cart-row small{
-  display:block;
-  color:#777;
-  margin-top:4px;
-}
-
-.cart-controls{
-  display:flex;
-  align-items:center;
-  gap:7px;
-}
-
-.qty{
-  width:34px;
-  height:34px;
-  border:1px solid #d5ccb9;
-  background:white;
-  border-radius:9px;
-  font-weight:900;
-}
-
-.cart-total{
-  background:#e9dfc9;
-  border-radius:18px;
-  padding:18px;
-  margin-top:18px;
-}
-
-.total-line{
-  display:flex;
-  justify-content:space-between;
-  margin:7px 0;
-}
-
-.total-line.final{
-  font-size:23px;
-  font-weight:900;
-  border-top:1px dashed #aaa;
-  padding-top:13px;
-  margin-top:13px;
-}
-
-.form{
-  margin-top:20px;
-  display:grid;
-  gap:12px;
-}
-
-.form label{
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:1px;
-}
-
-.form input,
-.form textarea{
-  width:100%;
-  border:1px solid #d8cfbd;
-  background:white;
-  border-radius:13px;
-  padding:14px;
-  outline:none;
-  font-size:15px;
-}
-
-.form textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-.whatsapp{
-  width:100%;
-  border:0;
-  background:#20d366;
-  color:white;
-  border-radius:14px;
-  padding:16px;
-  margin-top:15px;
-  font-weight:900;
-  font-size:15px;
-}
-
-.payment{
-  width:100%;
-  border:1px solid var(--olive);
-  background:white;
-  color:var(--olive-dark);
-  border-radius:14px;
-  padding:16px;
-  margin-top:10px;
-  font-weight:900;
-}
-
-.empty{
-  padding:35px;
-  text-align:center;
-  color:#777;
-}
-
-/* =========================
-PAYMENT
-========================= */
-
-.payment-box{
-  text-align:center;
-}
-
-.payment-box h2{
-  font-family:"Playfair Display",serif;
-  font-size:38px;
-}
-
-.upi-id{
-  background:#fff;
-  border:1px dashed #aaa;
-  padding:16px;
-  border-radius:14px;
-  margin:20px 0;
-  font-weight:900;
-  word-break:break-all;
-}
-
-.pay-btn{
-  display:block;
-  width:100%;
-  border:0;
-  background:var(--olive);
-  color:white;
-  padding:17px;
-  border-radius:14px;
-  font-weight:900;
-  font-size:16px;
-}
-
-/* =========================
-TOAST
-========================= */
-
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:90px;
-  transform:translate(-50%,20px);
-  background:#171713;
-  color:white;
-  padding:13px 18px;
-  border-radius:999px;
-  opacity:0;
-  pointer-events:none;
-  z-index:500;
-  transition:.3s;
-  font-size:13px;
-  font-weight:700;
-}
-
-.toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:900px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .hero-inner{
-    grid-template-columns:1fr;
-    gap:35px;
-  }
-
-  .hero{
-    min-height:auto;
-  }
-
-  .hero-visual{
-    min-height:400px;
-  }
-
-  .menu-grid,
-  .drinks-grid,
-  .craving-inner,
-  .location-box{
-    grid-template-columns:1fr;
-  }
-
-  .feature-inner{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .order-steps{
-    grid-template-columns:1fr;
-  }
-
-  .footer-top{
-    grid-template-columns:1fr;
-  }
-
-  .location-info{
-    padding:35px 25px;
-  }
-
-  .location-info h2{
-    font-size:42px;
-  }
-}
-
-@media(max-width:600px){
-
-  .topbar{
-    font-size:11px;
-  }
-
-  .nav-inner{
-    padding:0 15px;
-    min-height:70px;
-  }
-
-  .logo-text strong{
-    font-size:25px;
-  }
-
-  .cart-btn{
-    padding:11px 14px;
-  }
-
-  .hero-inner{
-    padding:70px 20px 120px;
-  }
-
-  .hero h1{
-    font-size:68px;
-    letter-spacing:-3px;
-  }
-
-  .hero-subtitle{
-    font-size:21px;
-  }
-
-  .hero-description{
-    font-size:15px;
-  }
-
-  .hero-visual{
-    min-height:330px;
-  }
-
-  .hero-card.main{
-    height:300px;
-  }
-
-  .hero-card.small{
-    height:160px;
-  }
-
-  .section{
-    padding:75px 18px;
-  }
-
-  .section-head{
-    display:block;
-  }
-
-  .section-head p{
-    margin-top:15px;
-  }
-
-  .menu-grid,
-  .drinks-grid{
-    gap:18px;
-  }
-
-  .menu-photo,
-  .drink-photo{
-    height:260px;
-  }
-
-  .menu-content{
-    padding:20px;
-  }
-
-  .menu-title{
-    font-size:25px;
-  }
-
-  .feature-inner{
-    grid-template-columns:1fr 1fr;
-    padding:18px 12px;
-  }
-
-  .feature{
-    padding:8px;
-  }
-
-  .feature small{
-    font-size:10px;
-  }
-
-  .craving-inner{
-    padding:70px 20px;
-  }
-
-  .footer-bottom{
-    display:block;
-  }
-
-  .footer-bottom div:last-child{
-    margin-top:8px;
-  }
-
-  .floating-cart{
-    right:15px;
-    bottom:15px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="topbar">
-  🛵 <span>DELIVERY WITHIN 3 KM</span> · ₹10 PER KM · Freshly prepared with care
-</div>
-
-<nav class="nav">
-  <div class="nav-inner">
-
-    <a href="#home" class="logo">
-      <div class="logo-icon">🍜</div>
-      <div class="logo-text">
-        <strong>LUTF</strong>
-        <small>BITES & DRINKS</small>
-      </div>
-    </a>
-
-    <div class="nav-links">
-      <a href="#menu">Menu</a>
-      <a href="#drinks">Drinks</a>
-      <a href="#visit">Visit</a>
-    </div>
-
-    <button class="cart-btn" onclick="openCart()">
-      🛒 Cart <span id="cartCount">0</span>
-    </button>
-
-  </div>
-</nav>
-
-<section class="hero" id="home">
-
-  <div class="hero-inner">
-
-    <div class="hero-copy">
-
-      <div class="badge">
-        ✦ FRESHLY PREPARED
-      </div>
-
-      <h1>
-        GOOD<br>
-        FOOD<br>
-        <span class="orange">GOOD</span><br>
-        <span class="orange">MOOD</span>
-      </h1>
-
-      <div class="hero-subtitle">
-        Great Taste. Honest Price. ♥
-      </div>
-
-      <p class="hero-description">
-        Hot momos, wok-tossed chowmein, crispy spring rolls
-        and refreshing drinks — prepared fresh when you order.
-      </p>
-
-      <div class="hero-actions">
-
-        <a href="#menu" class="btn btn-primary">
-          ORDER NOW →
-        </a>
-
-        <a href="#menu" class="btn btn-dark">
-          VIEW MENU
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="hero-visual">
-
-      <div class="hero-card main">
-
-        <div class="food-photo">
-
-          <!-- REAL STEAMED MOMO PHOTO -->
-          <img
-            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_366/jtdakp6jfggorsymoyti"
-            alt="Chicken Steamed Momos"
-            loading="eager"
-            onerror="imageFallback(this,'🥟','Chicken Steamed Momos')">
-
-        </div>
-
-      </div>
-
-      <div class="hero-card small">
-
-        <div class="food-photo">
-
-          <!-- WATERMELON MOJITO PHOTO -->
-          <img
-            src="https://cdn.savorystride.com/wp-content/uploads/2025/06/Non-Alcoholic-Watermelon-Mojito-Refreshing-Summer-Sip.webp"
-            alt="Watermelon Mojito"
-            loading="lazy"
-            onerror="imageFallback(this,'🍉','Watermelon Mojito')">
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<div class="feature-strip">
-
-  <div class="feature-inner">
-
-    <div class="feature">
-      <div class="feature-icon">🥬</div>
-      <div>
-        <strong>FRESH INGREDIENTS</strong>
-        <small>Prepared with care</small>
-      </div>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🛡️</div>
-      <div>
-        <strong>HYGIENIC & SAFE</strong>
-        <small>Clean preparation</small>
-      </div>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">❤️</div>
-      <div>
-        <strong>GREAT TASTE</strong>
-        <small>Made to crave</small>
-      </div>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">💰</div>
-      <div>
-        <strong>POCKET FRIENDLY</strong>
-        <small>Honest prices</small>
-      </div>
-    </div>
-
-  </div>
-
-</div>
-
-<section class="section" id="menu">
-
-  <div class="section-head">
-
-    <div>
-      <div class="eyebrow">LUTF MENU</div>
-      <h2>Made to make<br>you hungry.</h2>
-    </div>
-
-    <p>
-      Choose your favourite. Every order is prepared fresh,
-      packed carefully and served with the LUTF promise:
-      <strong>Great Taste. Honest Price.</strong>
-    </p>
-
-  </div>
-
-  <div class="menu-grid">
-
-    <!-- CHICKEN STEAMED MOMOS -->
-
-    <article class="menu-card">
-
-      <div class="menu-photo">
-
-        <img
-          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_366/jtdakp6jfggorsymoyti"
-          alt="Chicken Steamed Momos"
-          loading="lazy"
-          onerror="imageFallback(this,'🥟','Chicken Steamed Momos')">
-
-      </div>
-
-      <div class="menu-content">
-
-        <div class="menu-top">
-
-          <div>
-            <h3 class="menu-title">Chicken Steamed Momos</h3>
-
-            <p class="menu-description">
-              Juicy filling · soft wrapper · spicy chutney
-            </p>
-          </div>
-
-          <div class="menu-price">₹50+</div>
-
-        </div>
-
-        <div class="price-row">
-
-          <div class="price-option">
-            <span>HALF</span>
-            <span>₹50</span>
-          </div>
-
-          <div class="price-option">
-            <span>FULL</span>
-            <span>₹100</span>
-          </div>
-
-        </div>
-
-        <button
-          class="order-item"
-          onclick="addItem('Chicken Steamed Momos — Half',50)">
-          ADD HALF · ₹50
-        </button>
-
-        <button
-          class="order-item"
-          onclick="addItem('Chicken Steamed Momos — Full',100)">
-          ADD FULL · ₹100
-        </button>
-
-      </div>
-
-    </article>
-
-
-    <!-- CHICKEN FRIED MOMOS -->
-
-    <article class="menu-card">
-
-      <div class="menu-photo">
-
-        <img
-          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto/FOOD_CATALOG/IMAGES/CMS/2025/1/7/2a2de801-a235-4178-b573-9c2751f45c36_4a7ac4a3-19a3-4216-bd02-bb7df3617b46.jpg"
-          alt="Chicken Fried Momos"
-          loading="lazy"
-          onerror="imageFallback(this,'🔥','Chicken Fried Momos')">
-
-      </div>
-
-      <div class="menu-content">
-
-        <div class="menu-top">
-
-          <div>
-            <h3 class="menu-title">Chicken Fried Momos</h3>
-
-            <p class="menu-description">
-              Crispy outside · juicy inside · bold flavour
-            </p>
-          </div>
-
-          <div class="menu-price">₹60+</div>
-
-        </div>
-
-        <div class="price-row">
-
-          <div class="price-option">
-            <span>HALF</span>
-            <span>₹60</span>
-          </div>
-
-          <div class="price-option">
-            <span>FULL</span>
-            <span>₹110</span>
-          </div>
-
-        </div>
-
-        <button
-          class="order-item"
-          onclick="addItem('Chicken Fried Momos — Half',60)">
-          ADD HALF · ₹60
-        </button>
-
-        <button
-          class="order-item"
-          onclick="addItem('Chicken Fried Momos — Full',110)">
-          ADD FULL · ₹110
-        </button>
-
-      </div>
-
-    </article>
-
-
-    <!-- VEG SPRING ROLLS -->
-
-    <article class="menu-card">
-
-      <div class="menu-photo">
-
-        <img
-          src="https://www.betheshyft.com/wp-content/uploads/2023/12/vegetable-spring-roll.jpg"
-          alt="Veg Spring Rolls"
-          loading="lazy"
-          onerror="imageFallback(this,'🌯','Veg Spring Rolls')">
-
-      </div>
-
-      <div class="menu-content">
-
-        <div class="menu-top">
-
-          <div>
-            <h3 class="menu-title">Veg Spring Rolls</h3>
-
-            <p class="menu-description">
-              Crispy outside · delicious vegetable filling
-            </p>
-          </div>
-
-          <div class="menu-price">₹50</div>
-
-        </div>
-
-        <button
-          class="order-item"
-          onclick="addItem('Veg Spring Rolls',50)">
-          ADD TO CART · ₹50
-        </button>
-
-      </div>
-
-    </article>
-
-
-    <!-- CHICKEN SPRING ROLLS -->
-
-    <article class="menu-card">
-
-      <div class="menu-photo">
-
-        <img
-          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_300%2Ch_300%2Cc_fit/FOOD_CATALOG/IMAGES/CMS/2026/6/8/78836428-e9ba-4731-8052-5b8e5817667b_419f0412-1558-4872-a4a1-281d1a6b9d8a.jpeg"
-          alt="Chicken Spring Rolls"
-          loading="lazy"
-          onerror="imageFallback(this,'🌯','Chicken Spring Rolls')">
-
-      </div>
-
-      <div class="menu-content">
-
-        <div class="menu-top">
-
-          <div>
-            <h3 class="menu-title">Chicken Spring Rolls</h3>
-
-            <p class="menu-description">
-              Crispy golden roll · savoury chicken filling
-            </p>
-          </div>
-
-          <div class="menu-price">₹80</div>
-
-        </div>
-
-        <button
-          class="order-item"
-          onclick="addItem('Chicken Spring Rolls',80)">
-          ADD TO CART · ₹80
-        </button>
-
-      </div>
-
-    </article>
-
-
-    <!-- VEG CHOWMEIN -->
-
-    <article class="menu-card">
-
-      <div class="menu-photo">
-
-        <img
-          src="https://images.unsplash.com/photo-1625398407796-82650a8c3a8c?auto=format&fit=crop&w=1200&q=85"
-          alt="Vegetable Chowmein"
-          loading="lazy"
-          onerror="imageFallback(this,'🍜','Veg Chowmein')">
-
-      </div>
-
-      <div class="menu-content">
-
-        <div class="menu-top">
-
-          <div>
-            <h3 class="menu-title">Veg Chowmein</h3>
-
-            <p class="menu-description">
-              Wok tossed · vegetables · full of flavour
-            </p>
-          </div>
-
-          <div class="menu-price">₹40+</div>
-
-        </div>
-
-        <div class="price-row">
-
-          <div class="price-option">
-            <span>HALF</span>
-            <span>₹40</span>
-          </div>
-
-          <div class="price-option">
-            <span>FULL</span>
-            <span>₹70</span>
-          </div>
-
-        </div>
-
-        <button
-          class="order-item"
-          onclick="addItem('Veg Chowmein — Half',40)">
-          ADD HALF · ₹40
-        </button>
-
-        <button
-          class="order-item"
-          onclick="addItem('Veg Chowmein — Full',70)">
-          ADD FULL · ₹70
-        </button>
-
-      </div>
-
-    </article>
-
-
-    <!-- EGG CHOWMEIN -->
-
-    <article class="menu-card">
-
-      <div class="menu-photo">
-
-        <img
-          src="https://hermanathome.com/wp-content/uploads/2025/04/Cantonese-Soy-Sauce-Noodles-Featured.jpg"
-          alt="Egg Chowmein"
-          loading="lazy"
-          onerror="imageFallback(this,'🍜','Egg Chowmein')">
-
-      </div>
-
-      <div class="menu-content">
-
-        <div class="menu-top">
-
-          <div>
-            <h3 class="menu-title">Egg Chowmein</h3>
-
-            <p class="menu-description">
-              Wok tossed noodles · egg · vegetables
-            </p>
-          </div>
-
-          <div class="menu-price">₹50+</div>
-
-        </div>
-
-        <div class="price-row">
-
-          <div class="price-option">
-            <span>HALF</span>
-            <span>₹50</span>
-          </div>
-
-          <div class="price-option">
-            <span>FULL</span>
-            <span>₹90</span>
-          </div>
-
-        </div>
-
-        <button
-          class="order-item"
-          onclick="addItem('Egg Chowmein — Half',50)">
-          ADD HALF · ₹50
-        </button>
-
-        <button
-          class="order-item"
-          onclick="addItem('Egg Chowmein — Full',90)">
-          ADD FULL · ₹90
-        </button>
-
-      </div>
-
-    </article>
-
-
-    <!-- CHICKEN CHOWMEIN -->
-
-    <article class="menu-card">
-
-      <div class="menu-photo">
-
-        <img
-          src="https://tb-static.uber.com/prod/image-proc/processed_images/ae2c0eab0b5494fb1d95916e171a6395/a19bb09692310dfd41e49a96c424b3a6.jpeg"
-          alt="Chicken Chowmein"
-          loading="lazy"
-          onerror="imageFallback(this,'🍜','Chicken Chowmein')">
-
-      </div>
-
-      <div class="menu-content">
-
-        <div class="menu-top">
-
-          <div>
-            <h3 class="menu-title">Chicken Chowmein</h3>
-
-            <p class="menu-description">
-              Wok tossed noodles · chicken · vegetables
-            </p>
-          </div>
-
-          <div class="menu-price">₹60+</div>
-
-        </div>
-
-        <div class="price-row">
-
-          <div class="price-option">
-            <span>HALF</span>
-            <span>₹60</span>
-          </div>
-
-          <div class="price-option">
-            <span>FULL</span>
-            <span>₹110</span>
-          </div>
-
-        </div>
-
-        <button
-          class="order-item"
-          onclick="addItem('Chicken Chowmein — Half',60)">
-          ADD HALF · ₹60
-        </button>
-
-        <button
-          class="order-item"
-          onclick="addItem('Chicken Chowmein — Full',110)">
-          ADD FULL · ₹110
-        </button>
-
-      </div>
-
-    </article>
-
-  </div>
-
-</section>
-
-
-<!-- DRINKS -->
-
-<section class="drinks" id="drinks">
-
-  <div class="section">
-
-    <div class="section-head">
-
-      <div>
-
-        <div class="eyebrow" style="color:#ffbd2e">
-          REFRESHMENTS
-        </div>
-
-        <h2>
-          Something cold.<br>
-          Something warm.
-        </h2>
-
-      </div>
-
-      <p>
-        Pair your favourite bite with a refreshing drink
-        or a comforting cup of hot Kadak Masala Chai.
-      </p>
-
-    </div>
-
-
-    <div class="drinks-grid">
-
-
-      <!-- WATERMELON MOJITO -->
-
-      <article class="drink-card">
-
-        <div class="drink-photo">
-
-          <img
-            src="https://cdn.savorystride.com/wp-content/uploads/2025/06/Non-Alcoholic-Watermelon-Mojito-Refreshing-Summer-Sip.webp"
-            alt="Watermelon Mojito"
-            loading="lazy"
-            onerror="imageFallback(this,'🍉','Watermelon Mojito')">
-
-        </div>
-
-        <div class="drink-content">
-
-          <h3>Watermelon Mojito</h3>
-
-          <p>
-            Chilled watermelon · mint · lime · refreshing fizz.
-          </p>
-
-          <div class="drink-price">
-            ₹100
-          </div>
-
-          <button
-            class="order-item"
-            onclick="addItem('Watermelon Mojito',100)">
-            ADD TO CART · ₹100
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- KADAK MASALA CHAI -->
-
-      <article class="drink-card">
-
-        <div class="drink-photo">
-
-          <img
-            src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=1200&q=85"
-            alt="Kadak Masala Chai"
-            loading="lazy"
-            onerror="imageFallback(this,'☕','Kadak Masala Chai')">
-
-        </div>
-
-        <div class="drink-content">
-
-          <h3>Kadak Masala Chai</h3>
-
-          <p>
-            Hot, aromatic and comforting. The perfect cup while you wait.
-          </p>
-
-          <div class="drink-price">
-            ₹20 / CUP
-          </div>
-
-          <button
-            class="order-item"
-            onclick="addItem('Kadak Masala Chai',20)">
-            ADD TO CART · ₹20
-          </button>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CRAVING SECTION -->
-
-<section class="craving">
-
-  <div class="craving-inner">
-
-    <div>
-
-      <div class="eyebrow" style="color:#171510">
-        THE LUTF EXPERIENCE
-      </div>
-
-      <h2>
-        You came<br>
-        hungry.
-      </h2>
-
-      <p>
-        We want you leaving with that little feeling:
-        <strong>"I should come back again."</strong>
-      </p>
-
-    </div>
-
-    <div class="craving-list">
-
-      <div class="craving-point">
-        🥟 Hot momos made fresh
-      </div>
-
-      <div class="craving-point">
-        🍜 Wok-tossed noodles
-      </div>
-
-      <div class="craving-point">
-        🌯 Crispy spring rolls
-      </div>
-
-      <div class="craving-point">
-        🍉 Refreshing drinks
-      </div>
-
-      <div class="craving-point">
-        ❤️ Great taste. Honest price.
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ORDER PROCESS -->
-
-<section class="section order-section">
-
-  <div class="section-head">
-
-    <div>
-
-      <div class="eyebrow">
-        EASY ORDERING
-      </div>
-
-      <h2>
-        Hungry?<br>
-        Keep it simple.
-      </h2>
-
-    </div>
-
-    <p>
-      Select your food, enter your details and confirm your
-      order directly with LUTF on WhatsApp.
-    </p>
-
-  </div>
-
-
-  <div class="order-steps">
-
-    <div class="step">
-
-      <div class="step-number">
-        01
-      </div>
-
-      <h3>
-        Choose your food
-      </h3>
-
-      <p>
-        Add your favourite momos, chowmein, spring rolls
-        and drinks to your cart.
-      </p>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        02
-      </div>
-
-      <h3>
-        Tell us where
-      </h3>
-
-      <p>
-        Enter your name, phone number and delivery address.
-        Delivery is available within 3 KM.
-      </p>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="step-number">
-        03
-      </div>
-
-      <h3>
-        Confirm on WhatsApp
-      </h3>
-
-      <p>
-        Your complete order is prepared as a WhatsApp message
-        so LUTF can confirm it with you.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- LOCATION -->
-
-<section class="section" id="visit">
-
-  <div class="location-box">
-
-    <div class="location-info">
-
-      <div class="eyebrow" style="color:#ffbd2e">
-        COME VISIT US
-      </div>
-
-      <h2>
-        Find your<br>
-        way to LUTF.
-      </h2>
-
-      <p>
-        Prefer to pick up your food yourself?
-        Come visit us at our location.
-      </p>
-
-      <div class="address">
-
-        📍 <strong>
-          Opp. Madrasa Markaz Al Ma'arif
-        </strong>
-
-        <br>
-
-        Madina Hills
-
-        <br>
-
-        Bathindi — Safa Valley Road
-
-      </div>
-
-      <a
-        class="map-btn"
-        href="https://share.google/xMkWV7SxXgbXNU1UD"
-        target="_blank"
-        rel="noopener">
-
-        📍 GET DIRECTIONS
-
-      </a>
-
-    </div>
-
-
-    <div class="location-visual">
-
-      <div>
-
-        <div class="location-pin">
-          📍
-        </div>
-
-        <h3 style="font-size:24px;margin-top:10px;">
-          LUTF — Bites & Drinks
-        </h3>
-
-        <p style="color:#aaa;margin-top:7px;">
-          Bathindi · Jammu
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="footer-inner">
-
-    <div class="footer-top">
-
-      <div class="footer-brand">
-
-        <h2>
-          LUTF
-        </h2>
-
-        <p>
-          Bites & Drinks.<br>
-          Great Taste. Honest Price. ♥
-        </p>
-
-      </div>
-
-
-      <div>
-
-        <h3>
-          Explore
-        </h3>
-
-        <a href="#menu">
-          Menu
-        </a>
-
-        <a href="#drinks">
-          Drinks
-        </a>
-
-        <a href="#visit">
-          Location
-        </a>
-
-      </div>
-
-
-      <div>
-
-        <h3>
-          Order
-        </h3>
-
-        <a href="tel:9622302117">
-          📞 9622302117
-        </a>
-
-        <a
-          href="#"
-          onclick="openCart();return false;">
-          🛒 Your Cart
-        </a>
-
-        <a href="#visit">
-          📍 Visit LUTF
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-      <div>
-        © 2026 LUTF — Bites & Drinks
-      </div>
-
-      <div>
-        Freshly prepared with care ♥
-      </div>
-
-    </div>
-
-  </div>
-
-</footer>
-
-
-<!-- FLOATING CART -->
-
-<button
-  class="floating-cart"
-  onclick="openCart()">
-
-  🛒 VIEW CART · ₹
-  <span id="floatingTotal">0</span>
-
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<meta name="theme-color" content="#11110f">  
+<meta name="description" content="LUTF — Bites & Drinks. Fresh momos, spring rolls, chowmein and refreshing drinks in Bathindi.">  
+<title>LUTF — Bites & Drinks</title>  <link rel="preconnect" href="https://fonts.googleapis.com">  
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">  <style>  
+:root{  
+  --black:#0c0c0b;  
+  --black2:#141412;  
+  --cream:#f7f1e4;  
+  --cream2:#eee4cf;  
+  --olive:#69723c;  
+  --olive-dark:#4b532b;  
+  --orange:#ff5a1f;  
+  --gold:#f5b51b;  
+  --text:#181814;  
+  --muted:#716e64;  
+  --white:#ffffff;  
+  --line:rgba(255,255,255,.12);  
+  --shadow:0 25px 70px rgba(0,0,0,.22);  
+}  
+  
+*{  
+  box-sizing:border-box;  
+  margin:0;  
+  padding:0;  
+}  
+  
+html{  
+  scroll-behavior:smooth;  
+}  
+  
+body{  
+  font-family:"DM Sans",sans-serif;  
+  background:var(--cream);  
+  color:var(--text);  
+  overflow-x:hidden;  
+}  
+  
+button,input,textarea{  
+  font-family:inherit;  
+}  
+  
+button{  
+  cursor:pointer;  
+}  
+  
+img{  
+  display:block;  
+  width:100%;  
+}  
+  
+/* =========================  
+TOP BAR  
+========================= */  
+  
+.topbar{  
+  background:#090908;  
+  color:#eee9da;  
+  padding:10px 18px;  
+  text-align:center;  
+  font-size:13px;  
+  font-weight:700;  
+  letter-spacing:.3px;  
+  position:relative;  
+  z-index:20;  
+}  
+  
+.topbar span{  
+  color:#ffbd2e;  
+}  
+  
+/* =========================  
+NAVIGATION  
+========================= */  
+  
+.nav{  
+  position:sticky;  
+  top:0;  
+  z-index:100;  
+  background:rgba(12,12,11,.94);  
+  backdrop-filter:blur(18px);  
+  border-bottom:1px solid var(--line);  
+}  
+  
+.nav-inner{  
+  max-width:1250px;  
+  margin:auto;  
+  min-height:78px;  
+  padding:0 24px;  
+  display:flex;  
+  align-items:center;  
+  justify-content:space-between;  
+  gap:20px;  
+}  
+  
+.logo{  
+  color:white;  
+  text-decoration:none;  
+  display:flex;  
+  align-items:center;  
+  gap:12px;  
+}  
+  
+.logo-icon{  
+  width:45px;  
+  height:45px;  
+  border-radius:50%;  
+  display:grid;  
+  place-items:center;  
+  background:var(--cream);  
+  font-size:25px;  
+}  
+  
+.logo-text{  
+  line-height:.9;  
+}  
+  
+.logo-text strong{  
+  display:block;  
+  font-family:"Playfair Display",serif;  
+  font-size:30px;  
+  letter-spacing:2px;  
+}  
+  
+.logo-text small{  
+  display:block;  
+  color:#ffb629;  
+  font-size:10px;  
+  font-weight:800;  
+  letter-spacing:4px;  
+  margin-top:6px;  
+}  
+  
+.nav-links{  
+  display:flex;  
+  gap:28px;  
+  align-items:center;  
+}  
+  
+.nav-links a{  
+  color:#ddd8ca;  
+  text-decoration:none;  
+  font-size:14px;  
+  font-weight:600;  
+}  
+  
+.nav-links a:hover{  
+  color:white;  
+}  
+  
+.cart-btn{  
+  border:0;  
+  background:var(--orange);  
+  color:white;  
+  border-radius:999px;  
+  padding:13px 20px;  
+  font-size:14px;  
+  font-weight:800;  
+  box-shadow:0 10px 30px rgba(255,90,31,.22);  
+}  
+  
+.cart-btn span{  
+  margin-left:5px;  
+}  
+  
+/* =========================  
+HERO  
+========================= */  
+  
+.hero{  
+  background:  
+    radial-gradient(circle at 80% 30%,rgba(255,90,31,.22),transparent 28%),  
+    radial-gradient(circle at 15% 70%,rgba(105,114,60,.22),transparent 30%),  
+    var(--black);  
+  color:white;  
+  min-height:720px;  
+  display:flex;  
+  align-items:center;  
+  position:relative;  
+  overflow:hidden;  
+}  
+  
+.hero::after{  
+  content:"";  
+  position:absolute;  
+  inset:auto -10% -180px;  
+  height:360px;  
+  background:var(--cream);  
+  border-radius:50% 50% 0 0;  
+}  
+  
+.hero-inner{  
+  width:100%;  
+  max-width:1250px;  
+  margin:auto;  
+  padding:90px 24px 150px;  
+  display:grid;  
+  grid-template-columns:1.05fr .95fr;  
+  gap:70px;  
+  align-items:center;  
+  position:relative;  
+  z-index:2;  
+}  
+  
+.hero-copy{  
+  max-width:650px;  
+}  
+  
+.badge{  
+  display:inline-flex;  
+  align-items:center;  
+  gap:8px;  
+  background:#ffba25;  
+  color:#171510;  
+  padding:10px 17px;  
+  border-radius:999px;  
+  font-size:12px;  
+  font-weight:900;  
+  letter-spacing:.7px;  
+  margin-bottom:28px;  
+}  
+  
+.hero h1{  
+  font-family:"Playfair Display",serif;  
+  font-size:clamp(62px,8vw,112px);  
+  line-height:.83;  
+  letter-spacing:-5px;  
+  margin-bottom:28px;  
+}  
+  
+.hero h1 .orange{  
+  color:var(--orange);  
+}  
+  
+.hero-subtitle{  
+  font-family:"Playfair Display",serif;  
+  font-size:25px;  
+  font-style:italic;  
+  color:#e9dfc9;  
+  margin-bottom:18px;  
+}  
+  
+.hero-description{  
+  color:#b9b5aa;  
+  max-width:600px;  
+  font-size:17px;  
+  line-height:1.8;  
+}  
+  
+.hero-actions{  
+  display:flex;  
+  flex-wrap:wrap;  
+  gap:13px;  
+  margin-top:32px;  
+}  
+  
+.btn{  
+  border:0;  
+  border-radius:15px;  
+  padding:16px 25px;  
+  font-size:15px;  
+  font-weight:900;  
+  text-decoration:none;  
+  display:inline-flex;  
+  align-items:center;  
+  justify-content:center;  
+  transition:.25s ease;  
+}  
+  
+.btn:hover{  
+  transform:translateY(-3px);  
+}  
+  
+.btn-primary{  
+  background:var(--gold);  
+  color:#171510;  
+}  
+  
+.btn-dark{  
+  background:transparent;  
+  border:1px solid #57554d;  
+  color:white;  
+}  
+  
+.hero-visual{  
+  position:relative;  
+  min-height:500px;  
+}  
+  
+.hero-card{  
+  position:absolute;  
+  border-radius:28px;  
+  overflow:hidden;  
+  box-shadow:var(--shadow);  
+  border:1px solid rgba(255,255,255,.12);  
+}  
+  
+.hero-card.main{  
+  width:75%;  
+  height:430px;  
+  right:0;  
+  top:20px;  
+  transform:rotate(2deg);  
+  background:#222;  
+}  
+  
+.hero-card.small{  
+  width:43%;  
+  height:210px;  
+  left:0;  
+  bottom:15px;  
+  transform:rotate(-5deg);  
+  background:#333;  
+  z-index:3;  
+}  
+  
+.hero-card img{  
+  height:100%;  
+  object-fit:cover;  
+}  
+  
+/* =========================  
+PHOTO SYSTEM  
+========================= */  
+  
+.food-photo{  
+  width:100%;  
+  height:100%;  
+  min-height:220px;  
+  position:relative;  
+  overflow:hidden;  
+  background:#222;  
+}  
+  
+.food-photo img{  
+  width:100%;  
+  height:100%;  
+  object-fit:cover;  
+  object-position:center;  
+  transition:transform .7s ease;  
+}  
+  
+.menu-card:hover .food-photo img,  
+.drink-card:hover .drink-photo img{  
+  transform:scale(1.045);  
+}  
+  
+.food-photo::after{  
+  content:"LUTF";  
+  position:absolute;  
+  right:16px;  
+  bottom:13px;  
+  color:rgba(255,255,255,.30);  
+  font-family:"Playfair Display",serif;  
+  font-size:13px;  
+  letter-spacing:3px;  
+  text-shadow:0 2px 8px rgba(0,0,0,.5);  
+  pointer-events:none;  
+}  
+  
+.photo-placeholder{  
+  width:100%;  
+  height:100%;  
+  min-height:220px;  
+  display:flex;  
+  flex-direction:column;  
+  align-items:center;  
+  justify-content:center;  
+  text-align:center;  
+  color:#eee7d7;  
+  padding:30px;  
+  background:  
+    radial-gradient(circle at 50% 35%,rgba(255,185,40,.14),transparent 35%),  
+    linear-gradient(135deg,#25251f,#11110f);  
+}  
+  
+.photo-placeholder .emoji{  
+  font-size:52px;  
+  margin-bottom:14px;  
+}  
+  
+.photo-placeholder strong{  
+  font-family:"Playfair Display",serif;  
+  font-size:24px;  
+}  
+  
+.photo-placeholder small{  
+  color:#aaa596;  
+  margin-top:8px;  
+}  
+  
+/* =========================  
+SECTION  
+========================= */  
+  
+.section{  
+  max-width:1250px;  
+  margin:auto;  
+  padding:100px 24px;  
+}  
+  
+.section-head{  
+  display:flex;  
+  align-items:end;  
+  justify-content:space-between;  
+  gap:30px;  
+  margin-bottom:45px;  
+}  
+  
+.eyebrow{  
+  color:var(--olive);  
+  text-transform:uppercase;  
+  letter-spacing:3px;  
+  font-size:11px;  
+  font-weight:900;  
+  margin-bottom:10px;  
+}  
+  
+.section h2{  
+  font-family:"Playfair Display",serif;  
+  font-size:clamp(42px,5vw,68px);  
+  line-height:.95;  
+}  
+  
+.section-head p{  
+  max-width:420px;  
+  color:var(--muted);  
+  line-height:1.7;  
+}  
+  
+/* =========================  
+FEATURE STRIP  
+========================= */  
+  
+.feature-strip{  
+  background:var(--black);  
+  color:white;  
+}  
+  
+.feature-inner{  
+  max-width:1250px;  
+  margin:auto;  
+  padding:25px 24px;  
+  display:grid;  
+  grid-template-columns:repeat(4,1fr);  
+  gap:15px;  
+}  
+  
+.feature{  
+  display:flex;  
+  align-items:center;  
+  gap:12px;  
+  padding:12px;  
+}  
+  
+.feature-icon{  
+  width:43px;  
+  height:43px;  
+  display:grid;  
+  place-items:center;  
+  background:#292921;  
+  border-radius:50%;  
+  font-size:20px;  
+}  
+  
+.feature strong{  
+  display:block;  
+  font-size:13px;  
+}  
+  
+.feature small{  
+  display:block;  
+  color:#8f8c83;  
+  margin-top:3px;  
+}  
+  
+/* =========================  
+MENU  
+========================= */  
+  
+.menu-grid{  
+  display:grid;  
+  grid-template-columns:repeat(2,1fr);  
+  gap:28px;  
+}  
+  
+.menu-card{  
+  background:white;  
+  border:1px solid rgba(30,30,20,.09);  
+  border-radius:28px;  
+  overflow:hidden;  
+  box-shadow:0 15px 50px rgba(60,50,20,.07);  
+  transition:.3s ease;  
+}  
+  
+.menu-card:hover{  
+  transform:translateY(-7px);  
+  box-shadow:0 25px 60px rgba(60,50,20,.14);  
+}  
+  
+.menu-photo{  
+  height:320px;  
+  overflow:hidden;  
+}  
+  
+.menu-photo img{  
+  width:100%;  
+  height:100%;  
+  object-fit:cover;  
+}  
+  
+.menu-content{  
+  padding:25px;  
+}  
+  
+.menu-top{  
+  display:flex;  
+  justify-content:space-between;  
+  gap:20px;  
+  align-items:start;  
+}  
+  
+.menu-title{  
+  font-family:"Playfair Display",serif;  
+  font-size:30px;  
+}  
+  
+.menu-description{  
+  color:#777267;  
+  font-size:14px;  
+  line-height:1.6;  
+  margin-top:7px;  
+}  
+  
+.menu-price{  
+  color:var(--orange);  
+  font-weight:900;  
+  font-size:19px;  
+  white-space:nowrap;  
+}  
+  
+.price-row{  
+  margin-top:20px;  
+  display:grid;  
+  gap:10px;  
+}  
+  
+.price-option{  
+  display:flex;  
+  align-items:center;  
+  justify-content:space-between;  
+  background:#f5f1e7;  
+  border-radius:14px;  
+  padding:12px 14px;  
+}  
+  
+.price-option span:first-child{  
+  font-weight:700;  
+}  
+  
+.price-option span:last-child{  
+  color:var(--olive-dark);  
+  font-weight:900;  
+}  
+  
+.order-item{  
+  width:100%;  
+  margin-top:14px;  
+  border:0;  
+  border-radius:13px;  
+  background:#171713;  
+  color:white;  
+  padding:14px;  
+  font-weight:800;  
+  transition:.2s;  
+}  
+  
+.order-item:hover{  
+  background:var(--orange);  
+}  
+  
+/* =========================  
+DRINKS  
+========================= */  
+  
+.drinks{  
+  background:#151510;  
+  color:white;  
+}  
+  
+.drinks .section-head p{  
+  color:#a7a49b;  
+}  
+  
+.drinks-grid{  
+  display:grid;  
+  grid-template-columns:repeat(2,1fr);  
+  gap:28px;  
+}  
+  
+.drink-card{  
+  border-radius:28px;  
+  overflow:hidden;  
+  background:#22221c;  
+  border:1px solid rgba(255,255,255,.08);  
+}  
+  
+.drink-photo{  
+  height:350px;  
+  overflow:hidden;  
+}  
+  
+.drink-photo img{  
+  width:100%;  
+  height:100%;  
+  object-fit:cover;  
+  transition:transform .7s ease;  
+}  
+  
+.drink-content{  
+  padding:25px;  
+}  
+  
+.drink-content h3{  
+  font-family:"Playfair Display",serif;  
+  font-size:30px;  
+}  
+  
+.drink-content p{  
+  color:#aaa79c;  
+  margin:8px 0 18px;  
+  line-height:1.6;  
+}  
+  
+.drink-price{  
+  color:#ffbd2e;  
+  font-size:22px;  
+  font-weight:900;  
+}  
+  
+/* =========================  
+CRAVING  
+========================= */  
+  
+.craving{  
+  background:var(--orange);  
+  color:#171510;  
+}  
+  
+.craving-inner{  
+  max-width:1250px;  
+  margin:auto;  
+  padding:90px 24px;  
+  display:grid;  
+  grid-template-columns:1fr 1fr;  
+  gap:60px;  
+  align-items:center;  
+}  
+  
+.craving h2{  
+  font-family:"Playfair Display",serif;  
+  font-size:clamp(45px,6vw,75px);  
+  line-height:.95;  
+}  
+  
+.craving p{  
+  margin-top:20px;  
+  font-size:17px;  
+  line-height:1.8;  
+  max-width:570px;  
+}  
+  
+.craving-list{  
+  display:grid;  
+  gap:12px;  
+}  
+  
+.craving-point{  
+  background:rgba(255,255,255,.18);  
+  border:1px solid rgba(255,255,255,.25);  
+  padding:17px;  
+  border-radius:16px;  
+  font-weight:800;  
+}  
+  
+/* =========================  
+ORDER PROCESS  
+========================= */  
+  
+.order-section{  
+  background:#eee6d5;  
+}  
+  
+.order-steps{  
+  display:grid;  
+  grid-template-columns:repeat(3,1fr);  
+  gap:20px;  
+}  
+  
+.step{  
+  background:white;  
+  border-radius:23px;  
+  padding:30px;  
+  border:1px solid rgba(0,0,0,.06);  
+}  
+  
+.step-number{  
+  width:44px;  
+  height:44px;  
+  border-radius:50%;  
+  background:var(--olive);  
+  color:white;  
+  display:grid;  
+  place-items:center;  
+  font-weight:900;  
+  margin-bottom:20px;  
+}  
+  
+.step h3{  
+  font-family:"Playfair Display",serif;  
+  font-size:25px;  
+}  
+  
+.step p{  
+  margin-top:8px;  
+  color:var(--muted);  
+  line-height:1.7;  
+}  
+  
+/* =========================  
+LOCATION  
+========================= */  
+  
+.location-box{  
+  background:var(--black);  
+  color:white;  
+  border-radius:30px;  
+  overflow:hidden;  
+  display:grid;  
+  grid-template-columns:1fr 1fr;  
+  box-shadow:var(--shadow);  
+}  
+  
+.location-info{  
+  padding:55px;  
+}  
+  
+.location-info h2{  
+  font-family:"Playfair Display",serif;  
+  font-size:50px;  
+}  
+  
+.location-info p{  
+  color:#aaa79d;  
+  line-height:1.8;  
+  margin-top:17px;  
+}  
+  
+.address{  
+  background:#1d1d18;  
+  padding:20px;  
+  border-radius:17px;  
+  margin:25px 0;  
+  color:#eee9db;  
+}  
+  
+.map-btn{  
+  display:inline-flex;  
+  text-decoration:none;  
+  background:#f5b51b;  
+  color:#171510;  
+  padding:15px 20px;  
+  border-radius:13px;  
+  font-weight:900;  
+}  
+  
+.location-visual{  
+  min-height:420px;  
+  background:  
+    radial-gradient(circle at 50% 50%,rgba(245,181,27,.25),transparent 25%),  
+    linear-gradient(135deg,#26261e,#0b0b09);  
+  display:flex;  
+  align-items:center;  
+  justify-content:center;  
+  text-align:center;  
+  padding:40px;  
+}  
+  
+.location-pin{  
+  font-size:70px;  
+}  
+  
+/* =========================  
+FOOTER  
+========================= */  
+  
+footer{  
+  background:#080807;  
+  color:white;  
+  padding:65px 24px 30px;  
+}  
+  
+.footer-inner{  
+  max-width:1250px;  
+  margin:auto;  
+}  
+  
+.footer-top{  
+  display:grid;  
+  grid-template-columns:1.3fr 1fr 1fr;  
+  gap:50px;  
+  padding-bottom:50px;  
+  border-bottom:1px solid #24241f;  
+}  
+  
+.footer-brand h2{  
+  font-family:"Playfair Display",serif;  
+  font-size:48px;  
+}  
+  
+.footer-brand p{  
+  color:#918e84;  
+  max-width:400px;  
+  line-height:1.7;  
+  margin-top:12px;  
+}  
+  
+footer h3{  
+  margin-bottom:15px;  
+}  
+  
+footer a{  
+  color:#a8a59b;  
+  text-decoration:none;  
+  display:block;  
+  margin:10px 0;  
+}  
+  
+.footer-bottom{  
+  display:flex;  
+  justify-content:space-between;  
+  gap:20px;  
+  color:#66645d;  
+  padding-top:25px;  
+  font-size:13px;  
+}  
+  
+/* =========================  
+FLOATING CART  
+========================= */  
+  
+.floating-cart{  
+  position:fixed;  
+  right:20px;  
+  bottom:20px;  
+  z-index:90;  
+  background:var(--orange);  
+  color:white;  
+  border:0;  
+  border-radius:999px;  
+  padding:16px 21px;  
+  font-weight:900;  
+  box-shadow:0 15px 40px rgba(0,0,0,.25);  
+}  
+  
+/* =========================  
+MODALS  
+========================= */  
+  
+.modal{  
+  position:fixed;  
+  inset:0;  
+  background:rgba(0,0,0,.75);  
+  backdrop-filter:blur(8px);  
+  z-index:300;  
+  display:none;  
+  align-items:flex-end;  
+  justify-content:center;  
+}  
+  
+.modal.active{  
+  display:flex;  
+}  
+  
+.modal-box{  
+  width:min(650px,100%);  
+  max-height:92vh;  
+  overflow:auto;  
+  background:var(--cream);  
+  border-radius:30px 30px 0 0;  
+  padding:28px;  
+  animation:slideUp .3s ease;  
+}  
+  
+@keyframes slideUp{  
+  from{transform:translateY(100%)}  
+  to{transform:translateY(0)}  
+}  
+  
+.modal-head{  
+  display:flex;  
+  justify-content:space-between;  
+  align-items:center;  
+  margin-bottom:22px;  
+}  
+  
+.modal-head h2{  
+  font-family:"Playfair Display",serif;  
+  font-size:35px;  
+}  
+  
+.close{  
+  width:43px;  
+  height:43px;  
+  border:0;  
+  border-radius:50%;  
+  background:#e8deca;  
+  font-size:22px;  
+}  
+  
+.cart-items{  
+  display:grid;  
+  gap:10px;  
+}  
+  
+.cart-row{  
+  background:white;  
+  padding:15px;  
+  border-radius:15px;  
+  display:flex;  
+  justify-content:space-between;  
+  gap:15px;  
+}  
+  
+.cart-row small{  
+  display:block;  
+  color:#777;  
+  margin-top:4px;  
+}  
+  
+.cart-controls{  
+  display:flex;  
+  align-items:center;  
+  gap:7px;  
+}  
+  
+.qty{  
+  width:34px;  
+  height:34px;  
+  border:1px solid #d5ccb9;  
+  background:white;  
+  border-radius:9px;  
+  font-weight:900;  
+}  
+  
+.cart-total{  
+  background:#e9dfc9;  
+  border-radius:18px;  
+  padding:18px;  
+  margin-top:18px;  
+}  
+  
+.total-line{  
+  display:flex;  
+  justify-content:space-between;  
+  margin:7px 0;  
+}  
+  
+.total-line.final{  
+  font-size:23px;  
+  font-weight:900;  
+  border-top:1px dashed #aaa;  
+  padding-top:13px;  
+  margin-top:13px;  
+}  
+  
+.form{  
+  margin-top:20px;  
+  display:grid;  
+  gap:12px;  
+}  
+  
+.form label{  
+  font-size:11px;  
+  font-weight:900;  
+  letter-spacing:1px;  
+}  
+  
+.form input,  
+.form textarea{  
+  width:100%;  
+  border:1px solid #d8cfbd;  
+  background:white;  
+  border-radius:13px;  
+  padding:14px;  
+  outline:none;  
+  font-size:15px;  
+}  
+  
+.form textarea{  
+  min-height:90px;  
+  resize:vertical;  
+}  
+  
+.whatsapp{  
+  width:100%;  
+  border:0;  
+  background:#20d366;  
+  color:white;  
+  border-radius:14px;  
+  padding:16px;  
+  margin-top:15px;  
+  font-weight:900;  
+  font-size:15px;  
+}  
+  
+.payment{  
+  width:100%;  
+  border:1px solid var(--olive);  
+  background:white;  
+  color:var(--olive-dark);  
+  border-radius:14px;  
+  padding:16px;  
+  margin-top:10px;  
+  font-weight:900;  
+}  
+  
+.empty{  
+  padding:35px;  
+  text-align:center;  
+  color:#777;  
+}  
+  
+/* =========================  
+PAYMENT  
+========================= */  
+  
+.payment-box{  
+  text-align:center;  
+}  
+  
+.payment-box h2{  
+  font-family:"Playfair Display",serif;  
+  font-size:38px;  
+}  
+  
+.upi-id{  
+  background:#fff;  
+  border:1px dashed #aaa;  
+  padding:16px;  
+  border-radius:14px;  
+  margin:20px 0;  
+  font-weight:900;  
+  word-break:break-all;  
+}  
+  
+.pay-btn{  
+  display:block;  
+  width:100%;  
+  border:0;  
+  background:var(--olive);  
+  color:white;  
+  padding:17px;  
+  border-radius:14px;  
+  font-weight:900;  
+  font-size:16px;  
+}  
+  
+/* =========================  
+TOAST  
+========================= */  
+  
+.toast{  
+  position:fixed;  
+  left:50%;  
+  bottom:90px;  
+  transform:translate(-50%,20px);  
+  background:#171713;  
+  color:white;  
+  padding:13px 18px;  
+  border-radius:999px;  
+  opacity:0;  
+  pointer-events:none;  
+  z-index:500;  
+  transition:.3s;  
+  font-size:13px;  
+  font-weight:700;  
+}  
+  
+.toast.show{  
+  opacity:1;  
+  transform:translate(-50%,0);  
+}  
+  
+/* =========================  
+RESPONSIVE  
+========================= */  
+  
+@media(max-width:900px){  
+  
+  .nav-links{  
+    display:none;  
+  }  
+  
+  .hero-inner{  
+    grid-template-columns:1fr;  
+    gap:35px;  
+  }  
+  
+  .hero{  
+    min-height:auto;  
+  }  
+  
+  .hero-visual{  
+    min-height:400px;  
+  }  
+  
+  .menu-grid,  
+  .drinks-grid,  
+  .craving-inner,  
+  .location-box{  
+    grid-template-columns:1fr;  
+  }  
+  
+  .feature-inner{  
+    grid-template-columns:repeat(2,1fr);  
+  }  
+  
+  .order-steps{  
+    grid-template-columns:1fr;  
+  }  
+  
+  .footer-top{  
+    grid-template-columns:1fr;  
+  }  
+  
+  .location-info{  
+    padding:35px 25px;  
+  }  
+  
+  .location-info h2{  
+    font-size:42px;  
+  }  
+}  
+  
+@media(max-width:600px){  
+  
+  .topbar{  
+    font-size:11px;  
+  }  
+  
+  .nav-inner{  
+    padding:0 15px;  
+    min-height:70px;  
+  }  
+  
+  .logo-text strong{  
+    font-size:25px;  
+  }  
+  
+  .cart-btn{  
+    padding:11px 14px;  
+  }  
+  
+  .hero-inner{  
+    padding:70px 20px 120px;  
+  }  
+  
+  .hero h1{  
+    font-size:68px;  
+    letter-spacing:-3px;  
+  }  
+  
+  .hero-subtitle{  
+    font-size:21px;  
+  }  
+  
+  .hero-description{  
+    font-size:15px;  
+  }  
+  
+  .hero-visual{  
+    min-height:330px;  
+  }  
+  
+  .hero-card.main{  
+    height:300px;  
+  }  
+  
+  .hero-card.small{  
+    height:160px;  
+  }  
+  
+  .section{  
+    padding:75px 18px;  
+  }  
+  
+  .section-head{  
+    display:block;  
+  }  
+  
+  .section-head p{  
+    margin-top:15px;  
+  }  
+  
+  .menu-grid,  
+  .drinks-grid{  
+    gap:18px;  
+  }  
+  
+  .menu-photo,  
+  .drink-photo{  
+    height:260px;  
+  }  
+  
+  .menu-content{  
+    padding:20px;  
+  }  
+  
+  .menu-title{  
+    font-size:25px;  
+  }  
+  
+  .feature-inner{  
+    grid-template-columns:1fr 1fr;  
+    padding:18px 12px;  
+  }  
+  
+  .feature{  
+    padding:8px;  
+  }  
+  
+  .feature small{  
+    font-size:10px;  
+  }  
+  
+  .craving-inner{  
+    padding:70px 20px;  
+  }  
+  
+  .footer-bottom{  
+    display:block;  
+  }  
+  
+  .footer-bottom div:last-child{  
+    margin-top:8px;  
+  }  
+  
+  .floating-cart{  
+    right:15px;  
+    bottom:15px;  
+  }  
+}  
+</style>  </head>  <body>  <div class="topbar">  
+  🛵 <span>DELIVERY WITHIN 3 KM</span> · ₹10 PER KM · Freshly prepared with care  
+</div>  <nav class="nav">  
+  <div class="nav-inner">  <a href="#home" class="logo">  
+  <div class="logo-icon">🍜</div>  
+  <div class="logo-text">  
+    <strong>LUTF</strong>  
+    <small>BITES & DRINKS</small>  
+  </div>  
+</a>  
+
+<div class="nav-links">  
+  <a href="#menu">Menu</a>  
+  <a href="#drinks">Drinks</a>  
+  <a href="#visit">Visit</a>  
+</div>  
+
+<button class="cart-btn" onclick="openCart()">  
+  🛒 Cart <span id="cartCount">0</span>  
 </button>
 
+  </div>  
+</nav>  <section class="hero" id="home">    <div class="hero-inner">  <div class="hero-copy">  
 
-<!-- CART MODAL -->
+  <div class="badge">  
+    ✦ FRESHLY PREPARED  
+  </div>  
 
-<div class="modal" id="cartModal">
+  <h1>  
+    GOOD<br>  
+    FOOD<br>  
+    <span class="orange">GOOD</span><br>  
+    <span class="orange">MOOD</span>  
+  </h1>  
 
-  <div class="modal-box">
+  <div class="hero-subtitle">  
+    Great Taste. Honest Price. ♥  
+  </div>  
 
-    <div class="modal-head">
+  <p class="hero-description">  
+    Hot momos, wok-tossed chowmein, crispy spring rolls  
+    and refreshing drinks — prepared fresh when you order.  
+  </p>  
 
-      <h2>
-        Your Order
-      </h2>
+  <div class="hero-actions">  
 
-      <button
-        class="close"
-        onclick="closeCart()">
-        ×
-      </button>
+    <a href="#menu" class="btn btn-primary">  
+      ORDER NOW →  
+    </a>  
 
-    </div>
+    <a href="#menu" class="btn btn-dark">  
+      VIEW MENU  
+    </a>  
 
+  </div>  
 
-    <div
-      id="cartItems"
-      class="cart-items">
-    </div>
+</div>  
 
+<div class="hero-visual">  
 
-    <div
-      id="cartBottom"
-      style="display:none;">
+  <div class="hero-card main">  
 
-      <div class="cart-total">
+    <div class="food-photo">  
 
-        <div class="total-line">
+      <!-- REAL STEAMED MOMO PHOTO -->  
+      <img  
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_366/jtdakp6jfggorsymoyti"  
+        alt="Chicken Steamed Momos"  
+        loading="eager"  
+        onerror="imageFallback(this,'🥟','Chicken Steamed Momos')">  
 
-          <span>
-            Food subtotal
-          </span>
+    </div>  
 
-          <strong>
-            ₹<span id="subtotal">0</span>
-          </strong>
+  </div>  
 
-        </div>
+  <div class="hero-card small">  
 
+    <div class="food-photo">  
 
-        <div class="total-line">
+      <!-- WATERMELON MOJITO PHOTO -->  
+      <img  
+        src="https://cdn.savorystride.com/wp-content/uploads/2025/06/Non-Alcoholic-Watermelon-Mojito-Refreshing-Summer-Sip.webp"  
+        alt="Watermelon Mojito"  
+        loading="lazy"  
+        onerror="imageFallback(this,'🍉','Watermelon Mojito')">  
 
-          <span>
-            Delivery
-          </span>
+    </div>  
 
-          <strong>
-            ₹<span id="delivery">0</span>
-          </strong>
-
-        </div>
-
-
-        <div class="total-line final">
-
-          <span>
-            Total
-          </span>
-
-          <strong>
-            ₹<span id="grandTotal">0</span>
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <div class="form">
-
-        <label>
-          NAME *
-        </label>
-
-        <input
-          id="customerName"
-          placeholder="Your name">
-
-
-        <label>
-          PHONE *
-        </label>
-
-        <input
-          id="customerPhone"
-          type="tel"
-          placeholder="Your phone number">
-
-
-        <label>
-          DELIVERY ADDRESS *
-        </label>
-
-        <textarea
-          id="customerAddress"
-          placeholder="House / shop / landmark">
-        </textarea>
-
-
-        <label>
-          DISTANCE FROM LUTF (KM) *
-        </label>
-
-        <input
-          id="distance"
-          type="number"
-          min="0"
-          max="3"
-          step="0.1"
-          value="1"
-          oninput="updateCart()">
-
-
-        <label>
-          ORDER NOTE
-        </label>
-
-        <textarea
-          id="orderNote"
-          placeholder="Less spicy, etc.">
-        </textarea>
-
-      </div>
-
-
-      <button
-        class="whatsapp"
-        onclick="sendWhatsApp()">
-
-        📲 CONFIRM ORDER ON WHATSAPP
-
-      </button>
-
-
-      <button
-        class="payment"
-        onclick="openPayment()">
-
-        💳 PAY VIA UPI
-
-      </button>
-
-
-      <p style="
-        color:#777;
-        font-size:12px;
-        line-height:1.6;
-        margin-top:13px;
-      ">
-
-        Delivery is limited to 3 km. ₹10/km is calculated
-        from the distance entered. Please confirm the exact
-        distance with LUTF on WhatsApp.
-
-      </p>
-
-    </div>
-
-  </div>
+  </div>  
 
 </div>
 
+  </div>  </section>  <div class="feature-strip">    <div class="feature-inner">  <div class="feature">  
+  <div class="feature-icon">🥬</div>  
+  <div>  
+    <strong>FRESH INGREDIENTS</strong>  
+    <small>Prepared with care</small>  
+  </div>  
+</div>  
 
-<!-- PAYMENT MODAL -->
+<div class="feature">  
+  <div class="feature-icon">🛡️</div>  
+  <div>  
+    <strong>HYGIENIC & SAFE</strong>  
+    <small>Clean preparation</small>  
+  </div>  
+</div>  
 
-<div class="modal" id="paymentModal">
+<div class="feature">  
+  <div class="feature-icon">❤️</div>  
+  <div>  
+    <strong>GREAT TASTE</strong>  
+    <small>Made to crave</small>  
+  </div>  
+</div>  
 
-  <div class="modal-box">
+<div class="feature">  
+  <div class="feature-icon">💰</div>  
+  <div>  
+    <strong>POCKET FRIENDLY</strong>  
+    <small>Honest prices</small>  
+  </div>  
+</div>
 
-    <div class="modal-head">
+  </div>  </div>  <section class="section" id="menu">    <div class="section-head">  <div>  
+  <div class="eyebrow">LUTF MENU</div>  
+  <h2>Made to make<br>you hungry.</h2>  
+</div>  
 
-      <h2>
-        UPI Payment
-      </h2>
+<p>  
+  Choose your favourite. Every order is prepared fresh,  
+  packed carefully and served with the LUTF promise:  
+  <strong>Great Taste. Honest Price.</strong>  
+</p>
 
-      <button
-        class="close"
-        onclick="closePayment()">
-        ×
-      </button>
+  </div>    <div class="menu-grid">  <!-- CHICKEN STEAMED MOMOS -->  
 
-    </div>
+<article class="menu-card">  
+
+  <div class="menu-photo">  
+
+    <img  
+      src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_366/jtdakp6jfggorsymoyti"  
+      alt="Chicken Steamed Momos"  
+      loading="lazy"  
+      onerror="imageFallback(this,'🥟','Chicken Steamed Momos')">  
+
+  </div>  
+
+  <div class="menu-content">  
+
+    <div class="menu-top">  
+
+      <div>  
+        <h3 class="menu-title">Chicken Steamed Momos</h3>  
+
+        <p class="menu-description">  
+          Juicy filling · soft wrapper · spicy chutney  
+        </p>  
+      </div>  
+
+      <div class="menu-price">₹50+</div>  
+
+    </div>  
+
+    <div class="price-row">  
+
+      <div class="price-option">  
+        <span>HALF</span>  
+        <span>₹50</span>  
+      </div>  
+
+      <div class="price-option">  
+        <span>FULL</span>  
+        <span>₹100</span>  
+      </div>  
+
+    </div>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Chicken Steamed Momos — Half',50)">  
+      ADD HALF · ₹50  
+    </button>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Chicken Steamed Momos — Full',100)">  
+      ADD FULL · ₹100  
+    </button>  
+
+  </div>  
+
+</article>  
 
 
-    <div class="payment-box">
+<!-- CHICKEN FRIED MOMOS -->  
 
-      <div style="font-size:55px;">
-        💳
-      </div>
+<article class="menu-card">  
 
-      <h2>
-        Pay LUTF
-      </h2>
+  <div class="menu-photo">  
 
-      <p style="color:#777;margin-top:8px;">
+    <img  
+      src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto/FOOD_CATALOG/IMAGES/CMS/2025/1/7/2a2de801-a235-4178-b573-9c2751f45c36_4a7ac4a3-19a3-4216-bd02-bb7df3617b46.jpg"  
+      alt="Chicken Fried Momos"  
+      loading="lazy"  
+      onerror="imageFallback(this,'🔥','Chicken Fried Momos')">  
 
-        Your current order total is
-        <strong>
-          ₹<span id="paymentAmount">0</span>
-        </strong>
+  </div>  
 
-      </p>
+  <div class="menu-content">  
+
+    <div class="menu-top">  
+
+      <div>  
+        <h3 class="menu-title">Chicken Fried Momos</h3>  
+
+        <p class="menu-description">  
+          Crispy outside · juicy inside · bold flavour  
+        </p>  
+      </div>  
+
+      <div class="menu-price">₹60+</div>  
+
+    </div>  
+
+    <div class="price-row">  
+
+      <div class="price-option">  
+        <span>HALF</span>  
+        <span>₹60</span>  
+      </div>  
+
+      <div class="price-option">  
+        <span>FULL</span>  
+        <span>₹110</span>  
+      </div>  
+
+    </div>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Chicken Fried Momos — Half',60)">  
+      ADD HALF · ₹60  
+    </button>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Chicken Fried Momos — Full',110)">  
+      ADD FULL · ₹110  
+    </button>  
+
+  </div>  
+
+</article>  
 
 
-      <div class="upi-id">
-        9622302117@ptsbi
-      </div>
+<!-- VEG SPRING ROLLS -->  
+
+<article class="menu-card">  
+
+  <div class="menu-photo">  
+
+    <img  
+      src="https://www.betheshyft.com/wp-content/uploads/2023/12/vegetable-spring-roll.jpg"  
+      alt="Veg Spring Rolls"  
+      loading="lazy"  
+      onerror="imageFallback(this,'🌯','Veg Spring Rolls')">  
+
+  </div>  
+
+  <div class="menu-content">  
+
+    <div class="menu-top">  
+
+      <div>  
+        <h3 class="menu-title">Veg Spring Rolls</h3>  
+
+        <p class="menu-description">  
+          Crispy outside · delicious vegetable filling  
+        </p>  
+      </div>  
+
+      <div class="menu-price">₹50</div>  
+
+    </div>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Veg Spring Rolls',50)">  
+      ADD TO CART · ₹50  
+    </button>  
+
+  </div>  
+
+</article>  
 
 
-      <button
-        class="pay-btn"
-        onclick="payUPI()">
+<!-- CHICKEN SPRING ROLLS -->  
 
-        OPEN UPI APP & PAY
+<article class="menu-card">  
 
-      </button>
+  <div class="menu-photo">  
+
+    <img  
+      src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy%2Cf_auto%2Cq_auto%2Cw_300%2Ch_300%2Cc_fit/FOOD_CATALOG/IMAGES/CMS/2026/6/8/78836428-e9ba-4731-8052-5b8e5817667b_419f0412-1558-4872-a4a1-281d1a6b9d8a.jpeg"  
+      alt="Chicken Spring Rolls"  
+      loading="lazy"  
+      onerror="imageFallback(this,'🌯','Chicken Spring Rolls')">  
+
+  </div>  
+
+  <div class="menu-content">  
+
+    <div class="menu-top">  
+
+      <div>  
+        <h3 class="menu-title">Chicken Spring Rolls</h3>  
+
+        <p class="menu-description">  
+          Crispy golden roll · savoury chicken filling  
+        </p>  
+      </div>  
+
+      <div class="menu-price">₹80</div>  
+
+    </div>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Chicken Spring Rolls',80)">  
+      ADD TO CART · ₹80  
+    </button>  
+
+  </div>  
+
+</article>  
 
 
-      <p style="
-        font-size:12px;
-        color:#777;
-        line-height:1.6;
-        margin-top:15px;
-      ">
+<!-- VEG CHOWMEIN -->  
 
-        After payment, please send your payment confirmation
-        to LUTF on WhatsApp.
+<article class="menu-card">  
 
-      </p>
+  <div class="menu-photo">  
 
-    </div>
+    <img  
+      src="https://images.unsplash.com/photo-1625398407796-82650a8c3a8c?auto=format&fit=crop&w=1200&q=85"  
+      alt="Vegetable Chowmein"  
+      loading="lazy"  
+      onerror="imageFallback(this,'🍜','Veg Chowmein')">  
 
-  </div>
+  </div>  
+
+  <div class="menu-content">  
+
+    <div class="menu-top">  
+
+      <div>  
+        <h3 class="menu-title">Veg Chowmein</h3>  
+
+        <p class="menu-description">  
+          Wok tossed · vegetables · full of flavour  
+        </p>  
+      </div>  
+
+      <div class="menu-price">₹40+</div>  
+
+    </div>  
+
+    <div class="price-row">  
+
+      <div class="price-option">  
+        <span>HALF</span>  
+        <span>₹40</span>  
+      </div>  
+
+      <div class="price-option">  
+        <span>FULL</span>  
+        <span>₹70</span>  
+      </div>  
+
+    </div>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Veg Chowmein — Half',40)">  
+      ADD HALF · ₹40  
+    </button>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Veg Chowmein — Full',70)">  
+      ADD FULL · ₹70  
+    </button>  
+
+  </div>  
+
+</article>  
+
+
+<!-- EGG CHOWMEIN -->  
+
+<article class="menu-card">  
+
+  <div class="menu-photo">  
+
+    <img  
+      src="https://hermanathome.com/wp-content/uploads/2025/04/Cantonese-Soy-Sauce-Noodles-Featured.jpg"  
+      alt="Egg Chowmein"  
+      loading="lazy"  
+      onerror="imageFallback(this,'🍜','Egg Chowmein')">  
+
+  </div>  
+
+  <div class="menu-content">  
+
+    <div class="menu-top">  
+
+      <div>  
+        <h3 class="menu-title">Egg Chowmein</h3>  
+
+        <p class="menu-description">  
+          Wok tossed noodles · egg · vegetables  
+        </p>  
+      </div>  
+
+      <div class="menu-price">₹50+</div>  
+
+    </div>  
+
+    <div class="price-row">  
+
+      <div class="price-option">  
+        <span>HALF</span>  
+        <span>₹50</span>  
+      </div>  
+
+      <div class="price-option">  
+        <span>FULL</span>  
+        <span>₹90</span>  
+      </div>  
+
+    </div>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Egg Chowmein — Half',50)">  
+      ADD HALF · ₹50  
+    </button>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Egg Chowmein — Full',90)">  
+      ADD FULL · ₹90  
+    </button>  
+
+  </div>  
+
+</article>  
+
+
+<!-- CHICKEN CHOWMEIN -->  
+
+<article class="menu-card">  
+
+  <div class="menu-photo">  
+
+    <img  
+      src="https://tb-static.uber.com/prod/image-proc/processed_images/ae2c0eab0b5494fb1d95916e171a6395/a19bb09692310dfd41e49a96c424b3a6.jpeg"  
+      alt="Chicken Chowmein"  
+      loading="lazy"  
+      onerror="imageFallback(this,'🍜','Chicken Chowmein')">  
+
+  </div>  
+
+  <div class="menu-content">  
+
+    <div class="menu-top">  
+
+      <div>  
+        <h3 class="menu-title">Chicken Chowmein</h3>  
+
+        <p class="menu-description">  
+          Wok tossed noodles · chicken · vegetables  
+        </p>  
+      </div>  
+
+      <div class="menu-price">₹60+</div>  
+
+    </div>  
+
+    <div class="price-row">  
+
+      <div class="price-option">  
+        <span>HALF</span>  
+        <span>₹60</span>  
+      </div>  
+
+      <div class="price-option">  
+        <span>FULL</span>  
+        <span>₹110</span>  
+      </div>  
+
+    </div>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Chicken Chowmein — Half',60)">  
+      ADD HALF · ₹60  
+    </button>  
+
+    <button  
+      class="order-item"  
+      onclick="addItem('Chicken Chowmein — Full',110)">  
+      ADD FULL · ₹110  
+    </button>  
+
+  </div>  
+
+</article>
+
+  </div>  </section>  <!-- DRINKS -->  <section class="drinks" id="drinks">    <div class="section">  <div class="section-head">  
+
+  <div>  
+
+    <div class="eyebrow" style="color:#ffbd2e">  
+      REFRESHMENTS  
+    </div>  
+
+    <h2>  
+      Something cold.<br>  
+      Something warm.  
+    </h2>  
+
+  </div>  
+
+  <p>  
+    Pair your favourite bite with a refreshing drink  
+    or a comforting cup of hot Kadak Masala Chai.  
+  </p>  
+
+</div>  
+
+
+<div class="drinks-grid">  
+
+
+  <!-- WATERMELON MOJITO -->  
+
+  <article class="drink-card">  
+
+    <div class="drink-photo">  
+
+      <img  
+        src="https://cdn.savorystride.com/wp-content/uploads/2025/06/Non-Alcoholic-Watermelon-Mojito-Refreshing-Summer-Sip.webp"  
+        alt="Watermelon Mojito"  
+        loading="lazy"  
+        onerror="imageFallback(this,'🍉','Watermelon Mojito')">  
+
+    </div>  
+
+    <div class="drink-content">  
+
+      <h3>Watermelon Mojito</h3>  
+
+      <p>  
+        Chilled watermelon · mint · lime · refreshing fizz.  
+      </p>  
+
+      <div class="drink-price">  
+        ₹100  
+      </div>  
+
+      <button  
+        class="order-item"  
+        onclick="addItem('Watermelon Mojito',100)">  
+        ADD TO CART · ₹100  
+      </button>  
+
+    </div>  
+
+  </article>  
+
+
+  <!-- KADAK MASALA CHAI -->  
+
+  <article class="drink-card">  
+
+    <div class="drink-photo">  
+
+      <img  
+        src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=1200&q=85"  
+        alt="Kadak Masala Chai"  
+        loading="lazy"  
+        onerror="imageFallback(this,'☕','Kadak Masala Chai')">  
+
+    </div>  
+
+    <div class="drink-content">  
+
+      <h3>Kadak Masala Chai</h3>  
+
+      <p>  
+        Hot, aromatic and comforting. The perfect cup while you wait.  
+      </p>  
+
+      <div class="drink-price">  
+        ₹20 / CUP  
+      </div>  
+
+      <button  
+        class="order-item"  
+        onclick="addItem('Kadak Masala Chai',20)">  
+        ADD TO CART · ₹20  
+      </button>  
+
+    </div>  
+
+  </article>  
 
 </div>
 
+  </div>  </section>  <!-- CRAVING SECTION -->  <section class="craving">    <div class="craving-inner">  <div>  
 
-<!-- TOAST -->
+  <div class="eyebrow" style="color:#171510">  
+    THE LUTF EXPERIENCE  
+  </div>  
 
-<div
-  class="toast"
-  id="toast">
+  <h2>  
+    You came<br>  
+    hungry.  
+  </h2>  
+
+  <p>  
+    We want you leaving with that little feeling:  
+    <strong>"I should come back again."</strong>  
+  </p>  
+
+</div>  
+
+<div class="craving-list">  
+
+  <div class="craving-point">  
+    🥟 Hot momos made fresh  
+  </div>  
+
+  <div class="craving-point">  
+    🍜 Wok-tossed noodles  
+  </div>  
+
+  <div class="craving-point">  
+    🌯 Crispy spring rolls  
+  </div>  
+
+  <div class="craving-point">  
+    🍉 Refreshing drinks  
+  </div>  
+
+  <div class="craving-point">  
+    ❤️ Great taste. Honest price.  
+  </div>  
+
 </div>
 
+  </div>  </section>  <!-- ORDER PROCESS -->  <section class="section order-section">    <div class="section-head">  <div>  
 
-<script>
+  <div class="eyebrow">  
+    EASY ORDERING  
+  </div>  
 
-const WHATSAPP_NUMBER = "919622302117";
-const UPI_ID = "9622302117@ptsbi";
-const BUSINESS_NAME = "LUTF — Bites & Drinks";
+  <h2>  
+    Hungry?<br>  
+    Keep it simple.  
+  </h2>  
 
-let cart = [];
+</div>  
 
+<p>  
+  Select your food, enter your details and confirm your  
+  order directly with LUTF on WhatsApp.  
+</p>
 
-/* IMAGE FALLBACK */
+  </div>    <div class="order-steps">  <div class="step">  
 
-function imageFallback(img, emoji, title){
+  <div class="step-number">  
+    01  
+  </div>  
 
-  const box = img.parentElement;
+  <h3>  
+    Choose your food  
+  </h3>  
 
-  box.innerHTML = `
-    <div class="photo-placeholder">
-      <div class="emoji">${emoji}</div>
-      <strong>${title}</strong>
-      <small>Freshly prepared at LUTF</small>
-    </div>
-  `;
+  <p>  
+    Add your favourite momos, chowmein, spring rolls  
+    and drinks to your cart.  
+  </p>  
 
-}
+</div>  
 
 
-/* ADD ITEM */
+<div class="step">  
 
-function addItem(name, price){
+  <div class="step-number">  
+    02  
+  </div>  
 
-  const existing =
-    cart.find(item => item.name === name);
+  <h3>  
+    Tell us where  
+  </h3>  
 
-  if(existing){
+  <p>  
+    Enter your name, phone number and delivery address.  
+    Delivery is available within 3 KM.  
+  </p>  
 
-    existing.qty++;
+</div>  
 
-  }else{
 
-    cart.push({
-      name:name,
-      price:price,
-      qty:1
-    });
+<div class="step">  
 
-  }
+  <div class="step-number">  
+    03  
+  </div>  
 
-  updateCart();
+  <h3>  
+    Confirm on WhatsApp  
+  </h3>  
 
-  showToast("Added to your order ✓");
+  <p>  
+    Your complete order is prepared as a WhatsApp message  
+    so LUTF can confirm it with you.  
+  </p>  
 
-  document.getElementById("cartCount").textContent =
-    cart.reduce(
-      (sum,item)=>sum+item.qty,
-      0
-    );
+</div>
 
-}
+  </div>  </section>  <!-- LOCATION -->  <section class="section" id="visit">    <div class="location-box">  <div class="location-info">  
 
+  <div class="eyebrow" style="color:#ffbd2e">  
+    COME VISIT US  
+  </div>  
 
-/* CHANGE QUANTITY */
+  <h2>  
+    Find your<br>  
+    way to LUTF.  
+  </h2>  
 
-function changeQty(index, amount){
+  <p>  
+    Prefer to pick up your food yourself?  
+    Come visit us at our location.  
+  </p>  
 
-  cart[index].qty += amount;
+  <div class="address">  
 
-  if(cart[index].qty <= 0){
+    📍 <strong>  
+      Opp. Madrasa Markaz Al Ma'arif  
+    </strong>  
 
-    cart.splice(index,1);
+    <br>  
 
-  }
+    Madina Hills  
 
-  updateCart();
+    <br>  
 
-  document.getElementById("cartCount").textContent =
-    cart.reduce(
-      (sum,item)=>sum+item.qty,
-      0
-    );
+    Bathindi — Safa Valley Road  
 
-}
+  </div>  
 
+  <a  
+    class="map-btn"  
+    href="https://share.google/xMkWV7SxXgbXNU1UD"  
+    target="_blank"  
+    rel="noopener">  
 
-/* SUBTOTAL */
+    📍 GET DIRECTIONS  
 
-function getSubtotal(){
+  </a>  
 
-  return cart.reduce(
-    (sum,item)=>
-      sum+(item.price*item.qty),
-    0
-  );
+</div>  
 
-}
 
+<div class="location-visual">  
 
-/* DISTANCE */
+  <div>  
 
-function getDistance(){
+    <div class="location-pin">  
+      📍  
+    </div>  
 
-  let d =
-    parseFloat(
-      document.getElementById("distance")?.value || 0
-    );
+    <h3 style="font-size:24px;margin-top:10px;">  
+      LUTF — Bites & Drinks  
+    </h3>  
 
-  if(isNaN(d)){
-    d=0;
-  }
+    <p style="color:#aaa;margin-top:7px;">  
+      Bathindi · Jammu  
+    </p>  
 
-  return Math.min(
-    Math.max(d,0),
-    3
-  );
+  </div>  
 
-}
+</div>
 
+  </div>  </section>  <!-- FOOTER -->  <footer>    <div class="footer-inner">  <div class="footer-top">  
 
-/* DELIVERY */
+  <div class="footer-brand">  
 
-function getDelivery(){
+    <h2>  
+      LUTF  
+    </h2>  
 
-  return Math.ceil(
-    getDistance()*10
-  );
+    <p>  
+      Bites & Drinks.<br>  
+      Great Taste. Honest Price. ♥  
+    </p>  
 
-}
+  </div>  
 
 
-/* UPDATE CART */
+  <div>  
 
-function updateCart(){
+    <h3>  
+      Explore  
+    </h3>  
 
-  const itemsBox =
-    document.getElementById("cartItems");
+    <a href="#menu">  
+      Menu  
+    </a>  
 
-  const bottom =
-    document.getElementById("cartBottom");
+    <a href="#drinks">  
+      Drinks  
+    </a>  
 
+    <a href="#visit">  
+      Location  
+    </a>  
 
-  if(cart.length === 0){
+  </div>  
 
-    itemsBox.innerHTML = `
 
-      <div class="empty">
+  <div>  
 
-        <div style="font-size:50px;">
-          🛒
-        </div>
+    <h3>  
+      Order  
+    </h3>  
 
-        <h3 style="margin-top:10px;">
-          Your cart is waiting.
-        </h3>
+    <a href="tel:9622302117">  
+      📞 9622302117  
+    </a>  
 
-        <p style="margin-top:7px;">
-          Add something delicious.
-        </p>
+    <a  
+      href="#"  
+      onclick="openCart();return false;">  
+      🛒 Your Cart  
+    </a>  
 
-      </div>
+    <a href="#visit">  
+      📍 Visit LUTF  
+    </a>  
 
-    `;
+  </div>  
 
-    bottom.style.display="none";
+</div>  
 
-  }else{
 
-    itemsBox.innerHTML =
-      cart.map(
-        (item,index)=>`
+<div class="footer-bottom">  
 
-          <div class="cart-row">
+  <div>  
+    © 2026 LUTF — Bites & Drinks  
+  </div>  
 
-            <div>
+  <div>  
+    Freshly prepared with care ♥  
+  </div>  
 
-              <strong>
-                ${escapeHTML(item.name)}
-              </strong>
+</div>
 
-              <small>
-                ₹${item.price} × ${item.qty}
-              </small>
+  </div>  </footer>  <!-- FLOATING CART -->  <button  
+class="floating-cart"  
+onclick="openCart()">
 
-            </div>
+🛒 VIEW CART · ₹
+<span id="floatingTotal">0</span>
 
-            <div class="cart-controls">
+</button>  <!-- CART MODAL -->  <div class="modal" id="cartModal">    <div class="modal-box">  <div class="modal-head">  
 
-              <button
-                class="qty"
-                onclick="changeQty(${index},-1)">
-                −
-              </button>
+  <h2>  
+    Your Order  
+  </h2>  
 
-              <strong>
-                ${item.qty}
-              </strong>
+  <button  
+    class="close"  
+    onclick="closeCart()">  
+    ×  
+  </button>  
 
-              <button
-                class="qty"
-                onclick="changeQty(${index},1)">
-                +
-              </button>
+</div>  
 
-            </div>
 
-          </div>
+<div  
+  id="cartItems"  
+  class="cart-items">  
+</div>  
 
-        `
-      ).join("");
 
-    bottom.style.display="block";
+<div  
+  id="cartBottom"  
+  style="display:none;">  
 
-  }
+  <div class="cart-total">  
 
+    <div class="total-line">  
 
-  const subtotal =
-    getSubtotal();
+      <span>  
+        Food subtotal  
+      </span>  
 
-  const delivery =
-    getDelivery();
+      <strong>  
+        ₹<span id="subtotal">0</span>  
+      </strong>  
 
-  const total =
-    subtotal + delivery;
+    </div>  
 
 
-  document.getElementById("subtotal").textContent =
-    subtotal;
+    <div class="total-line">  
 
-  document.getElementById("delivery").textContent =
-    delivery;
+      <span>  
+        Delivery  
+      </span>  
 
-  document.getElementById("grandTotal").textContent =
-    total;
+      <strong>  
+        ₹<span id="delivery">0</span>  
+      </strong>  
 
-  document.getElementById("floatingTotal").textContent =
-    total;
+    </div>  
 
-  document.getElementById("paymentAmount").textContent =
-    total;
 
-}
+    <div class="total-line final">  
 
+      <span>  
+        Total  
+      </span>  
 
-/* OPEN CART */
+      <strong>  
+        ₹<span id="grandTotal">0</span>  
+      </strong>  
 
-function openCart(){
+    </div>  
 
-  document
-    .getElementById("cartModal")
-    .classList.add("active");
+  </div>  
 
-  updateCart();
 
-  document.body.style.overflow="hidden";
+  <div class="form">  
 
-}
+    <label>  
+      NAME *  
+    </label>  
 
+    <input  
+      id="customerName"  
+      placeholder="Your name">  
 
-/* CLOSE CART */
 
-function closeCart(){
+    <label>  
+      PHONE *  
+    </label>  
 
-  document
-    .getElementById("cartModal")
-    .classList.remove("active");
+    <input  
+      id="customerPhone"  
+      type="tel"  
+      placeholder="Your phone number">  
 
-  document.body.style.overflow="";
 
-}
+    <label>  
+      DELIVERY ADDRESS *  
+    </label>  
 
+    <textarea  
+      id="customerAddress"  
+      placeholder="House / shop / landmark">  
+    </textarea>  
 
-/* WHATSAPP ORDER */
 
-function sendWhatsApp(){
+    <label>  
+      DISTANCE FROM LUTF (KM) *  
+    </label>  
 
-  if(cart.length===0){
+    <input  
+      id="distance"  
+      type="number"  
+      min="0"  
+      max="3"  
+      step="0.1"  
+      value="1"  
+      oninput="updateCart()">  
 
-    showToast(
-      "Add something to your cart first."
-    );
 
-    return;
+    <label>  
+      ORDER NOTE  
+    </label>  
 
-  }
+    <textarea  
+      id="orderNote"  
+      placeholder="Less spicy, etc.">  
+    </textarea>  
 
+  </div>  
 
-  const name =
-    document
-      .getElementById("customerName")
-      .value
-      .trim();
 
+  <button  
+    class="whatsapp"  
+    onclick="sendWhatsApp()">  
 
-  const phone =
-    document
-      .getElementById("customerPhone")
-      .value
-      .trim();
+    📲 CONFIRM ORDER ON WHATSAPP  
 
+  </button>  
 
-  const address =
-    document
-      .getElementById("customerAddress")
-      .value
-      .trim();
 
+  <button  
+    class="payment"  
+    onclick="openPayment()">  
 
-  const distance =
-    getDistance();
+    💳 PAY VIA UPI  
 
+  </button>  
 
-  const note =
-    document
-      .getElementById("orderNote")
-      .value
-      .trim();
 
+  <p style="  
+    color:#777;  
+    font-size:12px;  
+    line-height:1.6;  
+    margin-top:13px;  
+  ">  
 
-  if(!name || !phone || !address){
+    Delivery is limited to 3 km. ₹10/km is calculated  
+    from the distance entered. Please confirm the exact  
+    distance with LUTF on WhatsApp.  
 
-    showToast(
-      "Please fill in your name, phone & address."
-    );
+  </p>  
 
-    return;
+</div>
 
-  }
+  </div>  </div>  <!-- PAYMENT MODAL -->  <div class="modal" id="paymentModal">    <div class="modal-box">  <div class="modal-head">  
 
+  <h2>  
+    UPI Payment  
+  </h2>  
 
-  const subtotal =
-    getSubtotal();
+  <button  
+    class="close"  
+    onclick="closePayment()">  
+    ×  
+  </button>  
 
-  const delivery =
-    getDelivery();
+</div>  
 
-  const total =
-    subtotal + delivery;
 
+<div class="payment-box">  
 
-  let message =
-`🍜 *NEW ORDER — ${BUSINESS_NAME}*
+  <div style="font-size:55px;">  
+    💳  
+  </div>  
 
-━━━━━━━━━━━━━━━━━━
+  <h2>  
+    Pay LUTF  
+  </h2>  
 
-👤 *Customer:* ${name}
-📞 *Phone:* ${phone}
+  <p style="color:#777;margin-top:8px;">  
 
-📍 *Delivery Address:*
-${address}
+    Your current order total is  
+    <strong>  
+      ₹<span id="paymentAmount">0</span>  
+    </strong>  
 
-🚴 *Distance:* ${distance} KM
+  </p>  
 
-━━━━━━━━━━━━━━━━━━
 
-🛒 *ORDER ITEMS*
+  <div class="upi-id">  
+    9622302117@ptsbi  
+  </div>  
 
-`;
 
+  <button  
+    class="pay-btn"  
+    onclick="payUPI()">  
 
-  cart.forEach(item => {
+    OPEN UPI APP & PAY  
 
-    message +=
-`• ${item.name}
-  ${item.qty} × ₹${item.price} = ₹${item.qty*item.price}
+  </button>  
 
-`;
 
-  });
+  <p style="  
+    font-size:12px;  
+    color:#777;  
+    line-height:1.6;  
+    margin-top:15px;  
+  ">  
 
+    After payment, please send your payment confirmation  
+    to LUTF on WhatsApp.  
 
-  message +=
-`━━━━━━━━━━━━━━━━━━
+  </p>  
 
-Food Subtotal: ₹${subtotal}
-Delivery: ₹${delivery}
+</div>
 
-💰 *TOTAL: ₹${total}*
-
-`;
-
-
-  if(note){
-
-    message +=
-`📝 *Order Note:*
-${note}
-
-`;
-
-  }
-
-
-  message +=
-`━━━━━━━━━━━━━━━━━━
-
-Please confirm my order.
-
-Thank you ❤️`;
-
-
-  const url =
-    "https://wa.me/" +
-    WHATSAPP_NUMBER +
-    "?text=" +
-    encodeURIComponent(message);
-
-
-  window.open(
-    url,
-    "_blank"
-  );
-
-}
-
-
-/* PAYMENT */
-
-function openPayment(){
-
-  if(cart.length===0){
-
-    showToast(
-      "Add something to your cart first."
-    );
-
-    return;
-
-  }
-
-
-  document
-    .getElementById("paymentAmount")
-    .textContent =
-      getSubtotal()+getDelivery();
-
-
-  document
-    .getElementById("paymentModal")
-    .classList.add("active");
-
-}
-
-
-function closePayment(){
-
-  document
-    .getElementById("paymentModal")
-    .classList.remove("active");
-
-}
-
-
-function payUPI(){
-
-  const amount =
-    getSubtotal()+getDelivery();
-
-
-  const upiURL =
-    "upi://pay?" +
-    "pa=" +
-    encodeURIComponent(UPI_ID) +
-    "&pn=" +
-    encodeURIComponent(BUSINESS_NAME) +
-    "&am=" +
-    encodeURIComponent(amount) +
-    "&cu=INR" +
-    "&tn=" +
-    encodeURIComponent("LUTF Food Order");
-
-
-  window.location.href =
-    upiURL;
-
-}
-
-
-/* TOAST */
-
-function showToast(message){
-
-  const toast =
-    document.getElementById("toast");
-
-  toast.textContent =
-    message;
-
-  toast.classList.add("show");
-
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },2200);
-
-}
-
-
-/* HTML ESCAPE */
-
-function escapeHTML(value){
-
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* CLOSE CART OUTSIDE */
-
-document
-  .getElementById("cartModal")
-  .addEventListener(
-    "click",
-    function(e){
-
-      if(e.target===this){
-        closeCart();
-      }
-
-    }
-  );
-
-
-/* CLOSE PAYMENT OUTSIDE */
-
-document
-  .getElementById("paymentModal")
-  .addEventListener(
-    "click",
-    function(e){
-
-      if(e.target===this){
-        closePayment();
-      }
-
-    }
-  );
-
-
-/* INITIALIZE */
-
-updateCart();
-
-</script>
-
-<!-- FIREBASE CONNECTION -->
-<script type="module">
-
-  import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
-  import {
-    getFirestore,
-    collection,
-    getDocs,
-    query,
-    limit
-  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyCr9xErno6aK9xW-TeTU_se3jxGihI-zgs",
-    authDomain: "lutf--bites-and-drinks.firebaseapp.com",
-    projectId: "lutf--bites-and-drinks",
-    storageBucket: "lutf--bites-and-drinks.firebasestorage.app",
-    messagingSenderId: "358783917321",
-    appId: "1:358783917321:web:4b506c68b4545667e347d8",
-    measurementId: "G-S5MJFX7CNB"
-  };
-
-
-  // Start Firebase
-  const app = initializeApp(firebaseConfig);
-
-  // Connect Firestore
-  const db = getFirestore(app);
-
-
-  // TEST FIREBASE CONNECTION
-  async function testFirebase(){
-
-    try{
-
-      const q = query(
-        collection(db, "menu"),
-        limit(1)
-      );
-
-      const snapshot = await getDocs(q);
-
-      console.log(
-        "🔥 LUTF Firebase connected successfully."
-      );
-
-      console.log(
-        "Menu documents found:",
-        snapshot.size
-      );
-
-      showToast(
-        "🔥 LUTF is connected to Firebase ✓"
-      );
-
-    }catch(error){
-
-      console.error(
-        "Firebase connection error:",
-        error
-      );
-
-      showToast(
-        "Firebase connection failed"
-      );
-
-    }
-
-  }
-
-
-  testFirebase();
-
-</script>  <!-- FIREBASE MENU SYSTEM -->
-<script type="module">
-
-  import {
-    initializeApp,
-    getApps
-  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
-  import {
-    getFirestore,
-    collection,
-    getDocs
-  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyCr9xErno6aK9xW-TeTU_se3jxGihI-zgs",
-    authDomain: "lutf--bites-and-drinks.firebaseapp.com",
-    projectId: "lutf--bites-and-drinks",
-    storageBucket: "lutf--bites-and-drinks.firebasestorage.app",
-    messagingSenderId: "358783917321",
-    appId: "1:358783917321:web:4b506c68b4545667e347d8",
-    measurementId: "G-S5MJFX7CNB"
-  };
-
-
-  // Use existing Firebase app if already initialized
-  const app = getApps().length
-    ? getApps()[0]
-    : initializeApp(firebaseConfig);
-
-  const db = getFirestore(app);
-
-
-  // LOAD MENU FROM FIREBASE
-  async function loadLutfMenu(){
-
-    try{
-
-      const snapshot = await getDocs(
-        collection(db, "menu")
-      );
-
-      const items = [];
-
-      snapshot.forEach(doc => {
-
-        items.push({
-          id: doc.id,
-          ...doc.data()
-        });
-
-      });
-
-
-      items.sort(
-        (a,b) =>
-          (a.sortOrder || 999) -
-          (b.sortOrder || 999)
-      );
-
-
-      if(items.length === 0){
-        console.log("No menu items found.");
-        return;
-      }
-
-
-      // Separate food and drinks
-      const foodItems =
-        items.filter(
-          item => item.category !== "Drinks"
-        );
-
-      const drinkItems =
-        items.filter(
-          item => item.category === "Drinks"
-        );
-
-
-      // Render food menu
-      renderFoodMenu(foodItems);
-
-      // Render drinks
-      renderDrinks(drinkItems);
-
-
-      console.log(
-        "🔥 LUTF menu loaded from Firebase:",
-        items.length,
-        "items"
-      );
-
-
-    }catch(error){
-
-      console.error(
-        "❌ Could not load LUTF menu:",
-        error
-      );
-
-    }
-
-  }
-
-
-  // FOOD MENU
-  function renderFoodMenu(items){
-
-    const grid =
-      document.querySelector(".menu-grid");
-
-    if(!grid || items.length === 0){
-      return;
-    }
-
-
-    grid.innerHTML = items.map(item => {
-
-      const hasVariants =
-        item.hasVariants === true;
-
-
-      if(hasVariants){
-
-        return `
-
-          <article class="menu-card">
-
-            <div class="menu-photo">
-
-              <img
-                src="${escapeHTML(item.image || '')}"
-                alt="${escapeHTML(item.name)}"
-                loading="lazy"
-                onerror="imageFallback(this,'🍜','${escapeHTML(item.name)}')">
-
-            </div>
-
-
-            <div class="menu-content">
-
-              <div class="menu-top">
-
-                <div>
-
-                  <h3 class="menu-title">
-                    ${escapeHTML(item.name)}
-                  </h3>
-
-                  <p class="menu-description">
-                    ${escapeHTML(item.description || '')}
-                  </p>
-
-                </div>
-
-                <div class="menu-price">
-                  ₹${item.halfPrice}+
-                </div>
-
-              </div>
-
-
-              <div class="price-row">
-
-                <div class="price-option">
-                  <span>HALF</span>
-                  <span>₹${item.halfPrice}</span>
-                </div>
-
-                <div class="price-option">
-                  <span>FULL</span>
-                  <span>₹${item.fullPrice}</span>
-                </div>
-
-              </div>
-
-
-              <button
-                class="order-item"
-                ${item.available === false ? 'disabled' : ''}
-                onclick="addItem('${escapeJS(item.name)} — Half',${Number(item.halfPrice)})">
-
-                ${item.available === false
-                  ? 'UNAVAILABLE'
-                  : `ADD HALF · ₹${item.halfPrice}`}
-
-              </button>
-
-
-              <button
-                class="order-item"
-                ${item.available === false ? 'disabled' : ''}
-                onclick="addItem('${escapeJS(item.name)} — Full',${Number(item.fullPrice)})">
-
-                ${item.available === false
-                  ? 'UNAVAILABLE'
-                  : `ADD FULL · ₹${item.fullPrice}`}
-
-              </button>
-
-            </div>
-
-          </article>
-
-        `;
-
-      }
-
-
-      return `
-
-        <article class="menu-card">
-
-          <div class="menu-photo">
-
-            <img
-              src="${escapeHTML(item.image || '')}"
-              alt="${escapeHTML(item.name)}"
-              loading="lazy"
-              onerror="imageFallback(this,'🍜','${escapeHTML(item.name)}')">
-
-          </div>
-
-
-          <div class="menu-content">
-
-            <div class="menu-top">
-
-              <div>
-
-                <h3 class="menu-title">
-                  ${escapeHTML(item.name)}
-                </h3>
-
-                <p class="menu-description">
-                  ${escapeHTML(item.description || '')}
-                </p>
-
-              </div>
-
-              <div class="menu-price">
-                ₹${item.halfPrice}
-              </div>
-
-            </div>
-
-
-            <button
-              class="order-item"
-              ${item.available === false ? 'disabled' : ''}
-              onclick="addItem('${escapeJS(item.name)}',${Number(item.halfPrice)})">
-
-              ${item.available === false
-                ? 'UNAVAILABLE'
-                : `ADD TO CART · ₹${item.halfPrice}`}
-
-            </button>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
-
-  }
-
-
-  // DRINKS
-  function renderDrinks(items){
-
-    const grid =
-      document.querySelector(".drinks-grid");
-
-    if(!grid || items.length === 0){
-      return;
-    }
-
-
-    grid.innerHTML = items.map(item => {
-
-      return `
-
-        <article class="drink-card">
-
-          <div class="drink-photo">
-
-            <img
-              src="${escapeHTML(item.image || '')}"
-              alt="${escapeHTML(item.name)}"
-              loading="lazy"
-              onerror="imageFallback(this,'🥤','${escapeHTML(item.name)}')">
-
-          </div>
-
-
-          <div class="drink-content">
-
-            <h3>
-              ${escapeHTML(item.name)}
-            </h3>
-
-            <p>
-              ${escapeHTML(item.description || '')}
-            </p>
-
-            <div class="drink-price">
-              ₹${item.halfPrice}
-            </div>
-
-
-            <button
-              class="order-item"
-              ${item.available === false ? 'disabled' : ''}
-              onclick="addItem('${escapeJS(item.name)}',${Number(item.halfPrice)})">
-
-              ${item.available === false
-                ? 'UNAVAILABLE'
-                : `ADD TO CART · ₹${item.halfPrice}`}
-
-            </button>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
-
-  }
-
-
-  // Safe HTML escaping
-  function escapeHTML(value){
-
-    return String(value)
-      .replace(/&/g,"&amp;")
-      .replace(/</g,"&lt;")
-      .replace(/>/g,"&gt;")
-      .replace(/"/g,"&quot;")
-      .replace(/'/g,"&#039;");
-
-  }
-
-
-  // Safe JavaScript string escaping
-  function escapeJS(value){
-
-    return String(value)
-      .replace(/\\/g,"\\\\")
-      .replace(/'/g,"\\'")
-      .replace(/\n/g,"\\n")
-      .replace(/\r/g,"");
-
-  }
-
-
-  // Start loading menu
-  loadLutfMenu();
-
-</script></body>
-</html>
+  </div>  </div>  <!-- TOAST -->  <div  
+  class="toast"  
+  id="toast">  
+</div>  <script>  
+  
+const WHATSAPP_NUMBER = "919622302117";  
+const UPI_ID = "9622302117@ptsbi";  
+const BUSINESS_NAME = "LUTF — Bites & Drinks";  
+  
+let cart = [];  
+  
+  
+/* IMAGE FALLBACK */  
+  
+function imageFallback(img, emoji, title){  
+  
+  const box = img.parentElement;  
+  
+  box.innerHTML = `  
+    <div class="photo-placeholder">  
+      <div class="emoji">${emoji}</div>  
+      <strong>${title}</strong>  
+      <small>Freshly prepared at LUTF</small>  
+    </div>  
+  `;  
+  
+}  
+  
+  
+/* ADD ITEM */  
+  
+function addItem(name, price){  
+  
+  const existing =  
+    cart.find(item => item.name === name);  
+  
+  if(existing){  
+  
+    existing.qty++;  
+  
+  }else{  
+  
+    cart.push({  
+      name:name,  
+      price:price,  
+      qty:1  
+    });  
+  
+  }  
+  
+  updateCart();  
+  
+  showToast("Added to your order ✓");  
+  
+  document.getElementById("cartCount").textContent =  
+    cart.reduce(  
+      (sum,item)=>sum+item.qty,  
+      0  
+    );  
+  
+}  
+  
+  
+/* CHANGE QUANTITY */  
+  
+function changeQty(index, amount){  
+  
+  cart[index].qty += amount;  
+  
+  if(cart[index].qty <= 0){  
+  
+    cart.splice(index,1);  
+  
+  }  
+  
+  updateCart();  
+  
+  document.getElementById("cartCount").textContent =  
+    cart.reduce(  
+      (sum,item)=>sum+item.qty,  
+      0  
+    );  
+  
+}  
+  
+  
+/* SUBTOTAL */  
+  
+function getSubtotal(){  
+  
+  return cart.reduce(  
+    (sum,item)=>  
+      sum+(item.price*item.qty),  
+    0  
+  );  
+  
+}  
+  
+  
+/* DISTANCE */  
+  
+function getDistance(){  
+  
+  let d =  
+    parseFloat(  
+      document.getElementById("distance")?.value || 0  
+    );  
+  
+  if(isNaN(d)){  
+    d=0;  
+  }  
+  
+  return Math.min(  
+    Math.max(d,0),  
+    3  
+  );  
+  
+}  
+  
+  
+/* DELIVERY */  
+  
+function getDelivery(){  
+  
+  return Math.ceil(  
+    getDistance()*10  
+  );  
+  
+}  
+  
+  
+/* UPDATE CART */  
+  
+function updateCart(){  
+  
+  const itemsBox =  
+    document.getElementById("cartItems");  
+  
+  const bottom =  
+    document.getElementById("cartBottom");  
+  
+  
+  if(cart.length === 0){  
+  
+    itemsBox.innerHTML = `  
+  
+      <div class="empty">  
+  
+        <div style="font-size:50px;">  
+          🛒  
+        </div>  
+  
+        <h3 style="margin-top:10px;">  
+          Your cart is waiting.  
+        </h3>  
+  
+        <p style="margin-top:7px;">  
+          Add something delicious.  
+        </p>  
+  
+      </div>  
+  
+    `;  
+  
+    bottom.style.display="none";  
+  
+  }else{  
+  
+    itemsBox.innerHTML =  
+      cart.map(  
+        (item,index)=>`  
+  
+          <div class="cart-row">  
+  
+            <div>  
+  
+              <strong>  
+                ${escapeHTML(item.name)}  
+              </strong>  
+  
+              <small>  
+                ₹${item.price} × ${item.qty}  
+              </small>  
+  
+            </div>  
+  
+            <div class="cart-controls">  
+  
+              <button  
+                class="qty"  
+                onclick="changeQty(${index},-1)">  
+                −  
+              </button>  
+  
+              <strong>  
+                ${item.qty}  
+              </strong>  
+  
+              <button  
+                class="qty"  
+                onclick="changeQty(${index},1)">  
+                +  
+              </button>  
+  
+            </div>  
+  
+          </div>  
+  
+        `  
+      ).join("");  
+  
+    bottom.style.display="block";  
+  
+  }  
+  
+  
+  const subtotal =  
+    getSubtotal();  
+  
+  const delivery =  
+    getDelivery();  
+  
+  const total =  
+    subtotal + delivery;  
+  
+  
+  document.getElementById("subtotal").textContent =  
+    subtotal;  
+  
+  document.getElementById("delivery").textContent =  
+    delivery;  
+  
+  document.getElementById("grandTotal").textContent =  
+    total;  
+  
+  document.getElementById("floatingTotal").textContent =  
+    total;  
+  
+  document.getElementById("paymentAmount").textContent =  
+    total;  
+  
+}  
+  
+  
+/* OPEN CART */  
+  
+function openCart(){  
+  
+  document  
+    .getElementById("cartModal")  
+    .classList.add("active");  
+  
+  updateCart();  
+  
+  document.body.style.overflow="hidden";  
+  
+}  
+  
+  
+/* CLOSE CART */  
+  
+function closeCart(){  
+  
+  document  
+    .getElementById("cartModal")  
+    .classList.remove("active");  
+  
+  document.body.style.overflow="";  
+  
+}  
+  
+  
+/* WHATSAPP ORDER */  
+  
+function sendWhatsApp(){  
+  
+  if(cart.length===0){  
+  
+    showToast(  
+      "Add something to your cart first."  
+    );  
+  
+    return;  
+  
+  }  
+  
+  
+  const name =  
+    document  
+      .getElementById("customerName")  
+      .value  
+      .trim();  
+  
+  
+  const phone =  
+    document  
+      .getElementById("customerPhone")  
+      .value  
+      .trim();  
+  
+  
+  const address =  
+    document  
+      .getElementById("customerAddress")  
+      .value  
+      .trim();  
+  
+  
+  const distance =  
+    getDistance();  
+  
+  
+  const note =  
+    document  
+      .getElementById("orderNote")  
+      .value  
+      .trim();  
+  
+  
+  if(!name || !phone || !address){  
+  
+    showToast(  
+      "Please fill in your name, phone & address."  
+    );  
+  
+    return;  
+  
+  }  
+  
+  
+  const subtotal =  
+    getSubtotal();  
+  
+  const delivery =  
+    getDelivery();  
+  
+  const total =  
+    subtotal + delivery;  
+  
+  
+  let message =  
+`🍜 *NEW ORDER — ${BUSINESS_NAME}*  
+  
+━━━━━━━━━━━━━━━━━━  
+  
+👤 *Customer:* ${name}  
+📞 *Phone:* ${phone}  
+  
+📍 *Delivery Address:*  
+${address}  
+  
+🚴 *Distance:* ${distance} KM  
+  
+━━━━━━━━━━━━━━━━━━  
+  
+🛒 *ORDER ITEMS*  
+  
+`;  
+  
+  
+  cart.forEach(item => {  
+  
+    message +=  
+`• ${item.name}  
+  ${item.qty} × ₹${item.price} = ₹${item.qty*item.price}  
+  
+`;  
+  
+  });  
+  
+  
+  message +=  
+`━━━━━━━━━━━━━━━━━━  
+  
+Food Subtotal: ₹${subtotal}  
+Delivery: ₹${delivery}  
+  
+💰 *TOTAL: ₹${total}*  
+  
+`;  
+  
+  
+  if(note){  
+  
+    message +=  
+`📝 *Order Note:*  
+${note}  
+  
+`;  
+  
+  }  
+  
+  
+  message +=  
+`━━━━━━━━━━━━━━━━━━  
+  
+Please confirm my order.  
+  
+Thank you ❤️`;  
+  
+  
+  const url =  
+    "https://wa.me/" +  
+    WHATSAPP_NUMBER +  
+    "?text=" +  
+    encodeURIComponent(message);  
+  
+  
+  window.open(  
+    url,  
+    "_blank"  
+  );  
+  
+}  
+  
+  
+/* PAYMENT */  
+  
+function openPayment(){  
+  
+  if(cart.length===0){  
+  
+    showToast(  
+      "Add something to your cart first."  
+    );  
+  
+    return;  
+  
+  }  
+  
+  
+  document  
+    .getElementById("paymentAmount")  
+    .textContent =  
+      getSubtotal()+getDelivery();  
+  
+  
+  document  
+    .getElementById("paymentModal")  
+    .classList.add("active");  
+  
+}  
+  
+  
+function closePayment(){  
+  
+  document  
+    .getElementById("paymentModal")  
+    .classList.remove("active");  
+  
+}  
+  
+  
+function payUPI(){  
+  
+  const amount =  
+    getSubtotal()+getDelivery();  
+  
+  
+  const upiURL =  
+    "upi://pay?" +  
+    "pa=" +  
+    encodeURIComponent(UPI_ID) +  
+    "&pn=" +  
+    encodeURIComponent(BUSINESS_NAME) +  
+    "&am=" +  
+    encodeURIComponent(amount) +  
+    "&cu=INR" +  
+    "&tn=" +  
+    encodeURIComponent("LUTF Food Order");  
+  
+  
+  window.location.href =  
+    upiURL;  
+  
+}  
+  
+  
+/* TOAST */  
+  
+function showToast(message){  
+  
+  const toast =  
+    document.getElementById("toast");  
+  
+  toast.textContent =  
+    message;  
+  
+  toast.classList.add("show");  
+  
+  setTimeout(()=>{  
+    toast.classList.remove("show");  
+  },2200);  
+  
+}  
+  
+  
+/* HTML ESCAPE */  
+  
+function escapeHTML(value){  
+  
+  return String(value)  
+    .replace(/&/g,"&amp;")  
+    .replace(/</g,"&lt;")  
+    .replace(/>/g,"&gt;")  
+    .replace(/"/g,"&quot;")  
+    .replace(/'/g,"&#039;");  
+  
+}  
+  
+  
+/* CLOSE CART OUTSIDE */  
+  
+document  
+  .getElementById("cartModal")  
+  .addEventListener(  
+    "click",  
+    function(e){  
+  
+      if(e.target===this){  
+        closeCart();  
+      }  
+  
+    }  
+  );  
+  
+  
+/* CLOSE PAYMENT OUTSIDE */  
+  
+document  
+  .getElementById("paymentModal")  
+  .addEventListener(  
+    "click",  
+    function(e){  
+  
+      if(e.target===this){  
+        closePayment();  
+      }  
+  
+    }  
+  );  
+  
+  
+/* INITIALIZE */  
+  
+updateCart();  
+  
+</script>  </body>  
+</html>  
