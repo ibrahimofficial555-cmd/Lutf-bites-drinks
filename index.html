@@ -3043,5 +3043,81 @@ updateCart();
 
 </script>
 
-</body>
+<!-- FIREBASE CONNECTION -->
+<script type="module">
+
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+  import {
+    getFirestore,
+    collection,
+    getDocs,
+    query,
+    limit
+  } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCr9xErno6aK9xW-TeTU_se3jxGihI-zgs",
+    authDomain: "lutf--bites-and-drinks.firebaseapp.com",
+    projectId: "lutf--bites-and-drinks",
+    storageBucket: "lutf--bites-and-drinks.firebasestorage.app",
+    messagingSenderId: "358783917321",
+    appId: "1:358783917321:web:4b506c68b4545667e347d8",
+    measurementId: "G-S5MJFX7CNB"
+  };
+
+
+  // Start Firebase
+  const app = initializeApp(firebaseConfig);
+
+  // Connect Firestore
+  const db = getFirestore(app);
+
+
+  // TEST FIREBASE CONNECTION
+  async function testFirebase(){
+
+    try{
+
+      const q = query(
+        collection(db, "menu"),
+        limit(1)
+      );
+
+      const snapshot = await getDocs(q);
+
+      console.log(
+        "🔥 LUTF Firebase connected successfully."
+      );
+
+      console.log(
+        "Menu documents found:",
+        snapshot.size
+      );
+
+      showToast(
+        "🔥 LUTF is connected to Firebase ✓"
+      );
+
+    }catch(error){
+
+      console.error(
+        "Firebase connection error:",
+        error
+      );
+
+      showToast(
+        "Firebase connection failed"
+      );
+
+    }
+
+  }
+
+
+  testFirebase();
+
+</script></body>
 </html>
